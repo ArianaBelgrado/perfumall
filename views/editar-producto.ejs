@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../css/style.css" rel="stylesheet " type="text/css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/258b4efd0d.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Perfumall</title>
+  </head>
+
+  <body>
+    <%- include('./partials/header') %>
+    <main>
+      <div class="hola">
+        <form
+          action="/producto/editar/<%= product.id %>?_method=PUT"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Marca</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputPassword4"
+              name="marca"
+            />
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">Modelo</label>
+            <input
+              type="text"
+              name="modelo"
+              class="form-control"
+              id="inputAddress"
+            />
+          </div>
+          <div class="col-12">
+            <label for="inputAddress2" class="form-label">Descripcion</label>
+            <input
+              type="text"
+              class="form-control"
+              name="descripcion"
+              id="inputAddress2"
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="inputCity" class="form-label">Descuento</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputCity"
+              name="descuento"
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="inputState" class="form-label">Estado</label>
+            <select id="inputState" class="form-select">
+              <option selected>En oferta</option>
+              <option>Sin descuento</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">Precio</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputZip"
+              name="precio"
+            />
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Aceptar</button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <%- include('./partials/footer') %>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

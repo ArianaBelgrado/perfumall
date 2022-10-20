@@ -1,0 +1,60 @@
+[
+ {
+  "id": "1",
+  "nombre": "Ariana",
+  "apellido": "Belgrado",
+  "usuario": "Aribelgrado",
+  "ciudad": "Avellaneda",
+  "provincia": "Buenos Aires",
+  "contraseña": "arañita91",
+  "mail": "arianitaari@gmail.com"
+ },
+ {
+  "id": 2,
+  "nombre": "Nicolas",
+  "apellido": "Doldan",
+  "usuario": "NicoDoldan",
+  "ciudad": "Avellaneda",
+  "rovincia": "Buenos Aires",
+  "contraseña": "niconiconico",
+  "mail": "niquinikole@gmail.com"
+ },
+ {
+  "id": 3,
+  "nombre": "Juan",
+  "apellido": "Heredia",
+  "usuario": "JuanHeredia23",
+  "ciudad": "Avellaneda",
+  "provincia": "Buenos Aires",
+  "contraseña": "juncito89",
+  "mail": "juanchochica@gmail.com"
+ },
+ {
+  "id": 4,
+  "nombre": "Manuel",
+  "apellido": "Urruti",
+  "usuario": "ManuelUrruti",
+  "ciudad": "Olavarria",
+  "provincia": "Buenos Aires",
+  "contraseña": "soytumanuelito",
+  "mail": "manuelita@gmail.com"
+ },
+ {
+  "id": 5,
+  "nombre": "Ariana",
+  "apellido": "Belgrado",
+  "ciudad": "beuenos aires",
+  "provincia": "...",
+  "contraseña": "ebrtfbhrgns",
+  "mail": "aribelgrado@gmail.com"
+ },
+ {
+  "id": 6,
+  "nombre": "Ariana",
+  "apellido": "Belgrado",
+  "ciudad": "beuenos aires",
+  "provincia": "...",
+  "contraseña": "vkffcgvkgcjc",
+  "mail": "aribelgrado@gmail.com"
+ }
+]

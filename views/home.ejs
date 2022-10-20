@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet " type="text/css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/258b4efd0d.js" crossorigin="anonymous"></script>
+
+    <title>Perfumall</title>
+</head>
+
+<body>
+    <%- include('./partials/header') %>
+    <main class="main">
+        <div class="carousel">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/Img-carrousel1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/img-carrousel2.webp" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/img-coarrousel4.webp" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+        </div> <br>
+        <div class="contain-tittle">
+            <div>
+                <h3 class="titulo-chanel">
+                    Nueva línea Chanel
+                </h3>
+            </div>
+        </div>
+        <section class="seccion1">
+
+            <div class="tarjeta1">
+               
+                    <div class="tarjetas-chanel">
+
+                            <div class="tarjeta-detalle">
+                                <a href="/producto/carrito/detalle/<%= productos[0].id %>">
+                                    <div class="tarjeta-img-chanelFM">
+                                        <a href="">
+                                            <img class="imagen" src="img/chanelFM/<%= productos[0].img %>" alt="">
+                                        </a>
+                                    </div><br><br>
+                                    <div class="detalle-descripcion">
+                                        <div class="marca-descripcion">
+                                            <h5>
+                                                <%= productos[0].marca %>
+                                            </h5>
+                                        </div>
+                                        <div class="detalle-producto">
+                                            <h6>
+                                                <%= productos[0].modelo %>
+                                            </h6>
+                                        </div>
+                                    </div><br>
+                                    <div class="precios">
+                                        <p class="p1">$19.990</p>
+                                        <p>$<%= productos[0].precio %>
+                                        </p>
+                                    </div>
+                                    <div class="opciones">
+                                        <form action="/registro" method="post">
+                                            <select>
+                                                <option>100ml</option>
+                                                <option>70ml</option>
+                                                <option>50ml</option>
+                                            </select>
+                                        </form>
+                                    </div>
+                                    <div class="detalle">
+                                        <a href="/producto/detalle">
+                                            <button class="detail">Detalles</button>
+                                        </a>
+                                    </div>
+                            </div>
+                            </a>
+                        </div>
+                        
+
+
+                        <div class="container-central">
+                            <div class="imgPrincipal">
+                                <div class="img-container">
+                                    <img class="imgCentral" src="img/chanelFM/imgPrincipal.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        
+                            <div class="tarjetas-chanel">
+                                <div class="tarjeta-detalle2">
+                                    <div class="tarjeta-img-chanelFM">
+                                        <a href="">
+                                            <img class="imagen" src="img/chanelFM/<%= productos[1].img %>">
+                                        </a>
+                                    </div><br><br>
+                                    <div class="descripciones">
+                                        <div class="detalle-descripcion">
+                                            <div class="marca-descripcion">
+                                                <h5> <%= productos[1].marca %></h5>
+                                            </div>
+                                            <div class="detalle-producto">
+                                                <h6> <%= productos[1].modelo %></h6>
+                                            </div>
+                                        </div><br><br>
+                                        <div class="precios">
+                                            <p>$<%= productos[1].precio %></p>
+                                        </div>
+                                        <div class="opciones">
+                                            <form action="/registro" method="post">
+                                                <select>
+                                                    <option> 100ml</option>
+                                                    <option>70ml</option>
+                                                    <option>50ml</option>
+                                                </select>
+                                            </form>
+                                        </div>
+                                        <div class="detalle">
+                                            <div>
+                                                <button class="detail">
+                                                    <p>Detalles</p>
+                                                </button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                       
+            </div>
+
+        </section><br>
+        <div class="CarolinaHerrera">
+            <div>
+                <h2>NEW IN CAROLINA HERRERA</h2>
+            </div>
+        </div>
+
+        <section class="seccion2">
+            <div class="Tarjetas2">
+                <div class="CaroHerrera">
+                    <div class="imgPrincipal2">
+                        <div class="img-container2">
+                            <img class="img-Publicidad" src="img/Marca-CarolinaH/GoodGirl.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="carrousel">
+                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators"
+                                    data-bs-slide-to="0" class="active" aria-current="true"
+                                    aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators"
+                                    data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators"
+                                    data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="carrousel-productos">
+
+                                        <div class="tarjeta-CaroH">
+                                            <div class="img-contain">
+                                                <img class="perfume-zapato"
+                                                    src="img/Marca-CarolinaH/<%= productos[2].img%>" alt="">
+                                            </div>
+                                            <div class="titu-caro">
+                                                <h5><%= productos[2].marca%></h5>
+                                            </div>
+                                            <div class="marca-caro">
+                                                <h6> <%= productos[2].modelo%></h6>
+                                            </div>
+                                            <div class="precios-caro">
+                                                <p class="p1">$19.299,00</p>
+                                                <p>$<%= productos[2].precio%></p>
+                                            </div>
+                                            <div class="medidas">
+                                                <form action="/registro" method="post">
+                                                    <select>
+                                                        <option> 100ml</option>
+                                                        <option>70ml</option>
+                                                        <option>50ml</option>
+                                                    </select>
+                                                </form>
+                                            </div>
+                                            <div class="contain-detalle2">
+                                                <div class="detalle2">
+                                                    <button class="detail1">
+                                                        Detalles
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="tarjeta-CaroH2">
+                                            <div class="img-contain">
+                                                <img class="perfume-zapato"
+                                                    src="img/Marca-CarolinaH/<%= productos[3].img%>" alt="">
+                                            </div>
+                                            <div class="titu-caro">
+                                                <h5><%= productos[3].marca%></h5>
+                                            </div>
+                                            <div class="especificacion">
+                                                <h6> <%= productos[3].modelo%> </h6>
+                                            </div>
+                                            <div class="marca-caro">
+                                                <p class="p1">$19.370</p>
+                                                <p>$<%= productos[3].precio%></p>
+                                            </div>
+                                            <div class="medidas">
+                                                <form action="/registro" method="post">
+                                                    <select>
+                                                        <option> 100ml</option>
+                                                        <option>70ml</option>
+                                                        <option>50ml</option>
+                                                    </select>
+                                                </form>
+                                            </div>
+                                            <div class="contain-detalle2">
+                                                <div class="detalle2">
+                                                    <button class="detail1">
+                                                        Detalles
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="carrousel-productos">
+
+                                        <div class="tarjeta-CaroH">
+                                            <div class="img-contain">
+                                                <img class="perfume-zapato"
+                                                    src="img/Marca-CarolinaH/<%= productos[4].img%>" alt="">
+                                            </div>
+                                            <div class="titu-caro">
+                                                <h5><%= productos[4].marca%></h5>
+                                            </div>
+                                            <div class="marca-caro">
+                                                <h6> <%= productos[4].modelo%></h6>
+                                            </div>
+                                            <div class="precios-caro">
+                                                <p class="p1">$22.799</p>
+                                                <p>$<%= productos[4].precio%></p>
+                                            </div>
+                                            <div class="medidas">
+                                                <form action="/registro" method="post">
+                                                    <select>
+                                                        <option> 100ml</option>
+                                                        <option>70ml</option>
+                                                        <option>50ml</option>
+                                                    </select>
+                                                </form>
+                                            </div>
+                                            <div class="contain-detalle2">
+                                                <div class="detalle2">
+                                                    <button class="detail1">
+                                                        Detalles
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="tarjeta-CaroH2">
+                                            <div class="img-contain">
+                                                <img class="perfume-zapato"
+                                                    src="img/Marca-CarolinaH/<%= productos[5].img%>" alt="">
+                                            </div>
+                                            <div class="titu-caro">
+                                                <h5><%= productos[5].marca%></h5>
+                                            </div>
+                                            <div class="marca-caro">
+                                                <h6> <%= productos[5].modelo%></h6>
+                                            </div><br>
+                                            <div class="precios-caro">
+
+                                                <p>$<%= productos[5].precio%></p>
+                                            </div>
+                                            <div class="medidas">
+                                                <form action="/registro" method="post">
+                                                    <select>
+                                                        <option> 100ml</option>
+                                                        <option>70ml</option>
+                                                        <option>50ml</option>
+                                                    </select>
+                                                </form>
+                                            </div>
+                                            <div class="contain-detalle2">
+                                                <div class="detalle2">
+                                                    <button class="detail1">
+                                                        Detalles
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="carrousel-productos">
+
+                                        <div class="tarjeta-CaroH">
+                                            <div class="img-contain">
+                                                <img class="perfume-zapato"
+                                                    src="img/Marca-CarolinaH/<%= productos[6].img%>" alt="">
+                                            </div>
+
+                                            <div class="titu-caro">
+                                                <h5><%= productos[6].marca%></h5>
+                                            </div>
+                                            <div class="marca-caro">
+                                                <h6> <%= productos[6].modelo%></h6>
+                                            </div>
+
+                                            <div class="precios-caro">
+                                                <p class="p1">$28.150</p>
+                                                <p>$<%= productos[6].precio%></p>
+                                            </div>
+                                            <div class="medidas">
+                                                <form action="/registro" method="post">
+                                                    <select>
+                                                        <option> 100ml</option>
+                                                        <option>70ml</option>
+                                                        <option>50ml</option>
+                                                    </select>
+                                                </form>
+                                            </div>
+                                            <div class="contain-detalle2">
+                                                <div class="detalle2">
+                                                    <button class="detail1">
+                                                        <p>Detalles</p>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="tarjeta-CaroH2">
+                                            <div class="img-contain">
+                                                <img class="perfume-zapato"
+                                                    src="img/Marca-CarolinaH/<%= productos[7].img%>">
+                                            </div>
+                                            <div class="titu-caro">
+                                                <h5><%= productos[7].marca%></h5>
+                                            </div>
+                                            <div class="marca-caro">
+                                                <h6> <%= productos[7].modelo%></h6>
+                                            </div>
+                                            <div class="precios-caro">
+
+                                                <p>$<%= productos[7].precio%></p>
+                                            </div><br>
+                                            <div class="medidas">
+                                                <form action="/registro" method="post">
+                                                    <select>
+                                                        <option> 100ml</option>
+                                                        <option>70ml</option>
+                                                        <option>50ml</option>
+                                                    </select>
+                                                </form>
+                                            </div>
+                                            <div class="contain-detalle2">
+                                                <div class="detalle2">
+                                                    <button class="detail1">
+                                                        Detalles
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+            <div class="container">
+                <% productos.forEach(prod => { %>
+                  <article>
+                <div class="contenedor-producto">
+                    <div class="producto">
+                        <img class="img-11" src="/img/<%= prod.img %> ">
+                        <div class="productoinfo">
+                            <p class="name"><%= prod.modelo %> </p>
+                            <p class="price">$<%= prod.precio %> </p>
+                            <p class="discount"><%= prod.descuento %>  OFF</p>
+                            <h4 class="description"><%= prod.descripcion %> </h4>
+                        </div>
+                       
+                        <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                        <a href="/producto/editar/<%= prod.id %> " class="btn btn-primary">Editar</a>
+                        <a href="/producto/detalle/<%= prod.id %> " class="btn btn-primary">Detalle</a>
+                    </div>
+                </div>
+            </article>
+
+                <% }) %>
+           
+           
+
+        </div>
+        </main>
+    </main>
+
+        <%- include('./partials/footer') %>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+                crossorigin="anonymous"></script>
+</body>

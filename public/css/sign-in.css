@@ -1,0 +1,180 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #89CFF0;
+}
+
+.titulos {
+    color: #0cb7f2;
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mb-3 {
+    width: 50%;
+}
+
+.mb-3-password {
+    width: 50%;
+}
+
+.btn-primary {
+    margin: 25px;
+}
+
+footer {
+    background-color: #013;
+    color: #2588a9;
+    width: 100%;
+    position: absolute;
+    top: 600px;
+
+}
+
+
+
+.container-footer {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding: 80px;
+    margin-left: 20px;
+}
+
+.text-bg-primary{
+    width: 150%;
+}
+
+.text-bg-secondary {
+    width: 150%;
+}
+
+.text-bg-success {
+    width: 150%;
+}
+
+@media only screen and (min-width:0px) and (max-width:360px) {
+
+    .mb-3 {
+        width: 90%;
+    }
+
+    .mb-3-password {
+        width: 90%;
+    }
+
+    .container-footer {
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        line-height: 2.5;
+        margin-left: 17px;
+        padding: 0px;
+    }
+
+    .redes-sociales {
+        padding-top: 20px;
+    }
+
+    .redes {
+        padding-right: 50px;
+    }
+
+    .text-bg-primary{
+        width: 150%;
+    }
+    
+    .text-bg-secondary {
+        width: 150%;
+    }
+    
+    .text-bg-success {
+        width: 150%;
+    }
+}
+
+@media only screen and (min-width: 361px) and (max-width: 475px) {
+
+    .mb-3 {
+        width: 90%;
+    }
+
+    .mb-3-password {
+        width: 90%;
+    }
+
+     .container-footer {
+        display:flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        line-height: 2.5;
+        padding-top: 40px;
+        padding: 0px;
+        margin-left: 15%;
+    } 
+
+    .redes-sociales {
+        padding-right: 10px;
+    }
+
+    .redes {
+        padding-right: 30px;
+    }
+
+    .text-bg-primary{
+        width: 150%;
+    }
+
+    .text-bg-secondary {
+        width: 150%;
+    }
+    
+    .text-bg-success {
+        width: 150%;
+    }
+}
+
+@media only screen and (min-width:475px) and (max-width:768px) {
+    
+    .mb-3 {
+        width: 90%;
+    }
+
+    .mb-3-password {
+        width: 90%;
+    }
+
+    .container-footer {
+        display:flex;
+        justify-content: space-evenly;
+        line-height: 2.5;
+        padding-top: 40px;
+
+    } 
+
+    .redes {
+        padding-right: 30px;
+    }
+
+    
+    .text-bg-primary{
+        width: 100%;
+    }
+
+    .text-bg-secondary {
+        width: 100%;
+    }
+    
+    .text-bg-success {
+        width: 100%;
+    }
+}

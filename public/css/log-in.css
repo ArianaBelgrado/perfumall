@@ -1,0 +1,121 @@
+body {
+    background-color: #89CFF0;
+    font-family: 'Montserrat', sans-serif;
+ } 
+
+header {
+    background-color: #272727;
+    width: 1550px;
+    height: 60px;
+    margin-left: -10px;
+    margin-top: -21px;
+    text-align: center;
+}
+
+header h1 {
+    color: #D5CAD6;
+ 
+}
+
+.container-login {
+    margin-left: 1%;
+}
+
+.g-3 {
+    display: flex;
+    flex-direction: column;
+} 
+
+.form-control {
+    width: 50%;
+}
+
+footer {
+    background-color: #013;
+    color: #0cb7f2;
+    width: 2000px;
+    position: absolute;
+    top: 800px;
+    padding: 60px;
+}
+
+.redes-sociales {
+    font-size: 20px;
+}
+
+.container-footer {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    
+}
+
+.text-bg-primary{
+    width: 150%;
+}
+
+.text-bg-secondary {
+    width: 150%;
+}
+
+.text-bg-success {
+    width: 150%;
+}
+
+
+@media only screen and (min-width:0px) and (max-width:360px) {
+    .container-login {
+        width: 300px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-left: 10px;
+    }
+
+    .container-footer {
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        line-height: 2.5;
+        margin-left: -40px;
+    }
+}
+
+
+@media only screen and (min-width: 361px) and (max-width: 475px) {
+
+    .container-footer {
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        line-height: 2.5;
+        margin-left: -1%;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .g-3 {
+        width: 90%;
+        margin-left: 100%;
+    }
+
+    .checkbox {
+        margin-left: 25px;
+    }
+
+    .texto {
+        margin-left: 25px;
+    }
+    .botones {
+        margin-left: 25px;
+    }
+}
+
+
+@media only screen and (min-width: 476px) and (max-width:768px) {
+
+ 
+    
+}

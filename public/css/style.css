@@ -294,6 +294,10 @@ footer {
   text-align: center;
   padding: 80px;
 }
+.lpmura .justify-content-lg-between {
+  display: flex;
+  justify-content: center !important;
+}
 
 .boton {
   border-radius: 10px;
@@ -514,8 +518,8 @@ footer {
   justify-content: space-between;
   margin-bottom: 30px;
 }
-.container img {    
-    width: 250px;
+.container img {
+  width: 250px;
 }
 
 .producto {

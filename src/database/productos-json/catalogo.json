@@ -1,204 +1,149 @@
 [
-  {
-    "id": 1,
-    "img": "cocoM.jpg",
-    "precio": 2,
-    "descuento": 40,
-    "marca": "Coco Chanel",
-    "modelo": "Kenzo L`elixir"
-  },
-  {
-    "id": 2,
-    "img": "one-million.jpg",
-    "precio": 6770,
-    "descuento": 40,
-    "marca": "One Million"
-  },
-  {
-    "id": 3,
-    "img": "lady-million.jpg",
-    "precio": 6770,
-    "descuento": 40,
-    "marca": "Lady Million"
-  },
-  {
-    "id": 4,
-    "img": "lady-million.jpg",
-    "precio": 6770,
-    "descuento": 40,
-    "marca": "Lady Million"
-  },
-
-  {
-    "id": 5,
-    "img": "kenzo-elixir.jpg",
-    "precio": 6770,
-    "descuento": 40,
-    "marca": "Kenzo L`elixir"
-  },
-  {
-    "id": 7,
-    "img": "perfume-zapato4.jpg",
-    "marca": "asdasdasdasdasd",
-    "modelo": "asdasdasd",
-    "descuento": "asdasdasd",
-    "precio": "123123",
-    "descripcion": "asdasdasda"
-  },
-  {
-    "id": 8,
-    "img": "perfume-zapato5.jpg",
-    "marca": "Carolina Herrera",
-    "modelo": "Set Good Girl EDP",
-    "descuento": 12,
-    "precio": 17369,
-    "medida": [100, 70, 50],
-    "descripcion": "",
-    "estado": ""
-  },
-  {
-    "id": 9,
-    "img": "cocoM.jpg",
-    "precio": 6770,
-    "descuento": 40,
-    "marca": "Coco Chanel"
-  },
-  {
-    "id": 10,
-    "img": "chanel-n5.jpg"
-  },
-  {
-    "id": 11,
-    "img": "bleu.jpg"
-  },
-  {
-    "id": 12,
-    "img": "chanel.jpg"
-  },
-  {
-    "id": 13,
-    "img": "kenzo-dolcevita.png"
-  },
-  {
-    "id": 14,
-    "img": "kenzo-elixir.jpg",
-    "precio": 6770,
-    "descuento": 40,
-    "marca": "Kenzo L`elixir"
-  },
-  {
-    "id": 15,
-    "img": "kenzo-flower.jpg"
-  },
-  {
-    "id": 16,
-    "img": "kenzo.jpg",
-    "precio": 6770,
-    "descuento": 40,
-    "marca": "Kenzo"
-  },
-  {
-    "id": 17,
-    "img": "dior-homme.png",
-    "precio": 6770,
-    "descuento": 40,
-    "marca": "Dior Homme"
-  },
-  {
-    "id": 18,
-    "img": "dior-sauvage.jpg"
-  },
-  {
-    "id": 19,
-    "img": "jadore.jpg"
-  },
-  {
-    "id": 20,
-    "img": "miss-dior.jpg",
-    "precio": 6770,
-    "descuento": 40,
-    "marca": "Miss Dior"
-  },
-  {
-    "id": 21,
-    "img": "phantom.jpg",
-    "precio": 6770,
-    "descuento": 40,
-    "marca": "Phantom"
-  },
-  {
-    "id": 22,
-    "img": "one-million.jpg",
-    "precio": 6770,
-    "descuento": 40,
-    "marca": "One Million"
-  },
-  {
-    "id": 23,
-    "img": "olympea.jpg",
-    "precio": 6770,
-    "descuento": 40,
-    "marca": "Olympea"
-  },
-  {
-    "id": 24,
-    "img": "lady-million.jpg",
-    "precio": 6770,
-    "descuento": 40,
-    "marca": "Lady Million"
-  },
-  {
-    "id": 25,
-    "modelo": "df",
-    "descuento": "12",
-    "precio": "2314",
-    "descripcion": "Crema corporal",
-    "estado": "Sin descuento"
-  },
-  {
-    "id": 26,
-    "marca": "asdasd",
-    "modelo": "asdasdasd",
-    "descuento": "123123",
-    "precio": "123",
-    "descripcion": "asdasdasd",
-    "estado": "En oferta"
-  },
-  {
-    "id": 27,
-    "marca": "juanzor",
-    "modelo": "juanzor",
-    "descuento": "123123",
-    "precio": "123",
-    "descripcion": "asdasdasd",
-    "estado": "En oferta"
-  },
-  {
-    "id": 28,
-    "marca": "asdasdasdasdasdasdasdasdasdasdasdasdasd",
-    "modelo": "asdasdasd",
-    "descuento": "",
-    "precio": "",
-    "descripcion": "asdasd",
-    "estado": "En oferta"
-  },
-  {
-    "id": 29,
-    "marca": "superimagen",
-    "modelo": "",
-    "descuento": "",
-    "precio": "",
-    "descripcion": "",
-    "estado": "En oferta"
-  },
-  {
-    "id": 30,
-    "img": "1666234592601550x230_CA9.jpg",
-    "marca": "superduperimagen",
-    "modelo": "sadasdasd",
-    "descuento": "",
-    "precio": "",
-    "descripcion": "asd23",
-    "estado": "En oferta"
-  }
+ {
+  "id": 1,
+  "img": "cocoM.jpg",
+  "precio": 2,
+  "descuento": 40,
+  "marca": "Coco Chanel",
+  "modelo": "Kenzo L`elixir"
+ },
+ {
+  "id": 2,
+  "img": "one-million.jpg",
+  "precio": 6770,
+  "descuento": 40,
+  "marca": "One Million"
+ },
+ {
+  "id": 3,
+  "img": "lady-million.jpg",
+  "precio": 6770,
+  "descuento": 40,
+  "marca": "Lady Million"
+ },
+ {
+  "id": 4,
+  "img": "lady-million.jpg",
+  "precio": 6770,
+  "descuento": 40,
+  "marca": "Lady Million"
+ },
+ {
+  "id": 5,
+  "img": "kenzo-elixir.jpg",
+  "precio": 6770,
+  "descuento": 40,
+  "marca": "Kenzo L`elixir"
+ },
+ {
+  "id": 7,
+  "img": "perfume-zapato4.jpg",
+  "marca": "asdasdasdasdasd",
+  "modelo": "asdasdasd",
+  "descuento": "asdasdasd",
+  "precio": "123123",
+  "descripcion": "asdasdasda"
+ },
+ {
+  "id": 8,
+  "img": "perfume-zapato5.jpg",
+  "marca": "Carolina Herrera",
+  "modelo": "Set Good Girl EDP",
+  "descuento": 12,
+  "precio": 17369,
+  "medida": [
+   100,
+   70,
+   50
+  ],
+  "descripcion": "",
+  "estado": ""
+ },
+ {
+  "id": 9,
+  "img": "cocoM.jpg",
+  "precio": 6770,
+  "descuento": 40,
+  "marca": "Coco Chanel"
+ },
+ {
+  "id": 10,
+  "img": "chanel-n5.jpg"
+ },
+ {
+  "id": 11,
+  "img": "bleu.jpg"
+ },
+ {
+  "id": 12,
+  "img": "chanel.jpg"
+ },
+ {
+  "id": 14,
+  "img": "kenzo-elixir.jpg",
+  "precio": 6770,
+  "descuento": 40,
+  "marca": "Kenzo L`elixir"
+ },
+ {
+  "id": 15,
+  "img": "kenzo-flower.jpg"
+ },
+ {
+  "id": 16,
+  "img": "kenzo.jpg",
+  "precio": 6770,
+  "descuento": 40,
+  "marca": "Kenzo"
+ },
+ {
+  "id": 17,
+  "img": "dior-homme.png",
+  "precio": 6770,
+  "descuento": 40,
+  "marca": "Dior Homme"
+ },
+ {
+  "id": 18,
+  "img": "dior-sauvage.jpg"
+ },
+ {
+  "id": 19,
+  "img": "jadore.jpg"
+ },
+ {
+  "id": 20,
+  "img": "miss-dior.jpg",
+  "precio": 6770,
+  "descuento": 40,
+  "marca": "Miss Dior"
+ },
+ {
+  "id": 21,
+  "img": "phantom.jpg",
+  "precio": 6770,
+  "descuento": 40,
+  "marca": "Phantom"
+ },
+ {
+  "id": 22,
+  "img": "one-million.jpg",
+  "precio": 6770,
+  "descuento": 40,
+  "marca": "One Million"
+ },
+ {
+  "id": 23,
+  "img": "olympea.jpg",
+  "precio": 6770,
+  "descuento": 40,
+  "marca": "Olympea"
+ },
+ {
+  "id": 24,
+  "img": "lady-million.jpg",
+  "precio": 6770,
+  "descuento": 40,
+  "marca": "Lady Million"
+ }
 ]

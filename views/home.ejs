@@ -64,7 +64,7 @@
                                 <a href="/producto/carrito/detalle/<%= productos[0].id %>">
                                     <div class="tarjeta-img-chanelFM">
                                         <a href="">
-                                            <img class="imagen" src="img/chanelFM/<%= productos[0].img %>" alt="">
+                                            <img class="imagen" src="img/<%= productos[0].img %>" alt="">
                                         </a>
                                     </div><br><br>
                                     <div class="detalle-descripcion">
@@ -107,7 +107,7 @@
                         <div class="container-central">
                             <div class="imgPrincipal">
                                 <div class="img-container">
-                                    <img class="imgCentral" src="img/chanelFM/imgPrincipal.jpg" alt="">
+                                    <img class="imgCentral" src="img/imgPrincipal.jpg" alt="">
                                 </div>
                             </div>
                         </div>
@@ -116,7 +116,7 @@
                                 <div class="tarjeta-detalle2">
                                     <div class="tarjeta-img-chanelFM">
                                         <a href="">
-                                            <img class="imagen" src="img/chanelFM/<%= productos[1].img %>">
+                                            <img class="imagen" src="img/<%= productos[1].img %>">
                                         </a>
                                     </div><br><br>
                                     <div class="descripciones">
@@ -166,7 +166,7 @@
                 <div class="CaroHerrera">
                     <div class="imgPrincipal2">
                         <div class="img-container2">
-                            <img class="img-Publicidad" src="img/Marca-CarolinaH/GoodGirl.jpg" alt="">
+                            <img class="img-Publicidad" src="img/GoodGirl.jpg" alt="">
                         </div>
                     </div>
                     <div class="carrousel">
@@ -187,7 +187,7 @@
                                         <div class="tarjeta-CaroH">
                                             <div class="img-contain">
                                                 <img class="perfume-zapato"
-                                                    src="img/Marca-CarolinaH/<%= productos[2].img%>" alt="">
+                                                    src="img/<%= productos[2].img%>" alt="">
                                             </div>
                                             <div class="titu-caro">
                                                 <h5><%= productos[2].marca%></h5>
@@ -220,7 +220,7 @@
                                         <div class="tarjeta-CaroH2">
                                             <div class="img-contain">
                                                 <img class="perfume-zapato"
-                                                    src="img/Marca-CarolinaH/<%= productos[3].img%>" alt="">
+                                                    src="img/<%= productos[3].img%>" alt="">
                                             </div>
                                             <div class="titu-caro">
                                                 <h5><%= productos[3].marca%></h5>
@@ -258,7 +258,7 @@
                                         <div class="tarjeta-CaroH">
                                             <div class="img-contain">
                                                 <img class="perfume-zapato"
-                                                    src="img/Marca-CarolinaH/<%= productos[4].img%>" alt="">
+                                                    src="img/<%= productos[4].img%>" alt="">
                                             </div>
                                             <div class="titu-caro">
                                                 <h5><%= productos[4].marca%></h5>
@@ -416,8 +416,8 @@
 
             <div class="container">
                 <% productos.forEach(prod => { %>
-                  <article>
-                <div class="contenedor-producto">
+                  <article href="/producto/detalle/<%= prod.id %> ">
+                <div class="contenedor-producto" >
                     <div class="producto">
                         <img class="img-11" src="/img/<%= prod.img %> ">
                         <div class="productoinfo">

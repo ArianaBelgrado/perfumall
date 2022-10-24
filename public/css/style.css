@@ -506,15 +506,7 @@ footer {
   flex-wrap: nowrap;
 }
 
-@media only screen and (max-width: 1280px) and (min-width: 771px) {
-  .panqueque {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-  }
-}
-
-@media only screen and (max-width: 4000px) and (min-width: 1281px) {
+@media only screen and (max-width: 4000px) and (min-width: 771px) {
   .cakl {
     padding: 20px;
   }

@@ -521,30 +521,43 @@ footer {
 }
 
 @media only screen and (max-width: 4000px) and (min-width: 1281px) {
+  .cakl {
+    padding: 20px;
+  }
+  .compreta {
+    padding: 15px;
+    text-decoration: none;
+    border: #013 1px solid;
+    border-radius: 10%;
+    border-spacing: #0cb7f2;
+  }
   .container {
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 30px;
   }
   .container img {
     width: 250px;
+    height: 250px;
   }
 
-  .panqueque {
+  .contenedor-producto {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-  }
-
-  .producto {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     padding: 15px;
-    border: 1px solid black;
+  }
+  .producto {
+    padding: 15px;
+    border: 1px solid rgb(52, 108, 134);
     height: 55vh;
+    border-radius: 3%;
+  }
+  .colorete {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
   }
   .productoinfo {
     display: flex;

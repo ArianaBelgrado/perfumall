@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .central {
@@ -32,7 +34,6 @@
 .titulo-chanel {
   text-align: center;
   font-size: 30px;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .seccion1 {
@@ -510,22 +511,29 @@ footer {
 }
 
 @media only screen and (max-width: 4000px) and (min-width: 1281px) {
-}
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  .container img {
+    width: 250px;
+  }
 
-.container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 30px;
-}
-.container img {
-  width: 250px;
-}
-
-.producto {
-  border: 1px solid #013;
-  padding: 10px;
-  border-radius: 10px;
-  flex-wrap: nowrap;
+  .producto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    border: 1px solid black;
+    height: 55vh;
+  }
+  .productoinfo {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
 }

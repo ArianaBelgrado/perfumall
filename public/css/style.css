@@ -546,15 +546,17 @@ footer {
     display: flex;
     justify-content: center;
     padding: 15px;
+    height: 70vh;
   }
   .producto {
     padding: 15px;
     border: 1px solid rgb(52, 108, 134);
-    height: 55vh;
+    height: 68vh;
     border-radius: 3%;
   }
   .colorete {
     display: flex;
+    padding-top: 70px;
     justify-content: center;
     text-align: center;
     align-items: center;

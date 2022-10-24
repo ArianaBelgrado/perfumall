@@ -13,15 +13,15 @@
   <title>Loguearse</title>
 </head>
 
-<body>
+<body><br>
  
 
   <%- include('./partials/header') %> 
  
   <main>
-  <div class="container-login"><br> 
-         <h1>¡REGRISTRATE!</h1>
+  <div class="container-signin"><br> 
     <form action="/usuario/create" method="POST"  class="row g-3">
+      <h1 class="regristrate">¡REGRISTRATE!</h1>
       <div class="col-md-4">
         <label for="validationDefault01" class="form-label">Nombre</label>
         <input type="text" class="form-control" name="nombre" id="validationDefault01" placeholder="Ingrese nombre" required>

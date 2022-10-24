@@ -16,15 +16,25 @@ header h1 {
     color: #D5CAD6;
  
 }
-
-.container-login {
-    margin-left: 1%;
+ 
+.regristrate {
+    text-align: center;
 }
 
 .g-3 {
     display: flex;
     flex-direction: column;
+    align-items: center;
+
 } 
+
+.form-check {
+    text-align: center;
+}
+
+button {
+    text-align: center;
+}
 
 .form-control {
     width: 50%;

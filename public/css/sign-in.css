@@ -7,6 +7,10 @@ body {
     background-color: #89CFF0;
 }
 
+form .row.g-3 {
+    text-align: center;
+}
+
 .titulos {
     color: #0cb7f2;
     text-align: center;

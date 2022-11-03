@@ -24,7 +24,7 @@ router.put("/editar/:id", uploadFile.single("img"), productoController.editar);
 router.get("/crear-producto", productoController.nuevoProducto);
 router.post(
   "/crear-producto",
-  uploadFile.single("img"),
+  uploadFile.single("image"),
   productoController.store
 );
 

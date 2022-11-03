@@ -1,74 +1,74 @@
 [
-  {
-    "id": 1,
-    "img": "cocoM.jpg",
-    "precio": "3333333",
-    "descuento": "asdasd",
-    "marca": "erasd",
-    "modelo": "asdasd",
-    "descripcion": "asdasd"
-  },
-  {
-    "id": 3,
-    "img": "lady-million.jpg",
-    "precio": "3333333",
-    "descuento": "asdasd",
-    "marca": "erasd",
-    "modelo": "asdasd",
-    "descripcion": "asdasd"
-  },
-  {
-    "id": 4,
-    "img": "lady-million.jpg",
-    "precio": "3333333",
-    "descuento": "asdasd",
-    "marca": "erasd",
-    "modelo": "asdasd",
-    "descripcion": "asdasd"
-  },
-  {
-    "id": 5,
-    "img": "kenzo-elixir.jpg",
-    "precio": "3333333",
-    "descuento": "asdasd",
-    "marca": "erasd",
-    "modelo": "asdasd",
-    "descripcion": "asdasd"
-  },
-  {
-    "id": 7,
-    "img": "perfume-zapato4.jpg",
-    "marca": "ad",
-    "modelo": "asd",
-    "descuento": "asdasdazzzzz",
-    "precio": "113211",
-    "descripcion": "asd"
-  },
-  {
-    "id": 8,
-    "img": "perfume-zapato5.jpg",
-    "precio": "3333333",
-    "descuento": "asdasd",
-    "marca": "erasd",
-    "modelo": "asdasd",
-    "descripcion": "asdasd"
-  },
-  {
-    "id": 9,
-    "img": "cocoM.jpg",
-    "precio": "3333333",
-    "descuento": "asdasd",
-    "marca": "erasd",
-    "modelo": "asdasd",
-    "descripcion": "asdasd"
-  },
-  {
-    "id": 10,
-    "img": "chanel-n5.jpg",
-    "precio": "3333333",
-    "descuento": "asdasd",
-    "marca": "erasd",
-    "modelo": "asdasd",
-    "descripcion": "asdasd"
-  }
+ {
+  "id": 3,
+  "img": "lady-million.jpg",
+  "precio": "3333333",
+  "descuento": "asdasd",
+  "marca": "erasd",
+  "modelo": "asdasd",
+  "descripcion": "asdasd"
+ },
+ {
+  "id": 4,
+  "img": "lady-million.jpg",
+  "precio": "3333333",
+  "descuento": "asdasd",
+  "marca": "erasd",
+  "modelo": "asdasd",
+  "descripcion": "asdasd"
+ },
+ {
+  "id": 5,
+  "img": "kenzo-elixir.jpg",
+  "precio": "3333333",
+  "descuento": "asdasd",
+  "marca": "erasd",
+  "modelo": "asdasd",
+  "descripcion": "asdasd"
+ },
+ {
+  "id": 7,
+  "img": "perfume-zapato4.jpg",
+  "marca": "ad",
+  "modelo": "asd",
+  "descuento": "asdasdazzzzz",
+  "precio": "113211",
+  "descripcion": "asd"
+ },
+ {
+  "id": 8,
+  "img": "perfume-zapato5.jpg",
+  "precio": "3333333",
+  "descuento": "asdasd",
+  "marca": "erasd",
+  "modelo": "asdasd",
+  "descripcion": "asdasd"
+ },
+ {
+  "id": 9,
+  "img": "cocoM.jpg",
+  "precio": "3333333",
+  "descuento": "asdasd",
+  "marca": "erasd",
+  "modelo": "asdasd",
+  "descripcion": "asdasd"
+ },
+ {
+  "id": 10,
+  "img": "chanel-n5.jpg",
+  "precio": "3333333",
+  "descuento": "asdasd",
+  "marca": "erasd",
+  "modelo": "asdasd",
+  "descripcion": "asdasd"
+ },
+ {
+  "id": 11,
+  "marca": "Manu!!!!!!!!!!!!!!!!!!!!",
+  "modelo": "Manu!!!!!!!!!!!!!!!!!!!!",
+  "descuento": "Manu!!!!!!!!!!!!!!!!!!!!",
+  "precio": "",
+  "descripcion": "Manu!!!!!!!!!!!!!!!!!!!!",
+  "estado": "En oferta"
+ }
 ]

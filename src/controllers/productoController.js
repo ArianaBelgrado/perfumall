@@ -13,7 +13,7 @@ let controlador = {
   },
 
   home: (req, res) => {
-    res.render("home", { productos: productos });
+    res.render("views/home", { productos: productos });
   },
 
   detalle: (req, res) => {
@@ -33,7 +33,7 @@ let controlador = {
   store: (req, res) => {
     let objet = {
       id: productos[productos.length - 1].id + 1,
-      img: req.file.filename,
+      //img: req.file.filename,
       marca: req.body.marca,
       modelo: req.body.modelo,
       descuento: req.body.descuento,
@@ -80,25 +80,8 @@ let controlador = {
         p.medida = req.body.medida;
         p.descripcion = req.body.descripcion;
         p.estado = req.body.estado;
-        
       }
     });
-
-    // for (let i = 0; i < productos.length; i++) {
-    //   if (req.body) {
-    //     if (idProduct == productos[i].id) {
-    //       productos[i].marca = req.body.marca;
-    //       productos[i].modelo = req.body.modelo;
-    //       productos[i].descuento = req.body.descuento;
-    //       productos[i].precio = req.body.precio;
-    //       productos[i].medida = req.body.medida;
-    //       productos[i].descripcion = req.body.descripcion;
-    //       productos[i].estado = req.body.estado;
-    //     }
-    //   } else {
-    //     console.log("Undefinied");
-    //   }
-    // }
 
     fs.writeFileSync(productosFilePath, JSON.stringify(productos, null, " "));
     res.redirect("/");

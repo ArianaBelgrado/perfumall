@@ -1,125 +1,119 @@
-const path = require('path');
+const path = require("path");
+const bcryptjs = require("bcryptjs");
+const fs = require("fs");
 
-const fs = require('fs');
+const { validationResult } = require("express-validator");
 
-const { validationResult } = require('express-validator');
-
-const usersFilePath = path.join(__dirname, '../database/user-json/user.json');
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-
+const usersFilePath = path.join(__dirname, "../database/user-json/user.json");
+const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
 const controlador = {
+  login: (req, res) => {
+    res.render("login");
+    res.redirect("/");
+  },
 
-    login: (req, res) => {
-        res.render('login')
-        res.redirect('/');
-    },
+  editar: (req, res) => {
+    res.render("editar-perfil");
+    res.redirect("/");
+  },
 
+  // Create - Form to create
 
-    editar: (req, res) => {
-        res.render('editar-perfil')
-        res.redirect('/');
-    },
+  create: (req, res) => {
+    res.render("crear");
+  },
 
+  // Create -  Method to store
+  store: (req, res) => {
+    console.log(req.body);
+    const resultValidation = validationResult(req);
+    if (resultValidation.errors.length > 0) {
+      res.render("crear", { errors: resultValidation.mapped() });
+    } else {
+      let nuevoUsuario = {
+        id: users[users.length - 1].id + 1,
+        nombre: req.body.nombre,
+        apellido: req.body.apellido,
+        ciudad: req.body.ciudad,
+        provincia: req.body.provincia,
+        contraseña: bcryptjs.hashSync(req.body.contra, 10),
+        imagen: req.body.fieldname,
+        mail: req.body.mail,
+      };
 
+      users.push(nuevoUsuario);
 
-    // Create - Form to create
+      fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
 
+      res.redirect("/");
+    }
+  },
 
-    create: (req, res) => {
-        res.render('crear')
-    },
+  // Update - Form to edit
+  change: (req, res) => {
+    let idUsuario = req.params.id;
+    let objetoUsuario;
 
+    for (let obj of users) {
+      if (idUsuario == obj.id) {
+        objetoUsuario = obj;
+        break;
+      }
+    }
 
-    // Create -  Method to store
-    store: (req, res) => {
-         console.log(req.body)
-        const resultValidation = validationResult(req);
-        if (resultValidation.errors.length > 0) {
-          res.render('crear', {errors: resultValidation.mapped()})
-        }else
-        {
-        let nuevoUsuario = {
-            id: (users[users.length - 1].id) + 1,
-            nombre: req.body.nombre,
-            apellido: req.body.apellido,
-            ciudad: req.body.ciudad,
-            provincia: req.body.provincia,
-            contraseña: req.body.contra,
-            imagen: req.body.fieldname,
-            mail: req.body.mail
-        }
+    res.render("editar-perfil.ejs", { usuario: objetoUsuario });
 
-        users.push(nuevoUsuario)
+    res.redirect("/");
+  },
 
-        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
-        
-        res.redirect('/');
-        }
-  
+  // Update - Method to update
+  update: (req, res) => {
+    let idUsuario = req.params.id;
+    let objetoUsuario;
 
-        
-    },
- 
-    // Update - Form to edit
-    change: (req, res) => {
-        let idUsuario = req.params.id;
-        let objetoUsuario;
+    for (let obj of users) {
+      if (idUsuario == obj.id) {
+        obj.nombre = req.body.nombre;
+        obj.apellido = req.body.apellido;
+        obj.usuario = req.body.usuario;
+        obj.ciudad = req.body.ciudad;
+        obj.provincia = req.body.provincia;
+        obj.contraseña = req.body.contraseña;
+        obj.mail = req.body.mail;
 
-        for (let obj of users) {
-            if (idUsuario == obj.id) {
-                objetoUsuario = obj;
-                break;
-            }
-        }
+        break;
+      }
+    }
 
-        res.render('editar-perfil.ejs',{ usuario: objetoUsuario})
+    fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
 
-        res.redirect('/');
-    },
+    res.redirect("/");
+  },
 
+  borrar: (req, res) => {
+    let id = req.params.id;
 
-    // Update - Method to update
-    update: (req, res) => {
-        let idUsuario = req.params.id;
-        let objetoUsuario;
+    usuario = productos.filter((p) => {
+      return p.id != id;
+    });
 
-        for (let obj of users) {
-            if (idUsuario == obj.id) {
+    fs.writeFileSync(productosFilePath, JSON.stringify(usuario, null, " "));
+    res.redirect("/");
+  },
+};
 
-                obj.nombre = req.body.nombre;
-                obj.apellido = req.body.apellido;
-                obj.usuario = req.body.usuario;
-                obj.ciudad = req.body.ciudad;
-                obj.provincia = req.body.provincia;
-                obj.contraseña = req.body.contraseña;
-                obj.mail = req.body.mail
+// // Delete - Delete one product from DB
+// destroy: (req,res) => {
+//     let idUsuario = req.params.id;
 
-                break;
-            }
+// 	let arregloUsuarios = users.filter(function(elemento){
+// 		return elemento.id!=idUsuario;
+// 	})
 
-        }
+// 	fs.writeFileSync(usersFilePath, JSON.stringify(arregloUsuarios, null, " "));
 
-        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
-
-        res.redirect('/');
-    },
-
-
-    // // Delete - Delete one product from DB
-    // destroy: (req,res) => {
-    //     let idUsuario = req.params.id;
-
-    // 	let arregloUsuarios = users.filter(function(elemento){
-    // 		return elemento.id!=idUsuario;
-    // 	})
-
-    // 	fs.writeFileSync(usersFilePath, JSON.stringify(arregloUsuarios, null, " "));
-
-    // 	res.redirect('/'); 
-    // }
-
-}
-
+// 	res.redirect('/');
+// }
 
 module.exports = controlador;

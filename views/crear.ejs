@@ -19,39 +19,62 @@
   <%- include('./partials/header') %> 
  
   <main>
+
+   
   <div class="container-signin"><br> 
     <form action="/usuario/create" method="POST"  class="row g-3">
       <h1 class="regristrate">¡REGRISTRATE!</h1>
       <div class="col-md-4">
         <label for="validationDefault01" class="form-label">Nombre</label>
-        <input type="text" class="form-control" name="nombre" id="validationDefault01" placeholder="Ingrese nombre" required>
+        <input type="text" class="form-control" name="nombre" id="validationDefault01" placeholder="Ingrese nombre" >
+        <% if (locals.errors && errors.nombre) { %>
+        <div class="text-danger">
+          <%= errors.nombre.msg %> 
+        </div>
+        <% } %>
       </div>
       <div class="col-md-4">
         <label for="validationDefault02" class="form-label">Apellido</label>
-        <input type="text" class="form-control" name="apellido" id="validationDefault02" placeholder="Ingrese Apellido" required>
+        <input type="text" class="form-control" name="apellido" id="validationDefault02" placeholder="Ingrese Apellido" >
+        <% if (locals.errors && errors.apellido) { %>
+          <div class="text-danger">
+            <%= errors.apellido.msg %> 
+          </div>
+          <% } %>
       </div>
       <div class="col-md-4">
         <label for="validationDefault02" class="form-label">Mail</label>
-        <input type="Mail" class="form-control" name="mail" id="validationDefault02" placeholder="Ingrese Mail" required>
+        <input type="Mail" class="form-control" name="mail" id="validationDefault02" placeholder="Ingrese Mail" >
+        <% if (locals.errors && errors.mail) { %>
+          <div class="text-danger">
+            <%= errors.mail.msg %> 
+          </div>
+          <% } %>
       </div>
       <div class="col-md-6">
         <label for="validationDefault03" class="form-label">Ciudad</label>
-        <input type="text" class="form-control" name="ciudad" id="validationDefault03" placeholder="Ingrese Ciudad" required>
+        <input type="text" class="form-control" name="ciudad" id="validationDefault03" placeholder="Ingrese Ciudad" >
       </div>
       <div class="col-md-3">
         <label for="validationDefault04" class="form-label">Provincia</label>
-        <select class="form-select" name="provincia" id="validationDefault04" required>
+        <select class="form-select" name="provincia" id="validationDefault04" >
           <option selected disabled value="">Elegí...</option>
           <option>...</option>
         </select>
       </div>
       <div class="col-md-3">
         <label for="validationDefault05" class="form-label">Contraseña</label>
-        <input type="password" class="form-control" name="contra" placeholder="Ingrese Contraseña" id="validationDefault05" required>
+        <input type="password" class="form-control" name="contra" placeholder="Ingrese Contraseña" id="validationDefault05" >
+        <% if (locals.errors && errors.contra) { %>
+          <div class="text-danger">
+            <%= errors.contra.msg %> 
+          </div>
+          <% } %>
       </div>
+     
       <div class="col-12">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+          <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" >
           <label class="form-check-label" for="invalidCheck2">
             Acepto los términos y condiciones
           </label>

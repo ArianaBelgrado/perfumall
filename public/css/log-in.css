@@ -43,8 +43,8 @@ button {
 footer {
     background-color: #013;
     color: #0cb7f2;
-    width: 2000px;
-    position: absolute;
+    width: 100%;
+    position: relative;
     top: 800px;
     padding: 60px;
 }

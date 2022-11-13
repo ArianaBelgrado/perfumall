@@ -56,11 +56,11 @@
  {
   "id": 10,
   "img": "chanel-n5.jpg",
-  "precio": "3333333",
-  "descuento": "asdasd",
-  "marca": "erasd",
-  "modelo": "asdasd",
-  "descripcion": "asdasd"
+  "precio": "17600",
+  "descuento": "12",
+  "marca": "Chanel",
+  "modelo": "Nº5",
+  "descripcion": "Chanel"
  },
  {
   "id": 11,

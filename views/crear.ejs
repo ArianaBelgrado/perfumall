@@ -1,57 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../css/log-in.css" rel="stylesheet" type="text/css">
-
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Roboto&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <title>Loguearse</title>
 </head>
-
 <body><br>
- 
-
   <%- include('./partials/header') %> 
- 
   <main>
   <div class="container-signin"><br> 
-    <form action="/usuario/create" method="POST"  class="row g-3">
+    <form action="/usuario/create" method="POST"  class="row g-3" enctype="multipart/form-data">
       <h1 class="regristrate">¡REGRISTRATE!</h1>
       <div class="col-md-4">
         <label for="validationDefault01" class="form-label">Nombre</label>
-        <input type="text" class="form-control" name="nombre" id="validationDefault01" placeholder="Ingrese nombre" required>
+        <input type="text" class="form-control" name="nombre" id="validationDefault01" placeholder="Ingrese nombre" class="<%=locals.errors && errors.nombre?'is-invalid':null%>" value="<%=locals.oldData?oldData.nombre:null%>">
+        <% if (locals.errors && errors.nombre) { %>
+        <div class="text-danger">
+          <%= errors.nombre.msg %> 
+        </div>
+        <% } %>
       </div>
       <div class="col-md-4">
         <label for="validationDefault02" class="form-label">Apellido</label>
-        <input type="text" class="form-control" name="apellido" id="validationDefault02" placeholder="Ingrese Apellido" required>
+        <input type="text" class="form-control" name="apellido" id="validationDefault02" placeholder="Ingrese Apellido" class="<%=locals.errors && errors.apellido ? 'is-invalid' : null %>" value="<%=locals.oldData ? oldData.apellido:null%>">
+        <% if (locals.errors && errors.apellido) { %>
+          <div class="text-danger">
+            <%= errors.apellido.msg %> 
+          </div>
+          <% } %>
       </div>
       <div class="col-md-4">
         <label for="validationDefault02" class="form-label">Mail</label>
-        <input type="Mail" class="form-control" name="mail" id="validationDefault02" placeholder="Ingrese Mail" required>
+        <input type="Mail" class="form-control" name="mail" id="validationDefault02" placeholder="Ingrese Mail" class="<%= locals.errors && errors.mail ? 'is-invalid' : null %>" value="<%= locals.oldData ? oldData.mail : null %>">
+        <% if (locals.errors && errors.mail) { %>
+          <div class="text-danger">
+            <%= errors.mail.msg %> 
+          </div>
+          <% } %>
       </div>
       <div class="col-md-6">
         <label for="validationDefault03" class="form-label">Ciudad</label>
-        <input type="text" class="form-control" name="ciudad" id="validationDefault03" placeholder="Ingrese Ciudad" required>
+        <input type="text" class="form-control" name="ciudad" id="validationDefault03" placeholder="Ingrese Ciudad" class="<%= locals.errors && errors.ciudad ? 'is-invalid' : null %>" value="<%= locals.oldData ? oldData.ciudad: null %>">
       </div>
       <div class="col-md-3">
         <label for="validationDefault04" class="form-label">Provincia</label>
-        <select class="form-select" name="provincia" id="validationDefault04" required>
+        <select class="form-select" name="provincia" id="validationDefault04" >
           <option selected disabled value="">Elegí...</option>
           <option>...</option>
         </select>
       </div>
       <div class="col-md-3">
         <label for="validationDefault05" class="form-label">Contraseña</label>
-        <input type="password" class="form-control" name="contra" placeholder="Ingrese Contraseña" id="validationDefault05" required>
+        <input type="password" class="form-control" name="contra" placeholder="Ingrese Contraseña" id="validationDefault05" class="<%= locals.errors && errors.contra ? 'is-invalid' : null %>">
+        <% if (locals.errors && errors.contra) { %>
+          <div class="text-danger">
+            <%= errors.contra.msg %> 
+          </div>
+          <% } %>
+      </div>
+      <div>
+        <label>Imagen de Perfil</label>
+        <input type="file" class="form-control" name="imagenPerfil">
+        <% if (locals.errors && errors.imagenPerfil) { %>
+          <div class="text-danger">
+            <%= errors.imagenPerfil.msg %> 
+          </div>
+          <% } %>
       </div>
       <div class="col-12">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+          <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" >
           <label class="form-check-label" for="invalidCheck2">
             Acepto los términos y condiciones
           </label>
@@ -63,16 +86,9 @@
     </form>
   </div>
   </main>
-
-
-
-
-
   <%- include('./partials/footer') %>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
       crossorigin="anonymous"></script>
 </body>
-
 </html>

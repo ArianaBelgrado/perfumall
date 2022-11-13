@@ -5,6 +5,7 @@ const usuarioController = require("./../controllers/usuarioController");
 
 let express = require("express");
 
+const path = require("path");
 
 
 
@@ -67,20 +68,21 @@ router.put('/change/:id', usuarioController.change);
 // // /*** DELETE ONE PRODUCT***/ 
 // router.delete('/delete/:id', usuarioController.destroy); 
 
+// // /*** EDIT ONE PRODUCT ***/
+router.get("/change/:id", usuarioController.change);
+router.put("/change/:id", usuarioController.change);
 
+// // /*** DELETE ONE PRODUCT***/
+// router.delete('/delete/:id', usuarioController.destroy);
 
 // SIGN IN
-
 
 router.get("/login", usuarioController.login);
 router.post('/login', validation, usuarioController.log)
 
-
-
 // EDITAR PERFIL
 
 router.get("/editar", usuarioController.editar);
-
 //BORRAR PERFIL
 router.delete("/borrar/:id", usuarioController.borrar);
 

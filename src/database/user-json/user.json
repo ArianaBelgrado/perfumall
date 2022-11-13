@@ -1,6 +1,6 @@
 [
  {
-  "id": "1",
+  "id": 1,
   "nombre": "Ariana",
   "apellido": "Belgrado",
   "usuario": "Aribelgrado",
@@ -15,7 +15,7 @@
   "apellido": "Doldan",
   "usuario": "NicoDoldan",
   "ciudad": "Avellaneda",
-  "rovincia": "Buenos Aires",
+  "provincia": "Buenos Aires",
   "contraseña": "niconiconico",
   "mail": "niquinikole@gmail.com"
  },

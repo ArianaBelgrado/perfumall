@@ -13,7 +13,7 @@ let controlador = {
   },
 
   home: (req, res) => {
-    res.render("views/home", { productos: productos });
+    res.render("home", { productos: productos });
   },
 
   detalle: (req, res) => {

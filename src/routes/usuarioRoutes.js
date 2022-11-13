@@ -1,20 +1,20 @@
 // LOGIN
 
 //  REQUIRES
-const usuarioController = require('./../controllers/usuarioController');
+const usuarioController = require("./../controllers/usuarioController");
 
-let express = require('express');
-
-
+let express = require("express");
 
 
 
-const path = require('path');
 
-const multer = require('multer');
+
+const path = require("path");
+
+const multer = require("multer");
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, './public/img')
+        cb(null, "./public/img");
     },
     filename: (req, file, cb) => {
         let fileName = `${Date.now()}_img${path.extname(file.originalname)}`;
@@ -22,22 +22,42 @@ const storage = multer.diskStorage({
     }
 });
 
-const uploadFile = multer({storage});
-let router= express.Router();
-const { check } = require('express-validator');
+const uploadFile = multer({ storage });
+let router = express.Router();
+const { check } = require("express-validator");
 
 const validation = [
-    check('nombre').notEmpty().withMessage('Tienes que ingresar un Nombre'),
-    check('apellido').notEmpty().withMessage('Tienes que ingresar un Apellido'),
-    check('mail').notEmpty().withMessage('Debes cargar un email válido'),
-    check('ciudad').notEmpty().withMessage('Campo obligatorio'),
-    check('provincia').notEmpty().withMessage('Elige una provincia'),
-    check('contra').notEmpty().withMessage('Crea una contraseña'),
+    check("nombre").notEmpty().withMessage("Tienes que ingresar un Nombre"),
+    check("apellido").notEmpty().withMessage("Tienes que ingresar un Apellido"),
+    check("mail").notEmpty().withMessage("Debes cargar un e-mail").bail().isEmail().withMessage("Debes escribir un formato válido de correo"),
+    check("ciudad").notEmpty().withMessage("Campo obligatorio"),
+    check("provincia").notEmpty().withMessage("Elige una provincia"),
+    check("contra").notEmpty().withMessage("Crea una contraseña"),
+    check("imagenPerfil").custom((value, {req}) => {
+        let file = req.file;
+        let acceptedExtension=['.jpg', '.png'];
+        if(!file){
+            throw new Error ("Debes subir una imagen");
+        }else{
+
+            let fileExtension= path.extname(file.originalname);
+            if (!acceptedExtension.includes(fileExtension)) {
+                throw new Error (`Las extensiones de archivo aceptadas son: ${acceptedExtension.join(',')} `);
+        }
+            
+        }
+        return true;
+    })
 ];
 
 /*** CREATE PERFIL ***/  
 router.get('/create', usuarioController.create); 
-router.post('/create',uploadFile.single('imagenPerfil'), validation, usuarioController.store); 
+router.post(
+    '/create',
+    uploadFile.single('imagenPerfil'),
+    validation,
+    usuarioController.store
+      ); 
 
 // // /*** EDIT ONE PRODUCT ***/ 
 router.get('/change/:id', usuarioController.change); 
@@ -53,6 +73,7 @@ router.put('/change/:id', usuarioController.change);
 
 
 router.get("/login", usuarioController.login);
+router.post('/login', validation, usuarioController.log)
 
 
 
@@ -60,6 +81,7 @@ router.get("/login", usuarioController.login);
 
 router.get("/editar", usuarioController.editar);
 
-
+//BORRAR PERFIL
+router.delete("/borrar/:id", usuarioController.borrar);
 
 module.exports = router;

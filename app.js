@@ -3,10 +3,17 @@ const usuarioRoutes = require('./src/routes/usuarioRoutes');
 const mainRoutes = require('./src/routes/mainRoutes');
 const methodOverride = require('method-override');
 let express = require('express');
+let session = require('express-session')
 let path = require('path');
 let app = express();
 
 app.set('view engine', 'ejs');
+
+app.use(session({
+    secret : "Es un secreto", 
+    resave: false,
+    saveUninitialized : false
+}));
 
 app.use(express.static(path.resolve(__dirname, './public')));
 

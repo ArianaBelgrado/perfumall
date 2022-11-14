@@ -11,13 +11,49 @@ const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
 const controlador = {
     login: (req, res) => {
+        console.log(req.session)
         res.render('login')
-        res.redirect('/');
+        // res.redirect('/');
 
     },
     log:(req, res) => {
 
     },
+
+    loginProcess: (req,res) => {
+        let userToLogin = User.findByField('email', req.body.email)
+        console.log(userToLogin)
+        if (userToLogin) {
+
+            let passwordOk = bcryptjs.compareSync(req.body.password, userToLogin.password) 
+
+            if (passwordOk) {
+                delete userToLogin.password;
+                req.session.userLogged = userToLogin;
+                return res.redirect('/');
+            }
+
+            return res.render('login', {
+                errors : {
+                    email : {
+                        msg : 'Las credenciales son inválidas'
+                    }
+                }
+               
+            });
+
+        }
+        
+        return res.render('login', {
+            errors : {
+                email : {
+                    msg : 'No se encuentra registrado este email'
+                }
+            }
+           
+        });
+    },
+    
     editar: (req, res) => {
         res.render('editar-perfil')
         res.redirect('/');

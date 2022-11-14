@@ -1,16 +1,15 @@
 // LOGIN
 
 //  REQUIRES
-const usuarioController = require("./../controllers/usuarioController");
+const usuarioController = require("../controllers/usuarioController");
 
 let express = require("express");
 
 const path = require("path");
 
+const guestMiddleware = require("../middlewares/guestMiddleware");
 
 
-
-const path = require("path");
 
 const multer = require("multer");
 const storage = multer.diskStorage({
@@ -52,37 +51,41 @@ const validation = [
 ];
 
 /*** CREATE PERFIL ***/  
-router.get('/create', usuarioController.create); 
+router.get('/create', guestMiddleware, usuarioController.create); 
 router.post(
-    '/create',
+'/create',
     uploadFile.single('imagenPerfil'),
     validation,
     usuarioController.store
       ); 
 
-// // /*** EDIT ONE PRODUCT ***/ 
+// // /*** EDIT ONE USUARIO ***/ 
 router.get('/change/:id', usuarioController.change); 
 router.put('/change/:id', usuarioController.change); 
 
  
-// // /*** DELETE ONE PRODUCT***/ 
+// // /*** DELETE ONE USUARIO***/ 
 // router.delete('/delete/:id', usuarioController.destroy); 
 
-// // /*** EDIT ONE PRODUCT ***/
+// // /*** EDIT ONE USUARIO  ***/
 router.get("/change/:id", usuarioController.change);
 router.put("/change/:id", usuarioController.change);
 
-// // /*** DELETE ONE PRODUCT***/
+// // /*** DELETE ONE USUARIO***/
 // router.delete('/delete/:id', usuarioController.destroy);
 
-// SIGN IN
+// LOG IN 
 
 router.get("/login", usuarioController.login);
 router.post('/login', validation, usuarioController.log)
 
+// PROCESAR EL LOGIN 
+router.post("/login", usuarioController.loginProcess);
+
 // EDITAR PERFIL
 
 router.get("/editar", usuarioController.editar);
+
 //BORRAR PERFIL
 router.delete("/borrar/:id", usuarioController.borrar);
 

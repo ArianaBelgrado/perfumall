@@ -74,15 +74,5 @@
   "provincia": "...",
   "password": "$2a$10$ZXBXpqFI.zkzNIu5DiR4SOZ1e7RaGEvvGl35EzWOFU4kcacu4vjVi",
   "mail": "ariiibelgrado@gmail.com"
- },
- {
-  "id": 9,
-  "nombre": "Ariano",
-  "apellido": "Belgrado",
-  "ciudad": "beuenos aires",
-  "provincia": "...",
-  "password": "$2a$10$ScE1FBV195INRf8XSqcb5efQqnpG0Rlzh7Amxo4JHV79rdM23xLiu",
-  "mail": "hola@gmail.com",
-  "image":"perfume2.jpg"
  }
 ]

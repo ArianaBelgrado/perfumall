@@ -126,11 +126,11 @@ const controlador = {
   borrar: (req, res) => {
     let id = req.params.id;
 
-    usuario = productos.filter((p) => {
+    usuario = users.filter((p) => {
       return p.id != id;
     });
 
-    fs.writeFileSync(productosFilePath, JSON.stringify(usuario, null, " "));
+    fs.writeFileSync(usersFilePath, JSON.stringify(usuario, null, " "));
     res.redirect("/");
   },
   // // Delete - Delete one product from DB

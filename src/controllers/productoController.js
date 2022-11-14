@@ -3,7 +3,7 @@ let fs = require("fs");
 
 const productosFilePath = path.join(
   __dirname,
-  "../database/productos-json/catalogo.json"
+  "../database/catalogo.json"
 );
 let productos = JSON.parse(fs.readFileSync(productosFilePath, "utf-8"));
 

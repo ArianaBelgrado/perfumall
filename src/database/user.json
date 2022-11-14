@@ -6,7 +6,7 @@
   "usuario": "Aribelgrado",
   "ciudad": "Avellaneda",
   "provincia": "Buenos Aires",
-  "contraseña": "arañita91",
+  "password": "arañita91",
   "mail": "arianitaari@gmail.com"
  },
  {
@@ -16,7 +16,7 @@
   "usuario": "NicoDoldan",
   "ciudad": "Avellaneda",
   "rovincia": "Buenos Aires",
-  "contraseña": "niconiconico",
+  "password": "niconiconico",
   "mail": "niquinikole@gmail.com"
  },
  {
@@ -26,7 +26,7 @@
   "usuario": "JuanHeredia23",
   "ciudad": "Avellaneda",
   "provincia": "Buenos Aires",
-  "contraseña": "juncito89",
+  "password": "juncito89",
   "mail": "juanchochica@gmail.com"
  },
  {
@@ -36,7 +36,7 @@
   "usuario": "ManuelUrruti",
   "ciudad": "Olavarria",
   "provincia": "Buenos Aires",
-  "contraseña": "soytumanuelito",
+  "password": "soytumanuelito",
   "mail": "manuelita@gmail.com"
  },
  {
@@ -45,7 +45,7 @@
   "apellido": "Belgrado",
   "ciudad": "beuenos aires",
   "provincia": "...",
-  "contraseña": "ebrtfbhrgns",
+  "password": "ebrtfbhrgns",
   "mail": "aribelgrado@gmail.com"
  },
  {
@@ -54,7 +54,7 @@
   "apellido": "Belgrado",
   "ciudad": "beuenos aires",
   "provincia": "...",
-  "contraseña": "vkffcgvkgcjc",
+  "password": "vkffcgvkgcjc",
   "mail": "aribelgrado@gmail.com"
  },
  {
@@ -63,7 +63,7 @@
   "apellido": "Belgrado",
   "ciudad": "beuenos aires",
   "provincia": "...",
-  "contraseña": "vkffcgvkgcjc",
+  "password": "vkffcgvkgcjc",
   "mail": "aribelgrado@gmail.com"
  },
  {
@@ -72,7 +72,7 @@
   "apellido": "Belgrado",
   "ciudad": "beuenos aires",
   "provincia": "...",
-  "contraseña": "$2a$10$ZXBXpqFI.zkzNIu5DiR4SOZ1e7RaGEvvGl35EzWOFU4kcacu4vjVi",
+  "password": "$2a$10$ZXBXpqFI.zkzNIu5DiR4SOZ1e7RaGEvvGl35EzWOFU4kcacu4vjVi",
   "mail": "ariiibelgrado@gmail.com"
  },
  {
@@ -81,7 +81,7 @@
   "apellido": "Belgrado",
   "ciudad": "beuenos aires",
   "provincia": "...",
-  "contraseña": "$2a$10$ScE1FBV195INRf8XSqcb5efQqnpG0Rlzh7Amxo4JHV79rdM23xLiu",
+  "password": "$2a$10$ScE1FBV195INRf8XSqcb5efQqnpG0Rlzh7Amxo4JHV79rdM23xLiu",
   "mail": "hola@gmail.com"
  }
 ]

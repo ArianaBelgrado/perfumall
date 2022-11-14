@@ -1,93 +1,85 @@
-const path = require("path");
-const bcryptjs = require("bcryptjs");
-const fs = require("fs");
+const path = require('path');
+const bcryptjs = require('bcryptjs');
+const fs = require('fs');
 
-const { validationResult } = require("express-validator");
+const { validationResult } = require('express-validator');
 
-const usersModels = require('../../models/users');
+const User = require('../models/User.js');
 
-const usersFilePath = path.join(__dirname, "../database/user-json/user.json");
-const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+const usersFilePath = path.join(__dirname, '../database/user.json');
+const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 const controlador = {
     login: (req, res) => {
-        console.log(req.session)
-        res.render('login')
+        res.render('login');
         // res.redirect('/');
-
-    },
-    log:(req, res) => {
-
     },
 
-    loginProcess: (req,res) => {
-        let userToLogin = User.findByField('email', req.body.email)
-        console.log(userToLogin)
+    loginProcess: (req, res) => {
+        let userToLogin = User.findByField('mail', req.body.mail);
+        console.log(userToLogin);
         if (userToLogin) {
-
-            let passwordOk = bcryptjs.compareSync(req.body.password, userToLogin.password) 
-
+            let passwordOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
             if (passwordOk) {
                 delete userToLogin.password;
                 req.session.userLogged = userToLogin;
                 return res.redirect('/');
             }
-
             return res.render('login', {
-                errors : {
-                    email : {
-                        msg : 'Las credenciales son inválidas'
-                    }
-                }
-               
+                errors: {
+                    email: {
+                        msg: 'Las credenciales son inválidas',
+                    },
+                },
             });
-
         }
-        
+
         return res.render('login', {
-            errors : {
-                email : {
-                    msg : 'No se encuentra registrado este email'
-                }
-            }
-           
+            errors: {
+                email: {
+                    msg: 'No se encuentra registrado este email',
+                },
+            },
         });
     },
     
+    profile: (req, res) => {
+        return res.render('profile', { user: req.session.userLogged });
+    },
+
     editar: (req, res) => {
-        res.render('editar-perfil')
+        res.render('editar-perfil');
         res.redirect('/');
     },
     // Create - Form to create
     create: (req, res) => {
-        res.render('crear')
+        res.render('crear');
     },
     // Create -  Method to store
     store: (req, res) => {
-         console.log(req.body)
+        console.log(req.body);
         const resultValidation = validationResult(req);
         if (resultValidation.errors.length > 0) {
-          res.render('crear', {errors: resultValidation.mapped(), oldData: req.body});
-        };
-        let userInDB= usersModels.findByField('mail', req.body.mail);
-        if(userInDB){
-            return res.render('crear', {errors: {mail:{msg: "Este mail ya fue registrado"}}, oldData: req.body})
+            res.render('crear', { errors: resultValidation.mapped(), oldData: req.body });
+        }
+        let userInDB = usersModels.findByField('mail', req.body.mail);
+        if (userInDB) {
+            return res.render('crear', { errors: { mail: { msg: 'Este mail ya fue registrado' } }, oldData: req.body });
         }
 
         let nuevoUsuario = {
-            id: (users[users.length - 1].id) + 1,
+            id: users[users.length - 1].id + 1,
             nombre: req.body.nombre,
             apellido: req.body.apellido,
             ciudad: req.body.ciudad,
             provincia: req.body.provincia,
             contraseña: bcryptjs.hashSync(req.body.contra, 10),
             imagenPerfil: req.body.fieldname,
-            mail: req.body.mail
-        }
-        users.push(nuevoUsuario)
-        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
+            mail: req.body.mail,
+        };
+        users.push(nuevoUsuario);
+        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
         res.redirect('login');
-         
     },
     // Update - Form to edit
     change: (req, res) => {
@@ -99,7 +91,7 @@ const controlador = {
                 break;
             }
         }
-        res.render('editar-perfil.ejs',{ usuario: objetoUsuario})
+        res.render('editar-perfil.ejs', { usuario: objetoUsuario });
         res.redirect('/');
     },
     // Update - Method to update
@@ -114,24 +106,24 @@ const controlador = {
                 obj.ciudad = req.body.ciudad;
                 obj.provincia = req.body.provincia;
                 obj.contraseña = req.body.contraseña;
-                obj.mail = req.body.mail
+                obj.mail = req.body.mail;
                 break;
             }
         }
-        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "));
+        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
         res.redirect('/');
     },
-    
-  borrar: (req, res) => {
-    let id = req.params.id;
 
-    usuario = productos.filter((p) => {
-      return p.id != id;
-    });
+    borrar: (req, res) => {
+        let id = req.params.id;
 
-    fs.writeFileSync(productosFilePath, JSON.stringify(usuario, null, " "));
-    res.redirect("/");
-  },
+        usuario = productos.filter((p) => {
+            return p.id != id;
+        });
+
+        fs.writeFileSync(productosFilePath, JSON.stringify(usuario, null, ' '));
+        res.redirect('/');
+    },
     // // Delete - Delete one product from DB
     // destroy: (req,res) => {
     //     let idUsuario = req.params.id;
@@ -142,8 +134,7 @@ const controlador = {
 
     // 	fs.writeFileSync(usersFilePath, JSON.stringify(arregloUsuarios, null, " "));
 
-    // 	res.redirect('/'); 
+    // 	res.redirect('/');
     // }
-
-}
+};
 module.exports = controlador;

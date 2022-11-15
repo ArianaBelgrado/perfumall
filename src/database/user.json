@@ -74,5 +74,15 @@
   "provincia": "...",
   "password": "$2a$10$ZXBXpqFI.zkzNIu5DiR4SOZ1e7RaGEvvGl35EzWOFU4kcacu4vjVi",
   "mail": "ariiibelgrado@gmail.com"
+ },
+ {
+  "id": 9,
+  "nombre": "Juan",
+  "apellido": "Heredia",
+  "ciudad": "Monte Castro",
+  "provincia": "...",
+  "password": "$2a$10$YbrlWTG9T4rQ6Af1x0rzve6eDNmUTo2unFE2Y5ws/GZnot4OVF6MC",
+  "imagenPerfil": "1668473712064_img.png",
+  "mail": "hjuan7217@gmail.com"
  }
 ]

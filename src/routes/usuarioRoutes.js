@@ -21,7 +21,6 @@ router.put('/change/:id', usuarioController.change);
 router.get('/change/:id', usuarioController.change);
 router.put('/change/:id', usuarioController.change);
 
-
 // LOG IN
 
 router.get('/login', usuarioController.login);
@@ -32,6 +31,7 @@ router.post('/login', usuarioController.loginProcess);
 // Perfil
 
 router.get('/profile', usuarioController.profile);
+router.get('/logout', usuarioController.logout);
 
 // EDITAR PERFIL
 

@@ -1,4 +1,5 @@
 const { check } = require('express-validator');
+const path = require('path');
 const validations = [
     check('nombre').notEmpty().withMessage('Tienes que ingresar un Nombre'),
     check('apellido').notEmpty().withMessage('Tienes que ingresar un Apellido'),

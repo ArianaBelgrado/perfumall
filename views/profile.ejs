@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="../css/sign-in.css" rel="stylesheet" />
+        <link href="../css/profile.css" rel="stylesheet" />
         <link
             href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Roboto&display=swap"
             rel="stylesheet"
@@ -17,20 +18,17 @@
         />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css" rel="stylesheet" />
 
-        <title>Registrarse</title>
+        <title><%= user.nombre + " " + user.apellido %> </title>
     </head>
 
     <body>
         <%- include('./partials/header') %>
 
-        <div class="col-12 col-sm-6 col-lg-3 mx-auto">
-            <section class="product-box">
-                <a href="">
-                    <figure class="product-box_image">
-                        <img src="/img/<%= user.image %> " alt="" />
-                    </figure>
+        <main class="container mt-5">
+            <div class="col-12 col-sm-6 col-lg-3 mx-auto perfil">
+                <section class="product-box d-md-flex">
                     <article class="product-box_data">
-                        <div class="card text-bg-dark mb-3" style>
+                        <div class="card text-bg-dark mb-6" style>
                             <div class="card-body">
                                 <h2><%= user.nombre %></h2>
                                 <p><%= user.apellido %></p>
@@ -39,21 +37,27 @@
                             </div>
                         </div>
                     </article>
-                </a>
-            </section>
+                    <figure class="product-box_image ">
+                        <img class="h-50" src="/img/<%= user.imagenPerfil %>  " alt="" />
+                    </figure>
+                </section>
 
-            <form action="/user/logout">
-                <div class="col-12">
-                    <button type="submit" class="buy-now-button">Cerrar sesion</button>
+                <!-- <div class="col-12 col-sm-6 col-lg-12 mx-auto"> -->
+                    <div class="container-forms d-flex align-items-center">
+                    <form action="/usuario/logout" >
+                        <div class="col-12">
+                            <button type="submit" class="buy-now-button">Cerrar sesion</button>
+                        </div>
+                    </form>
+                    <form action="/usuario/borrar/ <%=user.id %>?_method=DELETE" method="POST">
+                        <div class="col-12">
+                            <button class="btn btn-primary" type="submit">Borrar Perfil</button>
+                        </div>
+                    </form>
                 </div>
-            </form>
-            <form action="/usuario/borrar/ <%=user.id %>?_method=DELETE" method="POST">
-                <div class="col-12">
-                    <button class="btn btn-primary" type="submit">Borrar Perfil</button>
-                </div>
-            </form>
-        </div>
-
+                <!-- </div> -->
+            </div>
+        </main>
         <%- include('./partials/footer') %>
 
         <script

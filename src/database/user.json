@@ -77,11 +77,12 @@
  },
  {
   "id": 9,
-  "nombre": "Ariano",
-  "apellido": "Belgrado",
-  "ciudad": "beuenos aires",
+  "nombre": "Juan",
+  "apellido": "Heredia",
+  "ciudad": "Monte Castro",
   "provincia": "...",
-  "password": "$2a$10$ScE1FBV195INRf8XSqcb5efQqnpG0Rlzh7Amxo4JHV79rdM23xLiu",
-  "mail": "hola@gmail.com"
+  "password": "$2a$10$YbrlWTG9T4rQ6Af1x0rzve6eDNmUTo2unFE2Y5ws/GZnot4OVF6MC",
+  "imagenPerfil": "1668473712064_img.png",
+  "mail": "hjuan7217@gmail.com"
  }
 ]

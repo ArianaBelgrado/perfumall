@@ -1,134 +1,177 @@
 body {
-    background-color: #89CFF0;
-    font-family: 'Montserrat', sans-serif;
- } 
+  background-color: #89cff0;
+  font-family: "Montserrat", sans-serif;
+}
 
 header {
-    background-color: #272727;
-    width: 100%;
-    height: 60px;
-    margin-top: -21px;
-    text-align: center;
+  background-color: #272727;
+  width: 100%;
+  height: 60px;
+  margin-top: -21px;
+  text-align: center;
 }
 
 header h1 {
-    color: #D5CAD6;
- 
+  color: #d5cad6;
 }
- 
+
 .regristrate {
-    text-align: center;
+  text-align: center;
+}
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
 }
 
-.g-3 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.search__input {
+  font-family: inherit;
+  font-size: inherit;
+  background-color: #f4f2f2;
+  border: none;
+  color: #646464;
+  padding: 0.7rem 1rem;
+  border-radius: 30px;
+  width: 12em;
+  transition: all ease-in-out 0.5s;
+  margin-right: -2rem;
+}
 
-} 
+.search__input:hover,
+.search__input:focus {
+  box-shadow: 0 0 1em #00000013;
+}
+
+.search__input:focus {
+  outline: none;
+  background-color: #f0eeee;
+}
+
+.search__input::-webkit-input-placeholder {
+  font-weight: 100;
+  color: #ccc;
+}
+
+.search__input:focus + .search__button {
+  background-color: #f0eeee;
+}
+
+.search__button {
+  border: none;
+  background-color: #f4f2f2;
+  margin-top: 0.1em;
+}
+
+.search__button:hover {
+  cursor: pointer;
+}
+
+.search__icon {
+  height: 1.3em;
+  width: 1.3em;
+  fill: #4e4e4e;
+}
+.g-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .form-check {
-    text-align: center;
+  text-align: center;
 }
 
 button {
-    text-align: center;
+  text-align: center;
 }
 
 .form-control {
-    width: 50%;
+  width: 50%;
 }
 
 footer {
-    background-color: #013;
-    color: #0cb7f2;
-    width: 100%;
-    position: relative;
-    top: 400px;
-    padding: 10px;
+  background-color: #013;
+  color: #0cb7f2;
+  width: 100%;
+  position: relative;
+  top: 400px;
+  padding: 10px;
 }
 
 .redes-sociales {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .container-footer {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
 }
 
 .col-md-6 {
-    width:80%;
+  width: 80%;
 }
 
-.text-bg-primary{
-    width: 150%;
+.text-bg-primary {
+  width: 150%;
 }
 
 .text-bg-secondary {
-    width: 150%;
+  width: 150%;
 }
 
 .text-bg-success {
-    width: 150%;
+  width: 150%;
 }
 
+@media only screen and (min-width: 0px) and (max-width: 360px) {
+  .container-login {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 10px;
+  }
 
-@media only screen and (min-width:0px) and (max-width:360px) {
-    .container-login {
-        width: 300px;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        margin-left: 10px;
-    }
-
-    .container-footer {
-        display:flex;
-        flex-direction: column;
-        justify-content: space-between;
-        line-height: 2.5;
-        margin-left: -40px;
-    }
+  .container-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    line-height: 2.5;
+    margin-left: -40px;
+  }
 }
-
 
 @media only screen and (min-width: 361px) and (max-width: 475px) {
+  .container-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    line-height: 2.5;
+    margin-left: -1%;
+  }
 
-    .container-footer {
-        display:flex;
-        flex-direction: column;
-        justify-content: space-between;
-        line-height: 2.5;
-        margin-left: -1%;
-    }
+  h1 {
+    text-align: center;
+  }
 
-    h1 {
-        text-align: center;
-    }
+  .g-3 {
+    width: 90%;
+    margin-left: 100%;
+  }
 
-    .g-3 {
-        width: 90%;
-        margin-left: 100%;
-    }
+  .checkbox {
+    margin-left: 25px;
+  }
 
-    .checkbox {
-        margin-left: 25px;
-    }
-
-    .texto {
-        margin-left: 25px;
-    }
-    .botones {
-        margin-left: 25px;
-    }
+  .texto {
+    margin-left: 25px;
+  }
+  .botones {
+    margin-left: 25px;
+  }
 }
 
-
-@media only screen and (min-width: 476px) and (max-width:768px) {
-
- 
-    
+@media only screen and (min-width: 476px) and (max-width: 768px) {
 }

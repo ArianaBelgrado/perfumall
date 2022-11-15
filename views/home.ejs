@@ -97,24 +97,25 @@
         <% productos.forEach(prod => { %>
         <article href="/producto/detalle/<%= prod.id %> ">
           <div class="contenedor-producto">
-            <div class="producto">
+            <div class="card">
               <a
                 href="/producto/detalle/<%= prod.id %> "
                 
               >
               <img class="img-11" src="/img/<%= prod.img %> " />
               <div class="productoinfo">
-                <p class="name"><%= prod.modelo %></p>
+                <h5 class="name"><%= prod.modelo %></h5>
                 <p class="price">$<%= prod.precio %></p>
                 <p class="discount"><%= prod.descuento %> OFF</p>
-                <h4 class="description"><%= prod.descripcion %></h4>
+                <p class="description"><%= prod.descripcion %></p>
               </div>
               <div class="colorete">
-              <a href="#" class="compreta">Comprar</a>
+              <a href="#" class="compreto">Comprar</a>
               <div class="cakl">
-              <a href="/producto/editar/<%= prod.id %> " class="compreta"
-                >Editar</a
-              >
+              
+              <button>
+    <a href="/producto/editar/<%= prod.id %>" >Editar</a>
+</button>
               </div>
               </div>
             </div>

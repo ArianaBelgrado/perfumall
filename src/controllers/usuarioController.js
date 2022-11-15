@@ -47,13 +47,6 @@ const controlador = {
   },
 
   profile: (req, res) => {
-    let id = req.params.id;
-    let x;
-    users.forEach((element) => {
-      if (element.id == id) {
-        x = element;
-      }
-    });
     return res.render("profile", { user: req.session.userLogged });
   },
 

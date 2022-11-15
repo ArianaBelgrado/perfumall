@@ -87,7 +87,7 @@ router.post("/login", usuarioController.loginProcess);
 
 // Perfil
 
-router.get("/profile/:id", usuarioController.profile);
+router.get("/profile", usuarioController.profile);
 
 // EDITAR PERFIL
 

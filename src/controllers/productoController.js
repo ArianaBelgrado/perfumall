@@ -1,10 +1,7 @@
 let path = require("path");
 let fs = require("fs");
 
-const productosFilePath = path.join(
-  __dirname,
-  "../database/catalogo.json"
-);
+const productosFilePath = path.join(__dirname, "../database/catalogo.json");
 let productos = JSON.parse(fs.readFileSync(productosFilePath, "utf-8"));
 
 let controlador = {
@@ -70,7 +67,7 @@ let controlador = {
       precio: req.body.precio,
       medida: req.body.medida,
     };
-    console.log(asd);
+
     productos.forEach((p) => {
       if (p.id == idProduct) {
         p.marca = req.body.marca;

@@ -84,5 +84,15 @@
   "password": "$2a$10$YbrlWTG9T4rQ6Af1x0rzve6eDNmUTo2unFE2Y5ws/GZnot4OVF6MC",
   "imagenPerfil": "1668473712064_img.png",
   "mail": "hjuan7217@gmail.com"
+ },
+ {
+  "id": 10,
+  "nombre": "nico",
+  "apellido": "valorani",
+  "ciudad": "cordoba",
+  "provincia": "...",
+  "password": "$2a$10$UlhONC5xEQqGQn5SjmrcY.uwOeS/sYDo9chZxylz5da4wlJJbVEpa",
+  "imagenPerfil": "1668732254661_img.png",
+  "mail": "nicovalorani@gmail.com"
  }
 ]

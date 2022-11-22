@@ -65,7 +65,7 @@ module.exports = function(sequelize, DataTypes){
     },
     producto.associate = (models) => {
 
-        producto.belongsTo/hasmany(models.venta, {
+        producto.belongsTo(models.venta, {
             as: 'venta', 
             foreignKey: 'Producto_id'
         })

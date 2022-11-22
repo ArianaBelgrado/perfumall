@@ -1,86 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" /> 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="css/style.css" rel="stylesheet " type="text/css" />
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-      crossorigin="anonymous"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto:ital,wght@1,700&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="css/style.css" rel="stylesheet " type="text/css" />
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-      crossorigin="anonymous"
-    />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto:ital,wght@1,700&display=swap"
+    rel="stylesheet" />
 
-    <script
-      src="https://kit.fontawesome.com/258b4efd0d.js"
-      crossorigin="anonymous"
-    ></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
 
-    <title>Perfumall</title>
-  </head>
+  <script src="https://kit.fontawesome.com/258b4efd0d.js" crossorigin="anonymous"></script>
 
-  <body>
-    <%- include('./partials/header') %>
+  <title>Perfumall</title>
+</head>
+
+<body>
+  <%- include('./partials/header') %>
     <main class="main">
       <div class="carousel">
-        <div
-          id="carouselExampleControls"
-          class="carousel slide"
-          data-bs-ride="carousel"
-        >
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img
-                src="img/Img-carrousel1.jpg"
-                class="d-block w-100"
-                alt="..."
-              />
+              <img src="img/Img-carrousel1.jpg" class="d-block w-100" alt="..." />
             </div>
             <div class="carousel-item">
-              <img
-                src="img/img-carrousel2.webp"
-                class="d-block w-100"
-                alt="..."
-              />
+              <img src="img/img-carrousel2.webp" class="d-block w-100" alt="..." />
             </div>
             <div class="carousel-item">
-              <img
-                src="img/img-coarrousel4.webp"
-                class="d-block w-100"
-                alt="..."
-              />
+              <img src="img/img-coarrousel4.webp" class="d-block w-100" alt="..." />
             </div>
           </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleControls"
-            data-bs-slide="prev"
-          >
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
           </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleControls"
-            data-bs-slide="next"
-          >
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
@@ -88,50 +52,53 @@
       </div>
       <br />
       <div class="contain-tittle">
-        
-          <h3 class="titulo-chanel">Nueva línea Chanel</h3>
-        
+
+        <h3 class="titulo-chanel">Nueva línea Chanel</h3>
+
       </div>
 
       <div class="container mb-lg-5 mb-sm-4 mb-md-5 justify-content-center">
-        <% productos.forEach(prod => { %>
-        <article href="/producto/detalle/<%= prod.id %> ">
-          <div class="contenedor-producto">
-            <div class="card">
-              <a
-                href="/producto/detalle/<%= prod.id %> "
-                
-              >
-              <img class="img-11" src="/img/<%= prod.img %> " />
-              <div class="productoinfo">
-                <h5 class="name"><%= prod.modelo %></h5>
-                <p class="price">$<%= prod.precio %></p>
-                <p class="discount"><%= prod.descuento %> OFF</p>
-                <p class="description"><%= prod.descripcion %></p>
-              </div>
-              <div class="colorete">
-              <a href="/producto/detalle/<%= prod.id %> " class="compreto">Comprar</a>
-              <div class="cakl">
-              
-              <button>
-    <a href="/producto/editar/<%= prod.id %>" >Editar</a>
-</button>
-              </div>
+        <% productos.forEach(prod=> { %>
+          <article href="/producto/detalle/<%= prod.id %> ">
+            <div class="contenedor-producto">
+              <div class="card">
+                <a href="/producto/detalle/<%= prod.id %> ">
+                  <img class="img-11" src="/img/<%= prod.img %> " />
+                  <div class="productoinfo">
+                    <h5 class="name">
+                      <%= prod.modelo %>
+                    </h5>
+                    <p class="price">$<%= prod.precio %>
+                    </p>
+                    <p class="discount">
+                      <%= prod.descuento %> OFF
+                    </p>
+                    <p class="description">
+                      <%= prod.descripcion %>
+                    </p>
+                  </div>
+                  <div class="colorete">
+                    <a href="/producto/detalle/<%= prod.id %> " class="compreto">Comprar</a>
+                    <div class="cakl">
+
+                      <button>
+                        <a href="/producto/editar/<%= prod.id %>">Editar</a>
+                      </button>
+                    </div>
+                  </div>
               </div>
             </div>
-          </div>
-        </article>
+          </article>
 
-        <% }) %>
+          <% }) %>
       </div>
 
       <%- include('./partials/footer') %>
 
-      <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-        crossorigin="anonymous"
-      ></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+          crossorigin="anonymous"></script>
     </main>
-  </body>
+</body>
+
 </html>

@@ -84,5 +84,15 @@
   "password": "$2a$10$YbrlWTG9T4rQ6Af1x0rzve6eDNmUTo2unFE2Y5ws/GZnot4OVF6MC",
   "imagenPerfil": "1668473712064_img.png",
   "mail": "hjuan7217@gmail.com"
+ },
+ {
+  "id": 10,
+  "nombre": "Ariana",
+  "apellido": "lopez",
+  "ciudad": "beuenos aires",
+  "provincia": "...",
+  "password": "$2a$10$.h7mf1uOtXAVUEtzhyxXzu4SHr2wmlb87eZmWL9cMfeFw.JoGOz3q",
+  "imagenPerfil": "1668731084862_img.png",
+  "mail": "jujaji@gamil.com"
  }
 ]

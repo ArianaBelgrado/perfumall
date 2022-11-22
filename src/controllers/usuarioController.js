@@ -12,7 +12,7 @@ let users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 const controlador = {
   login: (req, res) => {
     res.render("login");
-    // res.redirect('/');
+    // res.redirect('/);
   },
 
   loginProcess: (req, res) => {
@@ -27,7 +27,7 @@ const controlador = {
       if (passwordOk) {
         delete userToLogin.password;
         req.session.userLogged = userToLogin;
-        return res.redirect("/");
+        return res.redirect("/usuario/profile");
       }
       return res.render("login", {
         errors: {

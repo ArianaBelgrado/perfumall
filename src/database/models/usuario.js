@@ -22,7 +22,7 @@ function usersData(sequelize, DataTypes) {
       type: DataTypes.STRING(100),
       allowNull: false,
     },
-    clave: {
+    password: {
       type: DataTypes.STRING(100),
       allowNull: false,
     },
@@ -47,6 +47,10 @@ function usersData(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       allowNull: true,
     },
+    local_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   };
 
   let cfig = { camelCase: false, timestamps: false };
@@ -55,8 +59,8 @@ function usersData(sequelize, DataTypes) {
 
   User.associate = function (modelos) {
     User.belongsTo(modelos.local, {
-      as: "locales",
-      foreignKey: "Local_id",
+      as: "local",
+      foreignKey: "local_id",
     });
 
     User.associate = function (modelos) {

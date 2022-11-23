@@ -93,17 +93,17 @@
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <label for="contra" class="form-label">Contraseña</label>
+                        <label for="password" class="form-label">Contraseña</label>
                         <input
                             type="password"
                             class="form-control"
-                            name="contra"
+                            name="password"
                             placeholder="Ingrese Contraseña"
-                            id="contra"
-                            class="<%= locals.errors && errors.contra ? 'is-invalid' : null %>"
+                            id="password"
+                            class="<%= locals.errors && errors.password ? 'is-invalid' : null %>"
                         />
-                        <% if (locals.errors && errors.contra) { %>
-                        <div class="text-danger"><%= errors.contra.msg %></div>
+                        <% if (locals.errors && errors.password) { %>
+                        <div class="text-danger"><%= errors.password.msg %></div>
                         <% } %>
                     </div>
                     <div class="col-md-4">

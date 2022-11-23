@@ -4,13 +4,35 @@ function usersData(sequelize, DataTypes){
     let u = "usuario";
 
     let col = {
-        id: {type:DataTypes.INTEGER, primaryKey: true, autoIncrement:true},
-        nombre: {type: DataTypes.STRING},
-        apellido: {type: DataTypes.STRING},
-        email: {type: DataTypes.STRING},
-        clave: {type: DataTypes.STRING},
-        admin: {type: DataTypes.BOOLEAN},
-        superadmin: {type: DataTypes.BOOLEAN}
+        id: {
+            type:DataTypes.INTEGER(10).UNSIGNED,
+            primaryKey: true,
+            autoIncrement:true,
+            allowNull: false
+        },
+        nombre: {
+            type: DataTypes.STRING(100),
+            allowNull: false
+        },
+        apellido: {
+            type: DataTypes.STRING(100),
+            allowNull: false
+        },
+        email: {
+            type: DataTypes.STRING(100),
+            allowNull: false
+        },
+        clave: {
+            type: DataTypes.STRING(100),
+            allowNull: false
+        },
+        admin: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
+        },
+        superadmin: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false}
     }
 
     let cfig= {camelCase: false, timestamps: false};
@@ -27,7 +49,13 @@ function usersData(sequelize, DataTypes){
         User.hasmany(modelos.venta, {
             as:"ventas",
             foreignKey:"Usuario_id"
-        })
+        });
+        User.associate = function(modelos){
+            User.hasmany(modelos.producto, {
+                as:"producto",
+                foreignKey: "admin_id"
+            })
+        }
     }
     }
     return User;

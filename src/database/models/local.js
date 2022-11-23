@@ -4,10 +4,24 @@ function localData(sequelize, DataTypes){
     let l = "local";
 
     let co = {
-        id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-        nombre: {type: DataTypes.STRING},
-        direccion: {type: DataTypes.STRING},
-        telefono: {type: DataTypes.INTEGER}
+        id: {
+            type: DataTypes.INTEGER(10).UNSIGNED,
+            primaryKey: true,
+            autoIncrement: true,
+            allowNull: false
+        },
+        nombre: {
+            type: DataTypes.STRING(100),
+            allowNull: false
+        },
+        direccion: {
+            type: DataTypes.STRING(100),
+            allowNull: false
+        },
+        telefono: {
+            type: DataTypes.INTEGER(10),
+            allowNull:false
+        }
     }
 
     let cfg= {camelCase: false, timestamps: false};

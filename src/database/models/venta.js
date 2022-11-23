@@ -25,7 +25,19 @@ function ventaData(sequelize, DataTypes){
         Venta.belongsTo(modelos.usuario, {
             as:"usuarios",
             foreignKey:"Usuario_id"
+        });
+    Venta.associate= function(modelos){
+        Venta.hasmany(modelos.producto, {
+            as:"productos",
+            foreignKey: "Producto_id"
+        });
+    Venta.associate= function(modelos){
+        Venta.belongsTo(modelos.detalle_venta, {
+            as:"detalle_venta",
+            foreignKey:"Detalle_venta_id"
         })
+    }
+    }
     }
 
     return Venta;

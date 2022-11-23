@@ -1,6 +1,8 @@
-module.exports = function(sequelize, DataTypes){
-    const alias = "detalle_venta"
-    const cols = {
+'use strict';
+
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    return queryInterface.createTable('detalle_venta', {
         id: {
             type: DataTypes.INTEGER(10).UNSIGNED,
             primaryKey: true,
@@ -23,22 +25,11 @@ module.exports = function(sequelize, DataTypes){
             type: DataTypes.BOOLEAN,
             allowNull: false
         }
-    }
-    const config = {
-        tableName: "detalle_venta",
-        timestamps: true
-    }
-    const detalle_venta = sequelize.define(alias, cols, config);
-
-    detalle_venta.associate = (models) => {
-
-        detalle_venta.hasMany(models.venta, {
-            as: 'venta', 
-            foreignKey: 'Detalle_venta_id'
         })
+       
+  },
 
-    }
-
-
-    return Nota
-}
+  down: async (queryInterface, Sequelize) => {
+    return queryInterface.dropTable('detalle_venta')
+  }
+};

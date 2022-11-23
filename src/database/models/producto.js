@@ -20,7 +20,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     fecha_baja: {
       type: DataTypes.DATEONLY,
-      allowNull: false,
+      allowNull: true,
     },
     imagen: {
       type: DataTypes.STRING(100),

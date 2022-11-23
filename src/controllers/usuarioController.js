@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const { validationResult } = require('express-validator');
 
-const User = require('../models/User.js');
+const User = require('../database/models/usuario.js');
 
 const usersFilePath = path.join(__dirname, '../database/user.json');
 let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
@@ -62,6 +62,7 @@ const controlador = {
     },
     // Create -  Method to store
     store: (req, res) => {
+
         const resultValidation = validationResult(req);
 
         if (resultValidation.errors.length > 0) {
@@ -78,6 +79,8 @@ const controlador = {
             });
         }
 
+        User.create()
+        
         let nuevoUsuario = {
             id: users[users.length - 1].id + 1,
             nombre: req.body.nombre,
@@ -91,6 +94,7 @@ const controlador = {
         users.push(nuevoUsuario);
         fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
         return res.redirect('/usuario/login');
+
     },
     // Update - Form to edit
     change: (req, res) => {

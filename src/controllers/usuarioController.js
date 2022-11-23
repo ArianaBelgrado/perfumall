@@ -79,8 +79,22 @@ const controlador = {
             });
         }
 
-        User.create()
-        
+        User.create({
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            email: req.body.mail,
+            clave: bcryptjs.hashSync(req.body.contra, 10),
+            ciudad: req.body.ciudad,
+            provincia: req.body.provincia,
+            imagenPerfil: req.file.filename,   
+        })
+
+        return res.redirect('/usuario/login');
+
+
+
+
+     /*    
         let nuevoUsuario = {
             id: users[users.length - 1].id + 1,
             nombre: req.body.nombre,
@@ -92,8 +106,8 @@ const controlador = {
             mail: req.body.mail,
         };
         users.push(nuevoUsuario);
-        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
-        return res.redirect('/usuario/login');
+        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' ')); */
+       
 
     },
     // Update - Form to edit

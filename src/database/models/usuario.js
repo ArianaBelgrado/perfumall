@@ -1,14 +1,13 @@
 const { BelongsTo } = require("sequelize");
 
 function usersData(sequelize, DataTypes) {
-  let u = "usuario";
+  let alias = "usuario";
 
-  let col = {
+  let cols = {
     id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
       primaryKey: true,
       autoIncrement: true,
-      allowNull: false,
     },
     nombre: {
       type: DataTypes.STRING(100),
@@ -53,9 +52,9 @@ function usersData(sequelize, DataTypes) {
     },
   };
 
-  let cfig = { camelCase: false, timestamps: false };
+  let config = { camelCase: false, timestamps: false };
 
-  const User = sequelize.define(u, col, cfig);
+  const User = sequelize.define(alias, cols, config);
 
   User.associate = function (modelos) {
     User.belongsTo(modelos.local, {

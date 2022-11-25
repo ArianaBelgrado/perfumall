@@ -1,15 +1,15 @@
-let fs = require("fs");
-let path = require("path");
+const Producto = require("../database/models/Producto");
 
-const productosFilePath = path.join(
-  __dirname,
-  "../database/catalogo.json"
-);
-let productos = JSON.parse(fs.readFileSync(productosFilePath, "utf-8"));
-let controlador = {
+let controller = {
   home: (req, res) => {
+    let productos;
+
+    Producto.findAll().then((result) => {
+      productos = result;
+    });
+
     res.render("home", { productos });
   },
 };
 
-module.exports = controlador;
+module.exports = controller;

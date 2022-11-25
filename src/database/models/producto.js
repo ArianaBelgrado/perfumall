@@ -45,27 +45,27 @@ module.exports = function (sequelize, DataTypes) {
     tableName: "producto",
     timestamps: true,
   };
-  const producto = sequelize.define(alias, cols, config);
+  const Producto = sequelize.define(alias, cols, config);
 
-  (producto.associate = (models) => {
-    producto.belongsTo /
+  (Producto.associate = (models) => {
+    Producto.belongsTo /
       hasmany(models.marca, {
         as: "marca",
         foreignKey: "marca_id",
       });
   }),
-    (producto.associate = (models) => {
-      producto.belongsTo(models.usuario, {
+    (Producto.associate = (models) => {
+      Producto.belongsTo(models.usuario, {
         as: "usuario",
         foreignKey: "admin_id",
       });
     }),
-    (producto.associate = (models) => {
-      producto.belongsTo(models.venta, {
+    (Producto.associate = (models) => {
+      Producto.belongsTo(models.venta, {
         as: "venta",
         foreignKey: "Producto_id",
       });
     });
 
-  return Nota;
+  return Producto;
 };

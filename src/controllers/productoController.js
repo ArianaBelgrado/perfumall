@@ -11,16 +11,7 @@ let controlador = {
   },
 
   home: (req, res) => {
-    let productos; 
-    
-    Producto.findAll().then((result) => {
-      productos = result;
-    })
-    
-    res.render("home", { productos });
-  },
-
-  detalle: (req, res) => {
+    let productos;
     let productFound;
 
     Producto.findByPk(req.params.id).then((resultado) => {
@@ -131,3 +122,5 @@ let controlador = {
 };
 
 module.exports = controlador;
+
+

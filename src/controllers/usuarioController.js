@@ -1,15 +1,10 @@
-
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const User = require("../database/models/Usuario.js");
 
-
-
-
 const controlador = {
   login: (req, res) => {
     res.render("login");
-    
   },
 
   loginProcess: (req, res) => {
@@ -60,7 +55,6 @@ const controlador = {
     res.redirect("/");
   },
 
-  
   create: (req, res) => {
     res.render("crear");
   },
@@ -97,23 +91,19 @@ const controlador = {
     });
 
     return res.redirect("/usuario/login");
-
-   
   },
-  
+
   change: (req, res) => {
     let idUsuario = req.params.id;
     let userFound = User.findByPk(idUsuario).then((result) => (userFound = result));
 
     res.render("editar-perfil", { usuario: userFound });
   },
-  
+
   update: (req, res) => {
     let idUsuario = req.params.id;
     let userFound = User.findByPk(idUsuario).then((result) => (userFound = result));
 
-    
-    
     res.redirect("/usuario/profile");
   },
 

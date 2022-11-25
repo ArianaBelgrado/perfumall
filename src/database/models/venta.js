@@ -1,3 +1,5 @@
+const models = require("../models");
+
 function ventaData(sequelize, DataTypes) {
   let alias = "venta";
 
@@ -6,7 +8,6 @@ function ventaData(sequelize, DataTypes) {
       type: DataTypes.INTEGER(10).UNSIGNED,
       primaryKey: true,
       autoIncrement: true,
-      allowNull: false,
     },
     monto_unitario: {
       type: DataTypes.FLOAT,
@@ -16,26 +17,38 @@ function ventaData(sequelize, DataTypes) {
       type: DataTypes.INTEGER(100),
       allowNull: false,
     },
+    producto_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    detalle_venta_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    usuario_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
   };
 
   let config = { camelCase: false, timestamps: false };
 
   const Venta = sequelize.define(alias, columns, config);
 
-  Venta.associate = function (modelos) {
-    Venta.belongsTo(modelos.usuario, {
+  Venta.associate = function (models) {
+    Venta.belongsTo(models.Usuario, {
       as: "usuarios",
-      foreignKey: "Usuario_id",
+      foreignKey: "usuario_id",
     });
-    Venta.associate = function (modelos) {
-      Venta.hasmany(modelos.producto, {
+    Venta.associate = function (models) {
+      Venta.hasmany(models.Producto, {
         as: "productos",
-        foreignKey: "Producto_id",
+        foreignKey: "producto_id",
       });
-      Venta.associate = function (modelos) {
-        Venta.belongsTo(modelos.detalle_venta, {
+      Venta.associate = function (models) {
+        Venta.belongsTo(models.Detalle_venta, {
           as: "detalle_venta",
-          foreignKey: "Detalle_venta_id",
+          foreignKey: "detalle_venta_id",
         });
       };
     };

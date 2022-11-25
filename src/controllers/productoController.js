@@ -1,7 +1,6 @@
-
 const Producto = require("../database/models/Producto");
 
-let controlador = {
+let controller = {
   carrito: (req, res) => {
     res.render(path.resolve("views/carrito"));
   },
@@ -9,21 +8,18 @@ let controlador = {
   home: (req, res) => {
     let productos;
 
-    Producto.findAll().then((result) => {
-      productos = result;
-    });
-
-    res.render("home", { productos });
+    Producto.findAll()
+      .then((result) => (productos = result))
+      .then((result) => res.render("home", { productos }));
   },
 
   detalle: (req, res) => {
     let productFound;
 
-    Producto.findByPk(req.params.id).then((resultado) => {
-      productFound = resultado;
-    });
-
-    res.render("detalle", { productFound });
+    Producto.findByPk(req.params.id)
+      .then((result) => (productFound = result))
+      .then((result) => res.render("detalle", { productFound }))
+      .catch((e) => res.send(e));
   },
 
   nuevoProducto: (req, res) => {
@@ -39,18 +35,17 @@ let controlador = {
       imagen: req.file.filename,
       marca_id: req.body.marca,
       descripcion: req.body.descripcion,
-    });
+    })
+      .then((result) => res.redirect("/"))
+      .catch((e) => res.send(e));
   },
+
   renderizarEditarProducto: (req, res) => {
     let idProduct = req.params.id;
 
-    let product;
-
-    Producto.findByPk(idProduct).then((resultado) => {
-      product = resultado;
-    });
-
-    res.render("editar-producto", { product });
+    Producto.findByPk(idProduct)
+      .then((result) => res.render("editar-producto", { result }))
+      .catch((e) => res.send(e));
   },
 
   editar: (req, res) => {
@@ -69,9 +64,9 @@ let controlador = {
           id: idProduct,
         },
       }
-    );
-
-    res.redirect("/");
+    )
+      .then((result) => res.redirect("/"))
+      .then((e) => res.send(e));
   },
 
   borrar: (req, res) => {
@@ -79,12 +74,10 @@ let controlador = {
       where: {
         id: req.params.id,
       },
-    });
-
-    res.redirect("/");
+    })
+      .then((result) => res.redirect("/"))
+      .then((e) => res.send(e));
   },
 };
 
-module.exports = controlador;
-
-
+module.exports = controller;

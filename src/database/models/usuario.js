@@ -1,4 +1,5 @@
-const { BelongsTo } = require("sequelize");
+const models = require("../models");
+const { belongsTo } = require("sequelize");
 
 function usersData(sequelize, DataTypes) {
   let alias = "usuario";
@@ -42,10 +43,6 @@ function usersData(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       allowNull: true,
     },
-    superadmin: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true,
-    },
     local_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -56,19 +53,19 @@ function usersData(sequelize, DataTypes) {
 
   const User = sequelize.define(alias, cols, config);
 
-  User.associate = function (modelos) {
-    User.belongsTo(modelos.local, {
+  User.associate = function (models) {
+    User.belongsTo(models.Local, {
       as: "local",
       foreignKey: "local_id",
     });
 
-    User.associate = function (modelos) {
-      User.hasmany(modelos.venta, {
+    User.associate = function (models) {
+      User.hasmany(models.Venta, {
         as: "ventas",
-        foreignKey: "Usuario_id",
+        foreignKey: "usuario_id",
       });
-      User.associate = function (modelos) {
-        User.hasmany(modelos.producto, {
+      User.associate = function (models) {
+        User.hasmany(models.Producto, {
           as: "producto",
           foreignKey: "admin_id",
         });

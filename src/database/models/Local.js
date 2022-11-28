@@ -27,7 +27,7 @@ function localData(sequelize, DataTypes){
     const Local= sequelize.define(alias, cols, cfg);
 
     Local.associate= function(modelos){
-        Local.HasMany(modelos.usuario, {
+        Local.HasMany(modelos.Usuario, {
             as: "usuarios",
             foreignKey: "local_id"
         })

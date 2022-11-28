@@ -1,16 +1,12 @@
-const Producto = require("../database/models/Producto");
+const db = require("../database/models");
 
 let controller = {
   home: (req, res) => {
-    let productos;
-
-    Producto.findAll().then((result) => {
-      productos = result;
-    })
-    .catch(err=>console.log(err))
-    
-
-    res.render("home", { productos });
+    db.Producto.findAll()
+      .then((result) => {
+        res.render("home", { result });
+      })
+      .catch((err) => console.log(err));
   },
 };
 

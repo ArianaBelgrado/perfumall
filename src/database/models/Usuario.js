@@ -59,12 +59,12 @@ function usersData(sequelize, DataTypes) {
     });
 
     User.associate = function (models) {
-      User.hasmany(models.Venta, {
+      User.hasMany(models.Venta, {
         as: "ventas",
         foreignKey: "usuario_id",
       });
       User.associate = function (models) {
-        User.hasmany(models.Producto, {
+        User.hasMany(models.Producto, {
           as: "producto",
           foreignKey: "admin_id",
         });

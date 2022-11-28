@@ -8,23 +8,16 @@ let router = express.Router();
 
 /*** CREATE PERFIL ***/
 router.get("/create", guestMiddleware, usuarioController.create);
-router.post(
-  "/create",
-  uploadFile.single("imagenPerfil"),
-  validations,
-  usuarioController.store
-);
+router.post("/create", uploadFile.single("imagenPerfil"), validations, usuarioController.store);
 
 // // /*** EDIT ONE USUARIO ***/
-router.get("/change/:id", usuarioController.change);
-router.put("/change/:id", usuarioController.change);
+router.get("/change/:id", usuarioController.renderizarEditarPerfil);
+router.post("/editar", usuarioController.editUser);
 
-// // /*** DELETE ONE USUARIO***/
-// router.delete('/delete/:id', usuarioController.destroy);
+// Perfil
 
-// // /*** EDIT ONE USUARIO  ***/
-router.get("/change/:id", usuarioController.change);
-router.put("/change/:id", usuarioController.change);
+router.get("/profile", usuarioController.renderizarPerfil);
+router.get("/logout", usuarioController.logout);
 
 // LOG IN
 
@@ -32,15 +25,6 @@ router.get("/login", usuarioController.login);
 
 // PROCESAR EL LOGIN
 router.post("/login", usuarioController.loginProcess);
-
-// Perfil
-
-router.get("/profile", usuarioController.profile);
-router.get("/logout", usuarioController.logout);
-
-// EDITAR PERFIL
-
-router.get("/editar", usuarioController.editar);
 
 //BORRAR PERFIL
 router.delete("/borrar/:id", usuarioController.borrar);

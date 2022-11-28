@@ -20,33 +20,37 @@
     <main>
       <h1>EDITA TU PERFIL</h1>
       <div class="container-editar">
-        <form action="/usuario/editar/?_method=PUT" method="POST"  class="row g-3">
+        <form action="/usuario/editar/?_method=PUT" method="POST"  class="row g-3" enctype="multipart/form-data">
           <div class="col-md-4"><br>
-            <label for="validationDefault01" class="form-label">Cambiar Nombre</label>
+            <label for="imagenPerfil" class="form-label">Cambiar imagen de perfil</label>
+            <input type="file" class="form-control" name="imagenPerfil" id="validationDefault01"  required>
+          </div>
+          <div class="col-md-4"><br>
+            <label for="nombre" class="form-label">Cambiar Nombre</label>
             <input type="text" class="form-control" name="nombre" id="validationDefault01" placeholder="Ingrese nombre" required>
           </div>
           <div class="col-md-4">
-            <label for="validationDefault02" class="form-label">Cambiar Apellido</label>
+            <label for="apellido" class="form-label">Cambiar Apellido</label>
             <input type="text" class="form-control" name="apellido" id="validationDefault02" placeholder="Ingrese Apellido" required>
           </div>
           <div class="col-md-4">
-            <label for="validationDefault02" class="form-label">Cambiar Mail</label>
-            <input type="Mail" class="form-control" name="mail" id="validationDefault02" placeholder="Ingrese Mail" required>
+            <label for="mail" class="form-label">Cambiar Mail</label>
+            <input type="email" class="form-control" name="mail" id="validationDefault02" placeholder="Ingrese Mail" required>
           </div>
           <div class="col-md-6">
-            <label for="validationDefault03" class="form-label">Cambiar Ciudad</label>
+            <label for="ciudad" class="form-label">Cambiar Ciudad</label>
             <input type="text" class="form-control" name="ciudad" id="validationDefault03" placeholder="Ingrese Ciudad" required>
           </div>
           <div class="col-md-3">
-            <label for="validationDefault04" class="form-label">Cambiar Provincia</label>
+            <label for="provincia" class="form-label">Cambiar Provincia</label>
             <select class="form-select" name="provincia" id="validationDefault04" required>
               <option selected disabled value="">Elegí...</option>
               <option>...</option>
             </select>
           </div>
           <div class="col-md-3">
-            <label for="validationDefault05" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" name="contra" placeholder="Ingrese Contraseña" id="validationDefault05" required>
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" name="password" placeholder="Ingrese Contraseña" id="validationDefault05" required>
           </div>
           <div class="col-12">
             <div class="form-check">

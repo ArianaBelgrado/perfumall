@@ -2,10 +2,10 @@ const db = require("../database/models");
 
 let controller = {
   home: (req, res) => {
-    db.User.findAll()
+    db.Producto.findAll()
       .then((result) => {
-        //res.render("home", { productos: result });
-        console.log(result);
+        res.render("home", { productos: result });
+        
       })
       .catch((err) => console.log(err));
   },

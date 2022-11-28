@@ -1,4 +1,3 @@
-
 module.exports = function (sequelize, DataTypes) {
   const alias = "Detalle_venta";
   const cols = {
@@ -8,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
       autoIncrement: true,
     },
     fecha: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.DATE,
       allowNull: false,
     },
     direccion_destino: {
@@ -22,6 +21,9 @@ module.exports = function (sequelize, DataTypes) {
     retiro: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
+    },
+    monto_total: {
+      type: DataTypes.INTEGER,
     },
   };
   const config = {

@@ -5,12 +5,12 @@ function ventaData(sequelize, DataTypes) {
 
   let columns = {
     id: {
-      type: DataTypes.INTEGER(10).UNSIGNED,
+      type: DataTypes.INTEGER.UNSIGNED,
       primaryKey: true,
       autoIncrement: true,
     },
     monto_unitario: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.DOUBLE,
       allowNull: false,
     },
     cantidad: {
@@ -31,12 +31,12 @@ function ventaData(sequelize, DataTypes) {
     },
   };
 
-  let config = { camelCase: false, timestamps: false };
+  let config = { camelCase: false, timestamps: false, tableName: "venta" };
 
   const Venta = sequelize.define(alias, columns, config);
 
   Venta.associate = function (models) {
-    Venta.belongsTo(models.Usuario, {
+    Venta.belongsTo(models.User, {
       as: "usuarios",
       foreignKey: "usuario_id",
     });

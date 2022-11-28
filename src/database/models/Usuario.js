@@ -1,8 +1,5 @@
-
-
-function usersData(sequelize, DataTypes) {
-  let alias = "Usuario";
-
+module.exports = function (sequelize, DataTypes) {
+  let alias = "User";
   let cols = {
     id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
@@ -48,9 +45,9 @@ function usersData(sequelize, DataTypes) {
     },
   };
 
-  let config = { camelCase: false, timestamps: false };
+  let config = { camelCase: false, timestamps: false, tableName: "usuario" };
 
-  const User = sequelize.define(alias, cols, config);
+  let User = sequelize.define(alias, cols, config);
 
   User.associate = function (models) {
     User.belongsTo(models.Local, {
@@ -72,6 +69,4 @@ function usersData(sequelize, DataTypes) {
     };
   };
   return User;
-}
-
-module.exports = usersData;
+};

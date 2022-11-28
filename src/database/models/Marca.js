@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes){
 
     Marca.associate = (models) => {
 
-        Marca.belongsTo(models.producto, {
+        Marca.belongsTo(models.Producto, {
             as: 'producto',
             foreignKey: 'marca_id'
         })

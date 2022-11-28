@@ -1,6 +1,6 @@
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
-const User = require("../database/models/Usuario.js");
+const db = require("../database/models");
 
 const controlador = {
   login: (req, res) => {
@@ -8,13 +8,19 @@ const controlador = {
   },
 
   loginProcess: (req, res) => {
-    let userToLogin = User.findOne({
-      where: {
-        email: req.body.email,
-      },
-    }).then((result) => (userToLogin = result));
+    db.User.findAll()
+      .then((result) => console.log(result))
+      .catch((err) => console.log({ Error: err }));
 
-    if (userToLogin) {
+    /* db.User.findOne({
+      where: {
+        email: req.body.mail,
+      },
+    })
+      .then((result) => console.log(result))
+      .catch((err) => console.log(err)); */
+
+    /*  if (userToLogin) {
       let passwordOk = bcryptjs.compareSync(req.body.password, userToLogin.password);
 
       if (passwordOk) {
@@ -38,7 +44,7 @@ const controlador = {
           msg: "No se encuentra registrado este email",
         },
       },
-    });
+    }); */
   },
 
   profile: (req, res) => {
@@ -67,30 +73,36 @@ const controlador = {
         errors: resultValidation.mapped(),
         oldData: req.body,
       });
+    } else {
+      db.User.findOne({
+        where: {
+          email: req.body.mail,
+        },
+      })
+        .then((result) => {
+          if (result) {
+            return res.render("crear", {
+              errors: { mail: { msg: "Este mail ya fue registrado" } },
+              oldData: req.body,
+            });
+          }
+        })
+        .then((result) => {
+          db.User.create({
+            nombre: req.body.nombre,
+            apellido: req.body.apellido,
+            email: req.body.mail,
+            password: bcryptjs.hashSync(req.body.password, 10),
+            ciudad: req.body.ciudad,
+            provincia: req.body.provincia,
+            imagenPerfil: req.file.filename,
+          });
+        })
+        .then((result) => {
+          res.redirect("/usuario/login");
+        })
+        .catch((err) => console.log(err));
     }
-    let userInDB = User.findOne({
-      where: {
-        email: req.body.mail,
-      },
-    }).then((result) => (userInDB = result));
-    if (userInDB) {
-      return res.render("crear", {
-        errors: { mail: { msg: "Este mail ya fue registrado" } },
-        oldData: req.body,
-      });
-    }
-
-    User.create({
-      nombre: req.body.nombre,
-      apellido: req.body.apellido,
-      email: req.body.mail,
-      password: bcryptjs.hashSync(req.body.password, 10),
-      ciudad: req.body.ciudad,
-      provincia: req.body.provincia,
-      imagenPerfil: req.file.filename,
-    });
-
-    return res.redirect("/usuario/loginss");
   },
 
   change: (req, res) => {

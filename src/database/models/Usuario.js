@@ -1,8 +1,7 @@
-const models = require("../models");
-const { belongsTo } = require("sequelize");
+
 
 function usersData(sequelize, DataTypes) {
-  let alias = "usuario";
+  let alias = "Usuario";
 
   let cols = {
     id: {

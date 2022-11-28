@@ -1,12 +1,17 @@
+require('dotenv').config();
 module.exports={
   "development": {
-    "username":process.env.DB_USER,
-    "password": process.env.DB_PASS,
-    "database": process.env.DB_NAME,
-    "host": process.env.DB_HOST,
-    "port": process.env.DB_PORT,
-    "dialect": "mysql",
-    "operatorsAliases":0
+    // "username":process.env.DB_USER,
+    // "password": process.env.DB_PASS,
+    // "database": process.env.DB_NAME,
+    // "host": process.env.DB_HOST,
+    // "port": process.env.DB_PORT,
+    "username":"grupo7",
+    "password": "Perfumall7",
+    "database": "grupo7_db",
+    "host":"mysql-grupo7.alwaysdata.net",
+    "dialect": "mysql"
+  
   },
   "test": {
     "username": "root",

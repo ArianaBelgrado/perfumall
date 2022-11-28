@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes){
-    const alias = "marca"
+    const alias = "Marca"
     const cols = {
         id: {
             type: DataTypes.INTEGER(10).UNSIGNED,
@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes){
 
         Marca.belongsTo(models.producto, {
             as: 'producto',
-            foreignKey: 'Marca_id'
+            foreignKey: 'marca_id'
         })
 
     }

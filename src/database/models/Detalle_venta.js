@@ -1,7 +1,6 @@
-const models = require("../models");
 
 module.exports = function (sequelize, DataTypes) {
-  const alias = "detalle_venta";
+  const alias = "Detalle_venta";
   const cols = {
     id: {
       type: DataTypes.INTEGER(10).UNSIGNED,
@@ -32,9 +31,9 @@ module.exports = function (sequelize, DataTypes) {
   const Detalle_venta = sequelize.define(alias, cols, config);
 
   Detalle_venta.associate = (models) => {
-    Detalle_venta.hasMany(models.venta, {
+    Detalle_venta.hasMany(models.Venta, {
       as: "venta",
-      foreignKey: "Detalle_venta_id",
+      foreignKey: "detalle_venta_id",
     });
   };
 

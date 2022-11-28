@@ -1,7 +1,7 @@
-const models = require("../models");
+
 
 function ventaData(sequelize, DataTypes) {
-  let alias = "venta";
+  let alias = "Venta";
 
   let columns = {
     id: {

@@ -1,9 +1,7 @@
-const { HasMany } = require("sequelize");
-
 function localData(sequelize, DataTypes){
-    let l = "local";
+    let alias = "Local";
 
-    let co = {
+    let cols = {
         id: {
             type: DataTypes.INTEGER(10).UNSIGNED,
             primaryKey: true,
@@ -26,12 +24,12 @@ function localData(sequelize, DataTypes){
 
     let cfg= {camelCase: false, timestamps: false};
 
-    const Local= sequelize.define(l, co, cfg);
+    const Local= sequelize.define(alias, cols, cfg);
 
     Local.associate= function(modelos){
         Local.HasMany(modelos.usuario, {
             as: "usuarios",
-            foreignKey: "Local_id"
+            foreignKey: "local_id"
         })
     }
 

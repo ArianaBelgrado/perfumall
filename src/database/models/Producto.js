@@ -1,7 +1,5 @@
-const models = require("../models");
-
 module.exports = function (sequelize, DataTypes) {
-  const alias = "producto";
+  const alias = "Producto";
   const cols = {
     id: {
       type: DataTypes.INTEGER(10).UNSIGNED,

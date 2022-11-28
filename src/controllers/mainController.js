@@ -6,7 +6,9 @@ let controller = {
 
     Producto.findAll().then((result) => {
       productos = result;
-    });
+    })
+    .catch(err=>console.log(err))
+    
 
     res.render("home", { productos });
   },

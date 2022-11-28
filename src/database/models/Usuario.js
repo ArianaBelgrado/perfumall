@@ -2,9 +2,10 @@ module.exports = function (sequelize, DataTypes) {
   let alias = "User";
   let cols = {
     id: {
-      type: DataTypes.INTEGER(10).UNSIGNED,
+      type: DataTypes.INTEGER(10),
       primaryKey: true,
       autoIncrement: true,
+      
     },
     nombre: {
       type: DataTypes.STRING(100),
@@ -19,7 +20,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
     },
     password: {
-      type: DataTypes.STRING(100),
+      type: DataTypes.STRING,
       allowNull: false,
     },
     imagenPerfil: {
@@ -41,7 +42,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     local_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
   };
 

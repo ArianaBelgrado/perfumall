@@ -1,6 +1,7 @@
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const db = require("../database/models");
+const  DataTypes  = require("sequelize");
 
 const controlador = {
   login: (req, res) => {
@@ -66,7 +67,17 @@ const controlador = {
   },
 
   store: (req, res) => {
-    const resultValidation = validationResult(req);
+    db.User.create({
+      nombre: req.body.nombre,
+      apellido: req.body.apellido,
+      email: req.body.mail,
+      password: bcryptjs.hashSync(req.body.password, 10),
+      ciudad: req.body.ciudad,
+      provincia: req.body.provincia,
+      imagenPerfil: req.file.filename,
+    }).then((r) => console.log(r));
+
+    /* const resultValidation = validationResult(req);
 
     if (resultValidation.errors.length > 0) {
       res.render("crear", {
@@ -102,7 +113,7 @@ const controlador = {
           res.redirect("/usuario/login");
         })
         .catch((err) => console.log(err));
-    }
+    } */
   },
 
   change: (req, res) => {

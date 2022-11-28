@@ -90,7 +90,7 @@ const controlador = {
       imagenPerfil: req.file.filename,
     });
 
-    return res.redirect("/usuario/login");
+    return res.redirect("/usuario/loginss");
   },
 
   change: (req, res) => {

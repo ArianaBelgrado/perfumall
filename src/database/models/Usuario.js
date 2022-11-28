@@ -28,11 +28,11 @@ module.exports = function (sequelize, DataTypes) {
     },
     ciudad: {
       type: DataTypes.STRING(100),
-      allowNull: false,
+      allowNull: true,
     },
     provincia: {
       type: DataTypes.STRING(100),
-      allowNull: false,
+      allowNull: true,
     },
 
     admin: {
@@ -40,7 +40,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: true,
     },
     local_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER(10),
       allowNull: true,
     },
   };

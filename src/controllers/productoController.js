@@ -31,7 +31,7 @@ let controller = {
       precio: req.body.precio,
       fecha_creacion: req.body,
       fecha_baja: req.body,
-      imagen: req.file.filename,
+      //imagen: req.file.filename,
       marca_id: req.body.marca,
       descripcion: req.body.descripcion,
     })

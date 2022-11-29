@@ -116,11 +116,19 @@ const controlador = {
     },
 
     borrar: (req, res) => {
+        id = req.params.id;
         db.User.destroy({
             where: {
-                id: req.params.id,
+                id:id,
             },
-        }).then((result) => res.redirect("/"));
+        }).then(function(result){
+            if (result){
+                res.redirect ("/usuario/logout")
+            }
+            else {
+                res.render("Tu cuenta fue borrada!")
+            }
+        });
     },
 };
 module.exports = controlador;

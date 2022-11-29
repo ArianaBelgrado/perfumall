@@ -109,3 +109,10 @@ header h1 {
 .btn-primary {
   margin-left: 22.5%;
 }
+
+.img-container img{
+  width: 400px;
+  height: 400px;
+  border-radius: 20px;
+}
+

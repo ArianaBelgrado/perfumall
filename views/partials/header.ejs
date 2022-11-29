@@ -39,9 +39,15 @@
                                 <li>
                                     <a class="dropdown-item" href="/usuario/create">Crear Cuenta</a>
                                 </li>
-                                <li>
-                                    <a class="dropdown-item" href="/usuario/editar">Modificar perfil</a>
-                                </li>
+
+                                <% if (locals.isLogged) { %>
+                                    <li>
+                                        <a class="dropdown-item" href="/usuario/change">Modificar perfil</a>
+                                    </li>
+
+
+                                <% } %>
+                               
                                 <li>
                                     <hr class="dropdown-divider" />
                                 </li>

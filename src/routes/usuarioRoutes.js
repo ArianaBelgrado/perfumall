@@ -11,8 +11,8 @@ router.get("/create", guestMiddleware, usuarioController.create);
 router.post("/create", uploadFile.single("imagenPerfil"), validations, usuarioController.store);
 
 // // /*** EDIT ONE USUARIO ***/
-router.get("/change/:id", usuarioController.renderizarEditarPerfil);
-router.post("/editar", usuarioController.editUser);
+router.get("/change", usuarioController.renderizarEditarPerfil);
+router.put("/change", uploadFile.single("imagenPerfil"), usuarioController.editUser);
 
 // Perfil
 

@@ -84,14 +84,15 @@ const controlador = {
                         ciudad: req.body.ciudad,
                         provincia: req.body.provincia,
                         imagenPerfil: req.file.filename,
-                    })
+                    });
                 }
             })
             .then((result) => {
                 if (result) {
-                     res.redirect("/");
+                    res.redirect("/");
                 }
-            }).catch((err) => console.log(err));
+            })
+            .catch((err) => console.log(err));
     },
 
     renderizarPerfil: (req, res) => {
@@ -103,30 +104,44 @@ const controlador = {
     },
 
     editUser: (req, res) => {
-        db.User.update(req.params.id, {
-            nombre: req.body.nombre,
-            apellido: req.body.apellido,
-            email: req.body.email,
-            password: bcryptjs.hashSync(req.body.password, 10),
-            imagenPerfil: req.file.filename,
-            ciudad: req.body.ciudad,
-            provincia: req.body.provincia,
-            local_id: req.body.local_id,
-        }).then((result) => res.redirect("/usuario/profile"));
+        db.User.update(
+            {
+                nombre: req.body.nombre,
+                apellido: req.body.apellido,
+                email: req.body.email,
+                // password: bcryptjs.hashSync(req.body.password, 10),
+                imagenPerfil: req.file.filename,
+                ciudad: req.body.ciudad,
+                provincia: req.body.provincia,
+                //  local_id: req.body.local_id,
+            },
+            { where: { id: req.session.userLogged.id } }
+        )
+            .then((result) => {
+                console.log(result);
+                req.session.reload = result;
+                /*
+                if (result) {
+                   return  res.redirect("/usuario/profile");
+                } else {
+                  return  res.send("Error!");
+                }
+                */
+            })
+            .catch((err) => console.log(err));
     },
 
     borrar: (req, res) => {
         id = req.params.id;
         db.User.destroy({
             where: {
-                id:id,
+                id: id,
             },
-        }).then(function(result){
-            if (result){
-                res.redirect ("/usuario/logout")
-            }
-            else {
-                res.render("Tu cuenta fue borrada!")
+        }).then(function (result) {
+            if (result) {
+                res.redirect("/usuario/logout");
+            } else {
+                res.send("Tu cuenta fue borrada!");
             }
         });
     },

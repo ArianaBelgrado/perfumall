@@ -1,4 +1,4 @@
-const Producto = require("../database/models/Producto");
+const asd = require("../database/models");
 
 let controller = {
   carrito: (req, res) => {
@@ -8,15 +8,15 @@ let controller = {
   home: (req, res) => {
     let productos;
 
-    Producto.findAll()
+    asd.Producto.findAll()
       .then((result) => (productos = result))
-      .then((result) => res.render("home", { productos }));
+      .then((productos) => res.render("home", { productos }));
   },
 
   detalle: (req, res) => {
     let productFound;
 
-    Producto.findByPk(req.params.id)
+    asd.Producto.findByPk(req.params.id)
       .then((result) => (productFound = result))
       .then((result) => res.render("detalle", { productFound }))
       .catch((e) => res.send(e));
@@ -26,7 +26,7 @@ let controller = {
   },
 
   store: (req, res) => {
-    Producto.create({
+    asd.Producto.create({
       nombre: req.body.nombre,
       precio: req.body.precio,
       fecha_creacion: req.body,
@@ -42,7 +42,7 @@ let controller = {
   renderizarEditarProducto: (req, res) => {
     let idProduct = req.params.id;
 
-    Producto.findByPk(idProduct)
+    asd.Producto.findByPk(idProduct)
       .then((result) => res.render("editar-producto", { result }))
       .catch((e) => res.send(e));
   },
@@ -50,7 +50,7 @@ let controller = {
   editar: (req, res) => {
     let idProduct = req.params.id;
 
-    Producto.update(
+    asd.Producto.update(
       {
         nombre: req.body.nombre,
         precio: req.body.precio,
@@ -69,7 +69,7 @@ let controller = {
   },
 
   borrar: (req, res) => {
-    Producto.destroy({
+    asd.Producto.destroy({
       where: {
         id: req.params.id,
       },

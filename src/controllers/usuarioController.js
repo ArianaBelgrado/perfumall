@@ -58,7 +58,7 @@ const controlador = {
         let resultValidation = validationResult(req);
 
         if (resultValidation.errors.length > 0) {
-            res.render("crear", {
+            res.redirect("/usuario/login", "/usuario/login", {
                 errors: resultValidation.mapped(),
                 oldData: req.body,
             });
@@ -84,14 +84,14 @@ const controlador = {
                         ciudad: req.body.ciudad,
                         provincia: req.body.provincia,
                         imagenPerfil: req.file.filename,
-                    }).catch((err) => console.log(err));
+                    })
                 }
             })
             .then((result) => {
                 if (result) {
-                     res.redirect("usuarios/login");
+                     res.redirect("/");
                 }
-            });
+            }).catch((err) => console.log(err));
     },
 
     renderizarPerfil: (req, res) => {

@@ -21,7 +21,6 @@ let controller = {
       .then((result) => res.render("detalle", { productFound }))
       .catch((e) => res.send(e));
   },
-
   nuevoProducto: (req, res) => {
     res.render("crear-producto");
   },

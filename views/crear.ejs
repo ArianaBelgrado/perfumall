@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="../css/log-in.css" rel="stylesheet" type="text/css" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Roboto&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-            crossorigin="anonymous"
-        />
-        <title>Registrarse</title>
-    </head>
-    <body>
-        <br />
-        <%- include('./partials/header') %>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../css/log-in.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Roboto&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+    <title>Registrarse</title>
+</head>
+
+<body>
+    <br />
+    <%- include('./partials/header') %>
         <main>
             <div class="container-signin">
                 <br />
@@ -27,63 +23,48 @@
                     <h1 class="regristrate">¡REGRISTRATE!</h1>
                     <div class="col-md-4">
                         <label for="nombre" class="form-label">Nombre</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="nombre"
-                            id="nombre"
-                            placeholder="Ingrese nombre"
+                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese nombre"
                             class="<%=locals.errors && errors.nombre?'is-invalid':null%>"
-                            value="<%=locals.oldData?oldData.nombre:null%>"
-                        />
+                            value="<%=locals.oldData?oldData.nombre:null%>" />
                         <% if (locals.errors && errors.nombre) { %>
-                        <div class="text-danger"><%= errors.nombre.msg %></div>
-                        <% } %>
+                            <div class="text-danger">
+                                <%= errors.nombre.msg %>
+                            </div>
+                            <% } %>
                     </div>
                     <div class="col-md-4">
                         <label for="apellido" class="form-label">Apellido</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="apellido"
-                            id="apellido"
+                        <input type="text" class="form-control" name="apellido" id="apellido"
                             placeholder="Ingrese Apellido"
                             class="<%=locals.errors && errors.apellido ? 'is-invalid' : null %>"
-                            value="<%=locals.oldData ? oldData.apellido:null%>"
-                        />
+                            value="<%=locals.oldData ? oldData.apellido:null%>" />
                         <% if (locals.errors && errors.apellido) { %>
-                        <div class="text-danger"><%= errors.apellido.msg %></div>
-                        <% } %>
+                            <div class="text-danger">
+                                <%= errors.apellido.msg %>
+                            </div>
+                            <% } %>
                     </div>
                     <div class="col-md-4">
                         <label for="email" class="form-label">Mail</label>
-                        <input
-                            type="email"
-                            class="form-control"
-                            name="email"
-                            id="email"
-                            placeholder="Ingrese Mail"
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Ingrese Mail"
                             class="<%= locals.errors && errors.email ? 'is-invalid' : null %>"
-                            value="<%= locals.oldData ? oldData.email : null %>"
-                        />
+                            value="<%= locals.oldData ? oldData.email : null %>" />
                         <% if (locals.errors && errors.email) { %>
-                        <div class="text-danger"><%= errors.email.msg %></div>
-                        <% } %>
+                            <div class="text-danger">
+                                <%= errors.email.msg %>
+                            </div>
+                            <% } %>
                     </div>
                     <div class="col-md-4">
                         <label for="ciudad" class="form-label">Ciudad</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="ciudad"
-                            id="ciudad"
-                            placeholder="Ingrese Ciudad"
+                        <input type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Ingrese Ciudad"
                             class="<%= locals.errors && errors.ciudad ? 'is-invalid' : null %>"
-                            value="<%= locals.oldData ? oldData.ciudad: null %>"
-                        />
+                            value="<%= locals.oldData ? oldData.ciudad: null %>" />
                         <% if (locals.errors && errors.ciudad) { %>
-                          <div class="text-danger"><%= errors.ciudad.msg %></div>
-                          <% } %>
+                            <div class="text-danger">
+                                <%= errors.ciudad.msg %>
+                            </div>
+                            <% } %>
                     </div>
                     <div class="col-md-4">
                         <label for="provincia" class="form-label">Provincia</label>
@@ -94,48 +75,45 @@
                     </div>
                     <div class="col-md-4">
                         <label for="password" class="form-label">Contraseña</label>
-                        <input
-                            type="password"
-                            class="form-control"
-                            name="password"
-                            placeholder="Ingrese Contraseña"
-                            id="password"
-                            class="<%= locals.errors && errors.password ? 'is-invalid' : null %>"
-                        />
+                        <input type="password" class="form-control" name="password" placeholder="Ingrese Contraseña"
+                            id="password" class="<%= locals.errors && errors.password ? 'is-invalid' : null %>" />
                         <% if (locals.errors && errors.password) { %>
-                        <div class="text-danger"><%= errors.password.msg %></div>
-                        <% } %>
+                            <div class="text-danger">
+                                <%= errors.password.msg %>
+                            </div>
+                            <% } %>
                     </div>
                     <div class="col-md-4">
                         <label for="imagenPerfil">Imagen de Perfil</label>
                         <input type="file" class="form-control" name="imagenPerfil" />
                         <% if (locals.errors && errors.imagenPerfil) { %>
-                        <div class="text-danger"><%= errors.imagenPerfil.msg %></div>
-                        <% } %>
+                            <div class="text-danger">
+                                <%= errors.imagenPerfil.msg %>
+                            </div>
+                            <% } %>
                     </div>
                     <div class="col-md-4 mt-3">
                         <div class="form-check col-md-6">
                             <label class="form-check-label" for="terminos">
                                 Acepto los términos y condiciones
                             </label>
-                            <input class="form-check-input" type="checkbox" value="" id="terminos" required/>
+                            <input class="form-check-input" type="checkbox" value="" id="terminos" required />
                         </div>
                     </div>
                     <div class="col-md-4">
-                      <button class="btn btn-primary" type="submit">Registrarse</button>
-                  </div>
-
+                        <button class="btn btn-primary" type="submit">Registrarse</button>
                     </div>
 
-                    
-                </form>
+            </div>
+
+
+            </form>
             </div>
         </main>
         <%- include('./partials/footer') %>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-            crossorigin="anonymous"
-        ></script>
-    </body>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+                crossorigin="anonymous"></script>
+</body>
+
 </html>

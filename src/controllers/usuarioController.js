@@ -63,33 +63,35 @@ const controlador = {
                 oldData: req.body,
             });
         }
+
         db.User.findOne({
             where: {
                 email: req.body.email,
             },
-        }).then((result) => {
-            if (result) {
-                return res.render("crear", {
-                    errors: { email: { msg: "Este mail ya fue registrado" } },
-                    oldData: req.body,
-                });
-            } else {
-                db.User.create({
-                    nombre: req.body.nombre,
-                    apellido: req.body.apellido,
-                    email: req.body.email,
-                    password: bcryptjs.hashSync(req.body.password, 10),
-                    ciudad: req.body.ciudad,
-                    provincia: req.body.provincia,
-                    imagenPerfil: req.file.filename,
-                })
-
-                    .then((result) => {
-                        res.redirect("/usuario/login");
-                    })
-                    .catch((err) => console.log(err));
-            }
-        });
+        })
+            .then((result) => {
+                if (result) {
+                    res.render("crear", {
+                        errors: { email: { msg: "Este mail ya fue registrado" } },
+                        oldData: req.body,
+                    });
+                } else {
+                    db.User.create({
+                        nombre: req.body.nombre,
+                        apellido: req.body.apellido,
+                        email: req.body.email,
+                        password: bcryptjs.hashSync(req.body.password, 10),
+                        ciudad: req.body.ciudad,
+                        provincia: req.body.provincia,
+                        imagenPerfil: req.file.filename,
+                    }).catch((err) => console.log(err));
+                }
+            })
+            .then((result) => {
+                if (result) {
+                     res.redirect("usuarios/login");
+                }
+            });
     },
 
     renderizarPerfil: (req, res) => {

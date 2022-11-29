@@ -40,20 +40,21 @@ module.exports = function (sequelize, DataTypes) {
         },
     };
 
-      const config = {
-         tableName: "producto",
-         timestamps: false,
+    const config = {
+        tableName: "producto",
+        timestamps: false,
+        camel_case: false,
     };
 
     const Producto = sequelize.define(alias, cols, config);
 
     Producto.associate = (models) => {
-         Producto.belongsTo(models.Marca),
+        Producto.belongsTo(models.Marca),
             {
-    //            as: "marca",
-                 foreignKey: "marca_id",
+                as: "marca",
+                foreignKey: "marca_id",
             };
-     };
+    };
     Producto.associate = (models) => {
         Producto.belongsTo(models.Usuario),
             {
@@ -62,7 +63,7 @@ module.exports = function (sequelize, DataTypes) {
             };
     };
     Producto.associate = (models) => {
-        Producto.belongsTo(models.Venta),
+        Producto.hasMany(models.Venta),
             {
                 as: "venta",
                 foreignKey: "producto_id",

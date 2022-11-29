@@ -118,8 +118,11 @@ const controlador = {
             { where: { id: req.session.userLogged.id } }
         )
             .then((result) => {
+               return req.session.reload(function (err) {
+                    req.session.userLogged = result;
+                });
                 console.log(result);
-                req.session.reload = result;
+
                 /*
                 if (result) {
                    return  res.redirect("/usuario/profile");

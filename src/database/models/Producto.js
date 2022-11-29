@@ -2,7 +2,7 @@ module.exports = function (sequelize, DataTypes) {
     const alias = "Producto";
     const cols = {
         id: {
-            type: DataTypes.INTEGER(10).UNSIGNED,
+            type: DataTypes.INTEGER.UNSIGNED,
             primaryKey: true,
             autoIncrement: true,
         },
@@ -40,20 +40,20 @@ module.exports = function (sequelize, DataTypes) {
         },
     };
 
-    const config = {
-        tableName: "producto",
-        timestamps: false,
+      const config = {
+         tableName: "producto",
+         timestamps: false,
     };
 
     const Producto = sequelize.define(alias, cols, config);
 
     Producto.associate = (models) => {
-        Producto.belongsTo(models.Marca),
+         Producto.belongsTo(models.Marca),
             {
-                as: "marca",
-                foreignKey: "marca_id",
+    //            as: "marca",
+                 foreignKey: "marca_id",
             };
-    };
+     };
     Producto.associate = (models) => {
         Producto.belongsTo(models.Usuario),
             {

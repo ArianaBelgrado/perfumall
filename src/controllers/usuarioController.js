@@ -117,21 +117,13 @@ const controlador = {
             },
             { where: { id: req.session.userLogged.id } }
         )
-            .then((result) => {
-               return req.session.reload(function (err) {
-                    req.session.userLogged = result;
-                });
-                console.log(result);
-
-                /*
-                if (result) {
-                   return  res.redirect("/usuario/profile");
-                } else {
-                  return  res.send("Error!");
-                }
-                */
-            })
-            .catch((err) => console.log(err));
+            .then(function (result) {
+            if (result) {
+                res.redirect("/usuario/Profile");
+            } else {
+                res.send("Tu cuenta fue editada!");
+            }
+        });
     },
 
     borrar: (req, res) => {

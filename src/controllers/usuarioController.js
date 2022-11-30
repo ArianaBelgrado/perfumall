@@ -116,10 +116,10 @@ const controlador = {
                 //  local_id: req.body.local_id,
             },
             { where: { id: req.session.userLogged.id } }
-        )
-            .then(function (result) {
+        ).then(function (result) {
             if (result) {
-                res.redirect("/usuario/Profile");
+                req.session.userLogged=result;
+                res.redirect("/usuario/profile");
             } else {
                 res.send("Tu cuenta fue editada!");
             }

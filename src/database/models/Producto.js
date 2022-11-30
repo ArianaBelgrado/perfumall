@@ -8,35 +8,35 @@ module.exports = function (sequelize, DataTypes) {
         },
         nombre: {
             type: DataTypes.STRING(100),
-            allowNull: false,
+            allowNull: true,
         },
         precio: {
             type: DataTypes.MEDIUMINT(500000),
-            allowNull: false,
+            allowNull: true,
         },
         fecha_creacion: {
             type: DataTypes.DATEONLY,
-            allowNull: false,
+            allowNull: true,
         },
         fecha_baja: {
             type: DataTypes.DATEONLY,
             allowNull: true,
         },
         imagen: {
-            type: DataTypes.STRING(100),
-            allowNull: false,
+            type: DataTypes.STRING(300),
+            allowNull: true,
         },
         admin_id: {
             type: DataTypes.INTEGER(10),
-            allowNull: false,
+            allowNull: true,
         },
         marca_id: {
             type: DataTypes.INTEGER(10),
-            allowNull: false,
+            allowNull: true,
         },
         descripcion: {
             type: DataTypes.TEXT,
-            allowNull: false,
+            allowNull: true,
         },
     };
 
@@ -50,24 +50,24 @@ module.exports = function (sequelize, DataTypes) {
 
     Producto.associate = (models) => {
         Producto.belongsTo(models.Marca),
-            {
-                as: "marca",
-                foreignKey: "marca_id",
-            };
+        {
+            as: "marca",
+            foreignKey: "marca_id",
+        };
     };
     Producto.associate = (models) => {
         Producto.belongsTo(models.Usuario),
-            {
-                as: "usuario",
-                foreignKey: "admin_id",
-            };
+        {
+            as: "usuario",
+            foreignKey: "admin_id",
+        };
     };
     Producto.associate = (models) => {
         Producto.hasMany(models.Venta),
-            {
-                as: "venta",
-                foreignKey: "producto_id",
-            };
+        {
+            as: "venta",
+            foreignKey: "producto_id",
+        };
     };
 
     return Producto;

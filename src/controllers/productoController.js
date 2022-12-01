@@ -29,13 +29,11 @@ let controller = {
     db.Producto.create({
       nombre: req.body.nombre,
       precio: req.body.precio,
-      modelo: req.body.modelo,
       fecha_creacion: req.body.fecha_creacion,
       fecha_baja: req.body.fecha_baja,
       descuento: req.body.descuento,
       imagen: req.file.filename,
       marca_id: req.body.marca,
-      estado: req.body.estado,
       descripcion: req.body.descripcion,
     })
 

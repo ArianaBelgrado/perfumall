@@ -69,8 +69,13 @@
                     <div class="col-md-4">
                         <label for="provincia" class="form-label">Provincia</label>
                         <select class="form-select" name="provincia" id="provincia">
-                            <option selected disabled value="">Elegí...</option>
-                            <option>...</option>
+                            <% provincias.forEach(p=> { %>
+
+                                <option>
+                                    <%= p %>
+                                </option>
+                                <% }) %>
+
                         </select>
                     </div>
                     <div class="col-md-4">

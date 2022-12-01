@@ -1,6 +1,7 @@
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const db = require("../database/models");
+const provincias = require("../provincias")
 
 const controlador = {
     login: (req, res) => {
@@ -51,7 +52,8 @@ const controlador = {
     },
 
     create: (req, res) => {
-        res.render("crear");
+
+        res.render("crear", { provincias });
     },
 
     store: (req, res) => {
@@ -118,7 +120,7 @@ const controlador = {
             { where: { id: req.session.userLogged.id } }
         ).then(function (result) {
             if (result) {
-                req.session.userLogged=result;
+                req.session.userLogged = result;
                 res.redirect("/usuario/profile");
             } else {
                 res.send("Tu cuenta fue editada!");

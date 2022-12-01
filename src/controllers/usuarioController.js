@@ -102,7 +102,7 @@ const controlador = {
     },
 
     renderizarEditarPerfil: (req, res) => {
-        res.render("editar-perfil", { user: req.session.userLogged });
+        res.render("editar-perfil", { user: req.session.userLogged, provincias });
     },
 
     editUser: (req, res) => {
@@ -120,8 +120,7 @@ const controlador = {
             { where: { id: req.session.userLogged.id } }
         ).then(function (result) {
             if (result) {
-                req.session.userLogged = result;
-                res.redirect("/usuario/profile");
+                res.redirect("/usuario/logout")
             } else {
                 res.send("Tu cuenta fue editada!");
             }

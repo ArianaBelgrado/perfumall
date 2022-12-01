@@ -71,32 +71,38 @@
                     <h2 class="name">
                       <%= prod.marca %>
                     </h2>
-                    <% if (prod.estado == 1) { %>
-                      
-                     <span class="discountTachado"><%= prod.precio %></span> 
-                       <h2 class="price">$           
-                  
-                     <%=prod.precio - (prod.precio* prod.descuento * 0.010) %> </h2>
-                   
+                    <% if (prod.estado==1) { %>
+
+                      <span class="discountTachado">
+                        <%= prod.precio %>
+                      </span>
+                      <h2 class="price">$
+
+                        <%=prod.precio - (prod.precio* prod.descuento * 0.010) %>
+                      </h2>
+
                       <h3 class="discount">
-                        <%= prod.descuento %>% OFF 
+                        <%= prod.descuento %>% OFF
                       </h3>
-                        <% } else { %>
-                          <h2 class="price">$  <%= prod.precio %> </h2>
-                    <% } %>
+                      <% } else { %>
+                        <h2 class="price">$ <%= prod.precio %>
+                        </h2>
+                        <% } %>
 
-                     
 
-                       
+
+
 
                   </div>
                   <div class="colorete">
                     <a href="/producto/detalle/<%= prod.id %> " class="compreto">Comprar</a>
                     <div class="cakl">
+                      <% if (user ) { %>
 
-                      <button>
-                        <a href="/producto/editar/<%= prod.id %>">Editar</a>
-                      </button>
+                        <button>
+                          <a href="/producto/editar/<%= prod.id %>">Editar</a>
+                        </button>
+                        <% } %>
                     </div>
                   </div>
               </div>

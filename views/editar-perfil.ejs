@@ -5,12 +5,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../css/style.css" rel="stylesheet " type="text/css">
+  <link href="/css/style.css" rel="stylesheet " type="text/css">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <script src="https://kit.fontawesome.com/258b4efd0d.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../../css/editarperfil.css">
+  <link rel="stylesheet" href="/css/editarperfil.css">
 
   <title>Perfumall</title>
 </head>
@@ -52,10 +51,14 @@
               placeholder="Ingrese Ciudad" required>
           </div>
           <div class="col-md-3">
-            <label for="provincia" class="form-label">Cambiar Provincia</label>
-            <select class="form-select" name="provincia" id="provincia" value="<%= user.provincia %> " required>
-              <option selected disabled value="">Elegí...</option>
-              <option>...</option>
+            <label for="provincia" class="form-label">Provincia</label>
+            <select class="form-select" name="provincia" id="provincia">
+              <% provincias.forEach(p=> { %>
+
+                <option>
+                  <%= p %>
+                </option>
+                <% }) %>
             </select>
           </div>
           <!--    <div class="col-md-3">
@@ -78,10 +81,11 @@
           </div>
         </form>
       </div>
+    </main>
+    <%- include('./partials/footer') %>
 
-      <%- include('./partials/footer') %>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-          crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+      <script src="https://kit.fontawesome.com/258b4efd0d.js" crossorigin="anonymous"></script>
 </body>

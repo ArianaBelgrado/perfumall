@@ -6,20 +6,20 @@ module.exports = function (sequelize, DataTypes) {
             primaryKey: true,
             autoIncrement: true,
         },
-        nombre: {
+        modelo: {
             type: DataTypes.STRING(100),
             allowNull: true,
         },
         precio: {
-            type: DataTypes.MEDIUMINT(500000),
+            type: DataTypes.DOUBLE,
             allowNull: true,
         },
         fecha_creacion: {
             type: DataTypes.DATEONLY,
             allowNull: true,
         },
-        fecha_baja: {
-            type: DataTypes.DATEONLY,
+        stock: {
+            type: DataTypes.INTEGER,
             allowNull: true,
         },
         imagen: {
@@ -38,6 +38,15 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.TEXT,
             allowNull: true,
         },
+        descuento: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+        },
+
+        estado: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true,
+        },
     };
 
     const config = {
@@ -50,24 +59,24 @@ module.exports = function (sequelize, DataTypes) {
 
     Producto.associate = (models) => {
         Producto.belongsTo(models.Marca),
-        {
-            as: "marca",
-            foreignKey: "marca_id",
-        };
+            {
+                as: "marca",
+                foreignKey: "marca_id",
+            };
     };
     Producto.associate = (models) => {
         Producto.belongsTo(models.Usuario),
-        {
-            as: "usuario",
-            foreignKey: "admin_id",
-        };
+            {
+                as: "usuario",
+                foreignKey: "admin_id",
+            };
     };
     Producto.associate = (models) => {
         Producto.hasMany(models.Venta),
-        {
-            as: "venta",
-            foreignKey: "producto_id",
-        };
+            {
+                as: "venta",
+                foreignKey: "producto_id",
+            };
     };
 
     return Producto;

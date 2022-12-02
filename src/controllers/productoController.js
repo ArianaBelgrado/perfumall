@@ -1,5 +1,4 @@
 const db = require("../database/models");
-const marca = require("../marca")
 let controller = {
     carrito: (req, res) => {
         res.render(path.resolve("views/carrito"));
@@ -22,7 +21,7 @@ let controller = {
             .catch((e) => res.send(e));
     },
     nuevoProducto: (req, res) => {
-        res.render("crear-producto", { marca });
+        res.render("crear-producto");
 
     },
 
@@ -78,7 +77,7 @@ let controller = {
                 fecha_baja: req.body.fecha_baja,
                 descuento: req.body.descuento,
                 imagen: req.file.filename,
-                marca: req.body.marca,
+                marca: req.body.marca_id,
                 estado: req.body.estado,
                 descripcion: req.body.descripcion,
             },

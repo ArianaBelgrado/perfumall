@@ -42,9 +42,7 @@
               </h3>
             </div>
             <div>
-              <h2>
-                <%= producto.precio %>
-              </h2>
+
             </div>
             <div class="cabeza">
               <div class="container text-center">
@@ -58,7 +56,7 @@
                   <%= producto.descripcion %>
                 </p>
                 <p>
-                  <%= producto.marca %>
+                  <%= producto.marca_id %>
                 </p>
                 <p class="card-text">
                   <small class="text-muted">
@@ -69,17 +67,17 @@
             </div>
             <div class="bobis">
               <div>
-                <button class="btn btn-secondary disabled">
+                <button class="btn btn-secondary">
                   <i class="fa-solid fa-cart-shopping"></i> Añadir al carrito
                 </button>
               </div>
               <div class="contenedor-navs">
-                <a href="/producto/editar/<%= producto.id %>" class="btn btn-secondary disabled" role="button"
+                <a href="/producto/editar/<%= producto.id %>" class="btn btn-secondary " role="button"
                   aria-disabled="true">Editar</a>
               </div>
               <div>
                 <form action="/producto/borrar/<%= producto.id %>?_method=DELETE" method="POST">
-                  <button type="submit" class="btn btn-secondary disabled" role="button" aria-disabled="true">
+                  <button type="submit" class="btn btn-secondary" role="button" aria-disabled="true">
                     ELIMINAR
                   </button>
                 </form>

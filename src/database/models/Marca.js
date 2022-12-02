@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes){
+module.exports = function (sequelize, DataTypes) {
     const alias = "Marca"
     const cols = {
         id: {
@@ -12,11 +12,11 @@ module.exports = function(sequelize, DataTypes){
             allowNull: false
 
         }
-       
+
     }
     const config = {
         tableName: "marca",
-        timestamps: true,
+        timestamps: false,
     }
     const Marca = sequelize.define(alias, cols, config);
 
@@ -29,6 +29,6 @@ module.exports = function(sequelize, DataTypes){
 
     }
 
- 
+
     return Marca
 }

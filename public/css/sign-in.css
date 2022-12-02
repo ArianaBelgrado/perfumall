@@ -25,6 +25,8 @@ form .row.g-3 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top:40px;
+  padding-bottom: 40px;
 }
 .search {
   display: flex;

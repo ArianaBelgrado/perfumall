@@ -21,16 +21,14 @@
   <body>
     <%- include('./partials/header') %>
     <main class="main">
-     
       <div class="carta">
         <div class="salome">
           <div class="breadcrumb">
             <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
-              <div class="volver">
-                <button type="button" class="btn btn-outline-primary" disabled><i class="fa-solid fa-left-long"></i></button>
-              </div>
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/" class="breadcrumb-item">Home</a></li>
+                <li class="breadcrumb-item">
+                  <a href="/" class="breadcrumb-item">Home</a>
+                </li>
                 <li class="breadcrumb-item active" aria-current="page">
                   MARCA <%=producto.modelo %>
                 </li>
@@ -44,59 +42,57 @@
           />
         </div>
         <div class="descripciones-info">
-          <div class="container-carrito">
+          <div>
+            <h3 class="modelo">Marca + <%= producto.modelo %></h3>
+            <h2><%= producto.precio %></h2>
+          </div>
+          <div class="cabeza">
+            <div class="container text-center">
+              <div class="row">
+                <div class="colirio">Detalle del Producto</div>
+              </div>
+            </div>
+            <div class="zobel">
+              <span class="precio">$<%= producto.precio %> </span><br />
+              <p class="card-text"><%= producto.descripcion %></p>
+              <p class="card-text">
+                <small class="text-muted"><%= producto.nombre %></small>
+              </p>
+            </div>
+          </div>
+          <div class="bobis">
             <div>
-              <h3 class="modelo">Marca + <%= producto.modelo %> </h3>
+              <button class="btn btn-secondary">
+                <i class="fa-solid fa-cart-shopping"></i> Añadir al carrito
+              </button>
+            </div>
+            <div class="contenedor-navs">
+              <a
+                href="/producto/editar/<%= producto.id %>"
+                class="btn btn-secondary"
+                role="button"
+                aria-disabled="true"
+                >Editar</a
+              >
             </div>
             <div>
-              <h2><%= producto.precio %></h2>
-            </div>
-            <div class="cabeza">
-              <div class="container text-center">
-                <div class="row">
-                  <div class="colirio">Detalle del Producto</div>
-                </div>
-              </div>
-              <div class="zobel">
-                <span class="precio">$<%= producto.precio %> </span><br />
-                <p class="card-text"><%= producto.descripcion %></p>
-                <p class="card-text">
-                  <small class="text-muted"><%= producto.nombre %></small>
-                </p>
-              </div>
-            </div>
-            <div class="bobis">
-              <div>
-                <button class="btn btn-secondary disabled">
-                  <i class="fa-solid fa-cart-shopping"></i> Añadir al carrito
-                </button>
-              </div>
-              <div class="contenedor-navs">
-                <a
-                  href="/producto/editar/<%= producto.id %>"
-                  class="btn btn-secondary disabled"
+              <form
+                action="/producto/borrar/<%= producto.id %>?_method=DELETE"
+                method="POST"
+              >
+                <button
+                  type="submit"
+                  class="btn btn-secondary"
                   role="button"
                   aria-disabled="true"
-                  >Editar</a
                 >
-              </div>
-              <div>
-                <form
-                  action="/producto/borrar/<%= producto.id %>?_method=DELETE"
-                  method="POST"
-                >
-                  <button type="submit"  class="btn btn-secondary disabled" role="button" aria-disabled="true">
-                    ELIMINAR
-                  </button>
-                </form>
-              </div>
+                  ELIMINAR
+                </button>
+              </form>
             </div>
-           
-            
           </div>
         </div>
       </div>
-     
     </main>
 
     <%- include('./partials/footer') %>

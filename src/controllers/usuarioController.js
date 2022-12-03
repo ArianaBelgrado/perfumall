@@ -1,11 +1,11 @@
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const db = require("../database/models");
-const provincias = require("../provincias")
+const provincias = require("../provincias");
 
 const controlador = {
     login: (req, res) => {
-        res.render("login");
+        return res.render("login");
     },
 
     loginProcess: (req, res) => {
@@ -15,35 +15,38 @@ const controlador = {
             },
         })
             .then((result) => {
+                
                 if (result) {
                     let passwordOk = bcryptjs.compareSync(req.body.password, result.password);
 
                     if (passwordOk) {
                         delete result.password;
                         req.session.userLogged = result;
-                        return res.redirect("/");
+                        console.log(req.session.userLogged);
+                        res.redirect("/");
                     }
-                }
-            })
-            .then((result) => {
-                return res.render("login", {
-                    errors: {
-                        email: {
-                            msg: "Las credenciales son inválidas",
+                } /* else {
+                    console.log(result + "holaaaaaaaaaaaaaaaa");
+                    return res.render("login", {
+                        errors: {
+                            email: {
+                                msg: "Las credenciales son inválidas",
+                            },
                         },
-                    },
-                });
+                    });
+                } */
             })
-            .then((result) => {
-                return res.render("login", {
+            .catch((err) => {
+                console.log(err);
+               return res.render("login", {
                     errors: {
                         email: {
                             msg: "No se encuentra registrado este email",
                         },
                     },
                 });
-            })
-            .catch((err) => console.log(err));
+                
+            });
     },
 
     logout: (req, res) => {
@@ -52,17 +55,19 @@ const controlador = {
     },
 
     create: (req, res) => {
-
-        res.render("crear");
+        res.render("crear", { provincias: provincias });
     },
 
     store: (req, res) => {
-        let resultValidation = validationResult(req);
-
-        if (resultValidation.errors.length > 0) {
-            res.redirect("/usuario/login", "/usuario/login", {
+        const resultValidation = validationResult(req);
+        console.log(resultValidation);
+        if (!resultValidation.isEmpty()) {
+            console.log(req.body);
+            console.log("holaaaa");
+            return res.render("crear", {
                 errors: resultValidation.mapped(),
                 oldData: req.body,
+                provincias: provincias,
             });
         }
 
@@ -76,6 +81,7 @@ const controlador = {
                     res.render("crear", {
                         errors: { email: { msg: "Este mail ya fue registrado" } },
                         oldData: req.body,
+                        provincias: provincias,
                     });
                 } else {
                     db.User.create({
@@ -87,6 +93,7 @@ const controlador = {
                         imagenPerfil: req.file.filename,
                     });
                 }
+                return res.render("login");
             })
             .then((result) => {
                 if (result) {
@@ -119,7 +126,7 @@ const controlador = {
             { where: { id: req.session.userLogged.id } }
         ).then(function (result) {
             if (result) {
-                res.redirect("/usuario/logout")
+                res.redirect("/usuario/logout");
             } else {
                 res.send("Tu cuenta fue editada!");
             }

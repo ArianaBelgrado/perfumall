@@ -25,7 +25,7 @@
                         <label for="nombre" class="form-label">Nombre</label>
                         <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese nombre"
                             class="<%=locals.errors && errors.nombre?'is-invalid':null%>"
-                            value="<%=locals.oldData?oldData.nombre:null%>" />
+                            value="<%=locals.oldData ? oldData.nombre : null%>" />
                         <% if (locals.errors && errors.nombre) { %>
                             <div class="text-danger">
                                 <%= errors.nombre.msg %>
@@ -59,11 +59,24 @@
 
                     <div class="col-md-4">
                         <label for="provincia" class="form-label">Provincia</label>
-                        <select class="form-select" name="provincia" id="provincia">
-                          
 
-                        </select>
+                        <select class="form-select" name="provincia" id="provincia">
+
+                            <% provincias.forEach(p => { %>
+                                <option value="<%= p %>"><%= p %> </option>  
+                            <% }) %>
+                       
+
+                        </select>  
+                         
+
+
                     </div>
+                    <% if (locals.errors && errors.provincia) { %>
+                        <div class="text-danger">
+                            <%= errors.provincia.msg %>
+                        </div>
+                        <% } %>
                     <div class="col-md-4">
                         <label for="password" class="form-label">Contraseña</label>
                         <input type="password" class="form-control" name="password" placeholder="Ingrese Contraseña"

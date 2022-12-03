@@ -31,9 +31,9 @@
           <label for="email" class="form-label">Email address</label>
           <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
          
-          <% if (locals.error && errors.mail) { %>
+          <% if (locals.error && errors.email) { %>
             <div class="text-danger">
-              <%= errors.mail.msg %> 
+              <%= errors.email.msg %> 
             </div>
           <% } %>
         </div>

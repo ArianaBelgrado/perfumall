@@ -9,9 +9,8 @@ const validations = [
         .bail()
         .isEmail()
         .withMessage("Debes escribir un formato válido de correo"),
-    check("ciudad").notEmpty().withMessage("Campo obligatorio"),
     check("provincia").notEmpty().withMessage("Elige una provincia"),
-    check("contra").notEmpty().withMessage("Crea una contraseña"),
+    check("password").notEmpty().withMessage("Crea una contraseña"),
     check("imagenPerfil").custom((value, { req }) => {
         let file = req.file;
         let acceptedExtension = [".jpg", ".png"];

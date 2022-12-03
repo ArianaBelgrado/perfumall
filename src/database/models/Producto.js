@@ -62,11 +62,11 @@ module.exports = function (sequelize, DataTypes) {
 
 
     Producto.associate = (models) => {
-        Producto.belongsTo(models.Marca),
+        Producto.belongsTo(models.Marca,
         {
             as: "marca",
             foreignKey: "marca_id",
-        };
+        });
     };
     // Producto.associate = (models) => {
     //     Producto.belongsTo(models.Usuario),

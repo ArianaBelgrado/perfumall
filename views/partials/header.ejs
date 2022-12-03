@@ -19,9 +19,13 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
+                      
+                         
+                     
                         <li class="nav-item">
                             <a class="nav-link" href="/producto/crear-producto">Crear Producto</a>
-                        </li>
+                        </li>  
+                         
                         <li class="nav-item dropdown">
                             <a
                                 class="nav-link dropdown-toggle"
@@ -30,15 +34,18 @@
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
                             >
-                                LogIn
+                                Cuenta
                             </a>
                             <ul class="dropdown-menu">
+
+                                <% if (!locals.isLogged) { %>
                                 <li>
                                     <a class="dropdown-item" href="/usuario/login">Ya tengo una cuenta</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="/usuario/create">Crear Cuenta</a>
                                 </li>
+                                <% } %>
 
                                 <% if (locals.isLogged) { %>
                                     <li>
@@ -48,12 +55,8 @@
 
                                 <% } %>
                                
-                                <li>
-                                    <hr class="dropdown-divider" />
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">¿Cómo me registro?</a>
-                                </li>
+                               
+                                
 
                                 
                             </ul>

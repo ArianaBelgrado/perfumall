@@ -2,7 +2,7 @@ module.exports = function (sequelize, DataTypes) {
     const alias = "Producto";
     const cols = {
         id: {
-            type: DataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
@@ -27,11 +27,11 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: true,
         },
         admin_id: {
-            type: DataTypes.INTEGER(10),
+            type: DataTypes.INTEGER,
             allowNull: true,
         },
         marca_id: {
-            type: DataTypes.INTEGER(10),
+            type: DataTypes.INTEGER,
             allowNull: true,
         },
         descripcion: {

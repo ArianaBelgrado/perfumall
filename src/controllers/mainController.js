@@ -1,15 +1,15 @@
+
 const db = require("../database/models");
 
 let controller = {
-  home: (req, res) => {
-    db.Producto.findAll({ include: 'marca' })
-      .then((result) => {
-        res.render("home", { productos: result });
+    home: (req, res) => {
+        db.Producto.findAll({ include: "marca" })
+            .then((result) => {
+                res.render("home", { productos: result });
+            })
+            .catch((err) => console.log(err));
 
-      })
-      .catch((err) => console.log(err));
-  },
+    },
 };
 
 module.exports = controller;
-

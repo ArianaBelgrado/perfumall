@@ -4,13 +4,6 @@ let controller = {
         res.render(path.resolve("views/carrito"));
     },
 
-    home: (req, res) => {
-        let productos;
-
-        db.Producto.findAll()
-            .then((result) => (productos = result))
-            .then((productos) => res.render("home", { productos }));
-    },
 
     detalle: (req, res) => {
         let producto;

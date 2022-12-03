@@ -1,7 +1,6 @@
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const db = require("../database/models");
-const provincias = require("../provincias")
 
 const controlador = {
     login: (req, res) => {

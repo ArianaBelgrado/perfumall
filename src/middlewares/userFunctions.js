@@ -1,13 +1,13 @@
 const userFunctions = (req, res, next) => {
-  userFunctions: (req, file, cb) => {
-    let usuarioLogeado = false;
-    if (usuarioLogeado == false) {
+  
+   
+    if (req.session.userLogged == false) {
       res.redirect("/")
     }
     else {
       next();
     }
   }
-}
+
 
 module.exports = userFunctions;

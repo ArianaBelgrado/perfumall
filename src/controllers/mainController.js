@@ -3,7 +3,7 @@ const db = require("../database/models");
 
 let controller = {
     home: (req, res) => {
-        db.Producto.findAll({ include: "marca" })
+        db.Producto.findAll({ includes: "marca" })
             .then((result) => {
                 res.render("home", { productos: result });
             })

@@ -3,6 +3,7 @@ const guestMiddleware = require("../middlewares/guestMiddleware");
 const usuarioController = require("../controllers/usuarioController");
 const validations = require("../middlewares/userRegisterValidations");
 const uploadFile = require("../middlewares/userMulter");
+const userAdminMiddleware = require('../middlewares/userAdmin');
 
 let router = express.Router();
 
@@ -24,7 +25,7 @@ router.get("/logout", usuarioController.logout);
 router.get("/login", guestMiddleware, usuarioController.login);
 
 // PROCESAR EL LOGIN
-router.post("/login", usuarioController.loginProcess);
+router.post("/login", userAdminMiddleware, usuarioController.loginProcess);
 
 //BORRAR PERFIL
 router.delete("/borrar/:id", usuarioController.borrar);

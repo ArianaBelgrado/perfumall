@@ -52,7 +52,7 @@ const controlador = {
 
     create: (req, res) => {
 
-        res.render("crear", { provincias });
+        res.render("crear");
     },
 
     store: (req, res) => {

@@ -15,7 +15,7 @@ module.exports = function (sequelize, DataTypes) {
     };
     const Marca = sequelize.define(alias, cols, config);
 
-    Marca.associate = (models) => {
+    Marca.associate = function (models) {
         Marca.hasMany(models.Producto, {
             as: "producto",
             foreignKey: "marca_id",

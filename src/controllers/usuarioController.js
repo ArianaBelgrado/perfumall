@@ -1,6 +1,7 @@
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const db = require("../database/models");
+const provincias = require("../provincias")
 
 const controlador = {
     login: (req, res) => {
@@ -82,7 +83,6 @@ const controlador = {
                         apellido: req.body.apellido,
                         email: req.body.email,
                         password: bcryptjs.hashSync(req.body.password, 10),
-                        ciudad: req.body.ciudad,
                         provincia: req.body.provincia,
                         imagenPerfil: req.file.filename,
                     });

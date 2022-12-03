@@ -55,17 +55,8 @@
                             </div>
                             <% } %>
                     </div>
-                    <div class="col-md-4">
-                        <label for="ciudad" class="form-label">Ciudad</label>
-                        <input type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Ingrese Ciudad"
-                            class="<%= locals.errors && errors.ciudad ? 'is-invalid' : null %>"
-                            value="<%= locals.oldData ? oldData.ciudad: null %>" />
-                        <% if (locals.errors && errors.ciudad) { %>
-                            <div class="text-danger">
-                                <%= errors.ciudad.msg %>
-                            </div>
-                            <% } %>
-                    </div>
+
+
                     <div class="col-md-4">
                         <label for="provincia" class="form-label">Provincia</label>
                         <select class="form-select" name="provincia" id="provincia">

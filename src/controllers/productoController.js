@@ -13,12 +13,15 @@ let controller = {
             .then((result) => res.render("detalle", { producto }))
             .catch((e) => res.send(e));
     },
-    nuevoProducto: (req, res) => {
-        res.render("crear-producto");
+    nuevoProducto: async (req, res) => {
+        let marcas = await db.Marca.findAll()
+
+        res.render("crear-producto", { marcas: marcas });
 
     },
 
     store: (req, res) => {
+
         let estado;
         let descuento = 0;
         if (req.body.descuento > 0) {

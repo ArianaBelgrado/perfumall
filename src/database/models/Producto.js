@@ -57,27 +57,31 @@ module.exports = function (sequelize, DataTypes) {
 
     const Producto = sequelize.define(alias, cols, config);
 
+
+
+
+
     Producto.associate = (models) => {
         Producto.belongsTo(models.Marca),
-            {
-                as: "marca",
-                foreignKey: "marca_id",
-            };
+        {
+            as: "marca",
+            foreignKey: "marca_id",
+        };
     };
-    Producto.associate = (models) => {
-        Producto.belongsTo(models.Usuario),
-            {
-                as: "usuario",
-                foreignKey: "admin_id",
-            };
-    };
-    Producto.associate = (models) => {
-        Producto.hasMany(models.Venta),
-            {
-                as: "venta",
-                foreignKey: "producto_id",
-            };
-    };
+    // Producto.associate = (models) => {
+    //     Producto.belongsTo(models.Usuario),
+    //     {
+    //         as: "usuario",
+    //         foreignKey: "admin_id",
+    //     };
+    // };
+    // Producto.associate = (models) => {
+    //     Producto.hasMany(models.Venta),
+    //     {
+    //         as: "venta",
+    //         foreignKey: "producto_id",
+    //     };
+    // };
 
     return Producto;
 };

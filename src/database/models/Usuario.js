@@ -26,10 +26,6 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING(100),
       allowNull: true,
     },
-    ciudad: {
-      type: DataTypes.STRING(100),
-      allowNull: true,
-    },
     provincia: {
       type: DataTypes.STRING(100),
       allowNull: true,

@@ -26,13 +26,13 @@
                     <div class="col-md-12">
                         <label for="marca" class="form-label">Marca</label>
                         <select class="form-select" name="marca" id="marca">
-                            <% marca.forEach(p=> { %>
 
-                                <option>
-                                    <%= p %>
+
+                            <% for( let i=0; i < marcas.length; i++ ) { %>
+                                <option value=<%=marcas[i].id%>>
+                                    <%= marcas[i].nombre %>
                                 </option>
-                                <% }) %>
-
+                                <% } %>
                         </select>
                     </div>
                     <div class="col-12">

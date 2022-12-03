@@ -21,7 +21,7 @@ router.get("/logout", usuarioController.logout);
 
 // LOG IN
 
-router.get("/login", usuarioController.login);
+router.get("/login", guestMiddleware, usuarioController.login);
 
 // PROCESAR EL LOGIN
 router.post("/login", usuarioController.loginProcess);

@@ -71,7 +71,7 @@
                       <%= prod.modelo %>
                     </h3>
                     <h2 class="name">
-                      <%= prod.marca.nombre %>
+                      <%= prod.marca %>
                     </h2>
                     <% if (prod.estado==1) { %>
 
@@ -99,14 +99,18 @@
                   <div class="colorete">
                     <a href="/producto/detalle/<%= prod.id %> " class="compreto">Comprar</a>
                     <div class="cakl">
+
+
                       <button>
                         <a href="/producto/editar/<%= prod.id %>">Editar</a>
                       </button>
+
                     </div>
                   </div>
               </div>
             </div>
           </article>
+
           <% }) %>
       </div>
 

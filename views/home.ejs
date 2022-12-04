@@ -69,7 +69,7 @@
                   <div class="productoinfo">
                     <h3 class="name">
                       <%= prod.modelo %>
-                        
+
                     </h3>
                     <h2 class="name">
                       <%= %>
@@ -97,17 +97,20 @@
 
 
                   </div>
+
                   <div class="colorete">
-                    <a href="/producto/detalle/<%= prod.id %> " class="compreto">Comprar</a>
+                    <a href="/producto/detalle/<%= prod.id %> "> <button type="button"
+                        class="btn btn-info comprame">Comprar</button></a>
+
 
                     <% if (locals.isAdmin) { %>
-                 
+
                       <div class="cakl">
                         <button>
                           <a href="/producto/editar/<%= prod.id %>">Editar</a>
                         </button>
                       </div>
-                          <% } %>
+                      <% } %>
                   </div>
               </div>
             </div>

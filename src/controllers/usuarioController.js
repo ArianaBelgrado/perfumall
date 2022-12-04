@@ -88,7 +88,7 @@ const controlador = {
                         email: req.body.email,
                         password: bcryptjs.hashSync(req.body.password, 10),
                         provincia: req.body.provincia,
-                        imagenPerfil: req.file.filename,
+                        imagenPerfil: req.file.filename ? req.file.filename : "default.png",
                     });
                 }
                 return res.render("login");

@@ -20,27 +20,26 @@
       <form class="row g-12" action="/producto/editar/<%=producto.id %>?_method=PUT" method="POST"
         enctype="multipart/form-data">
         <div class="col-12">
-          <label for="nombre" class="form-label">Nombre</label>
-          <input type="text" class="form-control" name="nombre" value="<%=producto.nombre  %>" id="nombre"
-            placeholder="Nombre Del Producto" />
+         
+          <div class="col-12">
+            <label for="modelo" class="form-label">Modelo</label>
+            <input type="text" class="form-control" name="modelo" value="<%=  producto.modelo %>" id="modelo"
+              placeholder="Modelo Del Producto" />
 
           <div class="col-md-12">
             <label for="marca" class="form-label">Marca</label>
             <input type="text" class="form-control" name="marca_id" value="<%= producto.marca %> p" id="marca" />
           </div>
-          <div class="col-12">
-            <label for="modelo" class="form-label">Modelo</label>
-            <input type="text" class="form-control" name="modelo" value="<%=  producto.modelo %>" id="modelo"
-              placeholder="Modelo Del Producto" />
+          
           </div>
-          <div class="col-12">
-            <label for="descripcion" class="form-label">Descripcion</label>
+          <div class="col-12 ">
+            <label for="descripcion" class="form-label ">Descripcion</label>
             <input type="text" class="form-control" name="descripcion" value="<%=producto.descripcion %>"
               id="descripcion" placeholder="Descripción" />
           </div>
           <div class="col-12">
             <label for="descuento" class="form-label">Descuento</label>
-            <input type="text" class="form-control" name="descuento" value="<%= producto.descuento %>" id="descuento" />
+            <input type="text" class="form-control" name="descuento" value="<%= producto.descuento %>%" id="descuento" />
           </div>
           <div class="col-12">
 
@@ -55,11 +54,15 @@
               <label for="precio" class="form-label">Precio</label>
               <input type="text" name="precio" value="<%= producto.precio %> " class="form-control" id="precio" />
             </div>
-            <div class="col-12">
-              <label for="imagen" class="form-label">Imagen</label>
-              <input type="file" name="imagen" value="<%=producto.imagen  %> " class="form-control" id="imagen" />
+            <div class="col-12 text-center my-3">
+              <h3>Imagen</h3>
+              <img src="/img/NuevoProducto/<%= producto.imagen %> " alt="">
             </div>
-            <div class="col-12 pepe">
+            <div class="col-12">
+           
+              <input type="file" name="imagen" value="<%=producto.imagen%>" class="form-control" id="imagen" />
+            </div>
+            <div class="col-12 pepe my-5">
               <button type="submit" class="btn btn-primary">Editar</button>
             </div>
       </form>

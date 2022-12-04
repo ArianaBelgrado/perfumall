@@ -4,7 +4,6 @@ let controller = {
         res.render(path.resolve("views/carrito"));
     },
 
-
     detalle: (req, res) => {
         let producto;
 
@@ -14,14 +13,12 @@ let controller = {
             .catch((e) => res.send(e));
     },
     nuevoProducto: async (req, res) => {
-        let marcas = await db.Marca.findAll()
+        let marcas = await db.Marca.findAll();
 
         res.render("crear-producto", { marcas: marcas });
-
     },
 
     store: (req, res) => {
-
         let estado;
         let descuento = 0;
         if (req.body.descuento > 0) {
@@ -69,8 +66,6 @@ let controller = {
             {
                 precio: req.body.precio,
                 modelo: req.body.modelo,
-                fecha_creacion: req.body.fecha_creacion,
-                fecha_baja: req.body.fecha_baja,
                 descuento: req.body.descuento,
                 imagen: req.file.filename,
                 marca: req.body.marca_id,
@@ -88,18 +83,16 @@ let controller = {
     },
 
     borrar: (req, res) => {
-        id = req.params.id;
+        const { id } = req.params;
         db.Producto.destroy({
             where: {
                 id: id,
             },
-        }).then(function (result) {
-            if (result) {
-                res.redirect("/");
-            } else {
-                res.send("Tu producto fue borrado!");
-            }
-        });
+        })
+            .then(function (result) {
+                if (result) res.redirect("/");
+            })
+            .catch((err) => console.log(err));
     },
 };
 

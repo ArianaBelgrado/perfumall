@@ -4,6 +4,7 @@ const usuarioController = require("../controllers/usuarioController");
 const validations = require("../middlewares/userRegisterValidations");
 const uploadFile = require("../middlewares/userMulter");
 const userAdminMiddleware = require("../middlewares/userAdmin");
+const isAdmin = require("../middlewares/isAdmin");
 
 let router = express.Router();
 
@@ -25,7 +26,7 @@ router.get("/logout", usuarioController.logout);
 router.get("/login", usuarioController.login);
 
 // PROCESAR EL LOGIN
-router.post("/login", validations, usuarioController.loginProcess);
+router.post("/login", usuarioController.loginProcess, isAdmin);
 
 //BORRAR PERFIL
 router.delete("/borrar/:id", usuarioController.borrar);

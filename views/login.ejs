@@ -31,15 +31,21 @@
           <label for="email" class="form-label">Email address</label>
           <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
          
-          <% if (locals.error && errors.email) { %>
+          <% if (locals.errors && errors.email) { %>
             <div class="text-danger">
               <%= errors.email.msg %> 
             </div>
           <% } %>
         </div>
+
         <div class="mb-3-password col-12">
           <label for="password" class="form-label">Password</label>
           <input type="password" class="form-control" id="password" name="password" >
+          <% if (locals.errors && errors.password) { %>
+            <div class="text-danger">
+              <%= errors.password.msg %> 
+            </div>
+            <% } %>
         </div>
         
        

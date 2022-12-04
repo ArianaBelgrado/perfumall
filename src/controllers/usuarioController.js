@@ -15,7 +15,6 @@ const controlador = {
             },
         })
             .then((result) => {
-                
                 if (result) {
                     let passwordOk = bcryptjs.compareSync(req.body.password, result.password);
 
@@ -24,28 +23,27 @@ const controlador = {
                         req.session.userLogged = result;
                         console.log(req.session.userLogged);
                         res.redirect("/");
+                    } else {
+                        return res.render("login", {
+                            errors: {
+                                password: {
+                                    msg: "Contraseña invalida",
+                                },
+                            },
+                        });
                     }
-                } /* else {
-                    console.log(result + "holaaaaaaaaaaaaaaaa");
+                } else {
                     return res.render("login", {
                         errors: {
                             email: {
-                                msg: "Las credenciales son inválidas",
+                                msg: "Email no existente",
                             },
                         },
                     });
-                } */
+                }
             })
             .catch((err) => {
                 console.log(err);
-               return res.render("login", {
-                    errors: {
-                        email: {
-                            msg: "No se encuentra registrado este email",
-                        },
-                    },
-                });
-                
             });
     },
 

@@ -26,7 +26,7 @@ router.get("/logout", usuarioController.logout);
 router.get("/login", usuarioController.login);
 
 // PROCESAR EL LOGIN
-router.post("/login", usuarioController.loginProcess, isAdmin);
+router.post("/login", usuarioController.loginProcess);
 
 //BORRAR PERFIL
 router.delete("/borrar/:id", usuarioController.borrar);

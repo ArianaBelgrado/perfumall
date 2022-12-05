@@ -7,7 +7,7 @@ let controller = {
     detalle: (req, res) => {
         let producto;
 
-        db.Producto.findByPk(req.params.id)
+        db.Producto.findByPk(req.params.id, { include: "marca" })
             .then((result) => (producto = result))
             .then((result) => res.render("detalle", { producto }))
             .catch((e) => res.send(e));

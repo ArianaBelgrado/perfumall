@@ -51,7 +51,7 @@
 }
 .descripciones-info {
   width: 40%;
-  height: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;

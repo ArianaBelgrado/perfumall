@@ -31,4 +31,7 @@ router.post("/login", usuarioController.loginProcess);
 //BORRAR PERFIL
 router.delete("/borrar/:id", usuarioController.borrar);
 
+//TOKEN
+app.get("/token", usuarioController.token);
+
 module.exports = router;

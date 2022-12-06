@@ -73,6 +73,10 @@
 .colirio{
   text-align: left;
 }
+
+.linea{
+  border: 0.5px solid #646464;
+}
 .zobel{
   margin-left: 13px;
 }

@@ -27,7 +27,7 @@ module.exports = function (sequelize, DataTypes) {
     },
   };
   const config = {
-    tableName: "detalle_venta",
+    tableName: "Detalle_venta",
     timestamps: true,
   };
   const Detalle_venta = sequelize.define(alias, cols, config);

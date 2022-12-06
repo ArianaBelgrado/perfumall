@@ -117,16 +117,20 @@ const controlador = {
                 email: req.body.email,
                 // password: bcryptjs.hashSync(req.body.password, 10),
                 imagenPerfil: req.file.filename,
-                ciudad: req.body.ciudad,
                 provincia: req.body.provincia,
                 //  local_id: req.body.local_id,
             },
             { where: { id: req.session.userLogged.id } }
         ).then(function (result) {
             if (result) {
-                res.redirect("/usuario/logout");
+                req.session.userLogged.imagenPerfil = req.file.filename;
+                req.session.userLogged.apellido = req.body.apellido;
+                req.session.userLogged.email = req.body.email;
+                req.session.userLogged.provincia = req.body.provincia;
+                req.session.userLogged.nombre = req.body.nombre;
+                res.redirect("/usuario/profile");
             } else {
-                res.send("Tu cuenta fue editada!");
+                res.send("Error");
             }
         });
     },

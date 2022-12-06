@@ -22,7 +22,7 @@ function localData(sequelize, DataTypes) {
     },
   };
 
-  let cfg = { camelCase: false, timestamps: false, tableName: "local" };
+  let cfg = { camelCase: false, timestamps: false, tableName: "Local" };
 
   const Local = sequelize.define(alias, cols, cfg);
 

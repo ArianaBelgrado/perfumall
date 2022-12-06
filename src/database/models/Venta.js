@@ -29,7 +29,7 @@ function ventaData(sequelize, DataTypes) {
         },
     };
 
-    let config = { camelCase: false, timestamps: false, tableName: "venta" };
+    let config = { camelCase: false, timestamps: false, tableName: "Venta" };
 
     const Venta = sequelize.define(alias, columns, config);
 

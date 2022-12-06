@@ -50,7 +50,7 @@ module.exports = function (sequelize, DataTypes) {
     };
 
     const config = {
-        tableName: "producto",
+        tableName: "Producto",
         timestamps: false,
         camel_case: false,
     };

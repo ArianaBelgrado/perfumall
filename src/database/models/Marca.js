@@ -11,7 +11,7 @@ module.exports = function (sequelize, DataTypes) {
         },
     };
     const config = {
-        tableName: "marca",
+        tableName: "Marca",
         timestamps: false,
     };
     const Marca = sequelize.define(alias, cols, config);

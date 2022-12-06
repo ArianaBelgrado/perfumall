@@ -17,13 +17,13 @@
 <body>
     <%- include('./partials/header') %>
         <main class="pepe">
-            <form class="row g-12" action="/producto/crear-producto" method="POST" enctype="multipart/form-data">
-                <div class="col-12">
-                    <div class="col-12">
+            <form class="row g-12 my-5   " action="/producto/crear-producto" method="POST" enctype="multipart/form-data">
+                <div class="col-12 ">
+                    <div class="col-12 my-2">
                         <label for="modelo" class="form-label">Modelo</label>
                         <input type="text" class="form-control" name="modelo" id="modelo" placeholder="Modelo" />
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 my-2">
                         <label for="marca" class="form-label">Marca</label>
                         <select class="form-select" name="marca" id="marca">
 
@@ -35,32 +35,32 @@
                                 <% } %>
                         </select>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 my-2">
                         <label for="descripcion" class="form-label">Descripcion</label>
                         <input type="text" class="form-control" name="descripcion" id="descripcion"
                             placeholder="Descripción" />
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 my-2 disabled">
                         <label for="descuento" class="form-label">Descuento</label>
-                        <input type="number" class="form-control" name="descuento" id="descuento"
+                        <input type="number"  class="form-control "  name="descuento" id="descuento"
                             placeholder="Descuento" />
                     </div>
 
 
-                    <div class="col-12">
+                    <div class="col-12 my-2 disabled ">
                         <label for="precio" class="form-label">Precio</label>
                         <input type="number" name="precio" class="form-control" id="precio" placeholder="Precio" />
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 my-2">
                         <label for="stock" class="form-label">Stock</label>
                         <input type="number" name="stock" class="form-control" id="stock" placeholder="Stock" />
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 my-2">
                         <label for="imagen" class="form-label">Imagen</label>
                         <input type="file" name="imagen" class="form-control" id="imagen"
                             placeholder="Seleccione imagen" />
                     </div>
-                    <div class="col-12 pepe">
+                    <div class="col-12 pepe my-2">
                         <button type="submit" class="btn btn-primary">Cargar</button>
                     </div>
                 </div>

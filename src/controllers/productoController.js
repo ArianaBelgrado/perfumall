@@ -61,15 +61,23 @@ let controller = {
 
     editar: (req, res) => {
         let idProduct = req.params.id;
+        let estado;
+        let descuento = 0;
+        if (req.body.descuento > 0) {
+            estado = true;
+            descuento = req.body.descuento;
+        } else {
+            estado = false;
+        }
 
         db.Producto.update(
             {
                 precio: req.body.precio,
                 modelo: req.body.modelo,
-                descuento: req.body.descuento,
+                descuento: descuento,
                 imagen: req.file.filename,
                 marca: req.body.marca_id,
-                estado: req.body.estado,
+                estado: estado,
                 descripcion: req.body.descripcion,
             },
             {
@@ -79,7 +87,7 @@ let controller = {
             }
         )
             .then((result) => res.redirect("/"))
-            .then((e) => res.send(e));
+            .catch((e) => console.log(e));
     },
 
     borrar: (req, res) => {

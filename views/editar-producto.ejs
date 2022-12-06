@@ -21,36 +21,28 @@
         enctype="multipart/form-data">
         <div class="col-12">
          
-          <div class="col-12">
+          <div class="col-12 my-3">
             <label for="modelo" class="form-label">Modelo</label>
             <input type="text" class="form-control" name="modelo" value="<%=  producto.modelo %>" id="modelo"
               placeholder="Modelo Del Producto" />
 
-          <div class="col-md-12">
+          <div class="col-md-12 my-3">
             <label for="marca" class="form-label">Marca</label>
             <input type="text" class="form-control" name="marca_id" value="<%= producto.marca %> p" id="marca" />
           </div>
           
           </div>
-          <div class="col-12 ">
+          <div class="col-12 my-3">
             <label for="descripcion" class="form-label ">Descripcion</label>
             <input type="text" class="form-control" name="descripcion" value="<%=producto.descripcion %>"
               id="descripcion" placeholder="Descripción" />
           </div>
-          <div class="col-12">
+          <div class="col-12 my-3">
             <label for="descuento" class="form-label">Descuento</label>
-            <input type="text" class="form-control" name="descuento" value="<%= producto.descuento %>%" id="descuento" />
+            <input type="text" class="form-control" name="descuento" value="<%= producto.descuento %>" id="descuento" />
           </div>
-          <div class="col-12">
-
-            <div class="col-12">
-              <label for="estado" class="form-label">Estado</label>
-              <select id="estado" class="form-select" name="estado" value="<%= producto.estado %> ">
-                <option selected>En oferta</option>
-                <option>Sin descuento</option>
-              </select>
-            </div>
-            <div class="col-12">
+          
+            <div class="col-12 my-3">
               <label for="precio" class="form-label">Precio</label>
               <input type="text" name="precio" value="<%= producto.precio %> " class="form-control" id="precio" />
             </div>
@@ -58,12 +50,17 @@
               <h3>Imagen</h3>
               <img src="/img/NuevoProducto/<%= producto.imagen %> " alt="">
             </div>
-            <div class="col-12">
+            <div class="col-12 my-3">
            
               <input type="file" name="imagen" value="<%=producto.imagen%>" class="form-control" id="imagen" />
             </div>
-            <div class="col-12 pepe my-5">
+
+            <div class="d-flex justify-content-sm-around my-5">
+            <div class=" pepe ">
               <button type="submit" class="btn btn-primary">Editar</button>
+            </div>
+            <div class=" pepe ">
+              <button type="reset" class="btn btn-primary">Eliminar</button>
             </div>
       </form>
     </main>

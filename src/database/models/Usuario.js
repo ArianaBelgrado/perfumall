@@ -41,7 +41,7 @@ module.exports = function (sequelize, DataTypes) {
     },
   };
 
-  let config = { camelCase: false, timestamps: false, tableName: "usuario" };
+  let config = { camelCase: false, timestamps: false, tableName: "Usuario" };
 
   let User = sequelize.define(alias, cols, config);
 

@@ -6,46 +6,17 @@ const db = require("../database/models");
 
 const provincias = require("../provincias");
 
-const jwt = require('jsonwebtoken');
 
-const Usuario = require("../database/models/Usuario");
 
-const secretKey = "Perfumall";
-const token = jwt.sign(db.User[0], secretKey)
 
 
 const controlador = {
-    token: (req, res) => {
-        const token = req.query.token;
-        jwt.verify(token, secretKey, (err, data) => {
-            res.send(err ? "Token inválido" : data);
-        });
-    },
+
     login: (req, res) => {
-        const { email, password } = req.query;
-        const user = db.User.find((datox) => datox.email == email && datox.password == password);
-        if (user) {
-            token = jwt.sign({
-                exp: Math.floor(Date.now() / 1000) + 10,
-                data: user
-            },
-                secretKey)
-        }
+
         return res.render("login");
     },
-    Dashboard: (req, res) => {
-        let { token } = req.query;
-        jwt.verify(token, secretKey, (err, decoded) => {
-            err ?
-                res.status(401).send({
-                    error: "401 Unauthorized",
-                    message: err.message,
-                }) :
-                res.send(`
-  Bienvenido al Dashboard ${decoded.data.email}
-  `);
-        });
-    },
+
 
     loginProcess: (req, res) => {
         db.User.findOne({

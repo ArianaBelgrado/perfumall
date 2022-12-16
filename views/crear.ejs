@@ -18,11 +18,18 @@
     <br />
     <%- include('./partials/header') %>
         <main>
+
             <div class="container-signin">
                 <br />
-                <form action="/usuario/create" method="POST" class="row g-3 col-12" enctype="multipart/form-data">
+                <form action="/usuario/create" method="POST" class="row g-3 col-12 validations"
+                    enctype="multipart/form-data">
                     <h1 class="regristrate">¡REGRISTRATE!</h1>
                     <div class="col-md-4">
+                        <div class="ulErrores">
+                            <ul>
+
+                            </ul>
+                        </div>
                         <label for="nombre" class="form-label">Nombre</label>
                         <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingrese nombre"
                             class="<%=locals.errors && errors.nombre?'is-invalid':null%>"
@@ -63,13 +70,15 @@
 
                         <select class="form-select" name="provincia" id="provincia">
 
-                            <% provincias.forEach(p => { %>
-                                <option value="<%= p %>"><%= p %> </option>  
-                            <% }) %>
-                       
+                            <% provincias.forEach(p=> { %>
+                                <option value="<%= p %>">
+                                    <%= p %>
+                                </option>
+                                <% }) %>
 
-                        </select>  
-                         
+
+                        </select>
+
 
 
                     </div>
@@ -78,36 +87,37 @@
                             <%= errors.provincia.msg %>
                         </div>
                         <% } %>
-                    <div class="col-md-4">
-                        <label for="password" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" name="password" placeholder="Ingrese Contraseña"
-                            id="password" class="<%= locals.errors && errors.password ? 'is-invalid' : null %>" />
-                        <% if (locals.errors && errors.password) { %>
-                            <div class="text-danger">
-                                <%= errors.password.msg %>
+                            <div class="col-md-4">
+                                <label for="password" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" name="password"
+                                    placeholder="Ingrese Contraseña" id="password"
+                                    class="<%= locals.errors && errors.password ? 'is-invalid' : null %>" />
+                                <% if (locals.errors && errors.password) { %>
+                                    <div class="text-danger">
+                                        <%= errors.password.msg %>
+                                    </div>
+                                    <% } %>
                             </div>
-                            <% } %>
-                    </div>
-                    <div class="col-md-4">
-                        <label for="imagenPerfil">Imagen de Perfil</label>
-                        <input type="file" class="form-control" name="imagenPerfil" />
-                        <% if (locals.errors && errors.imagenPerfil) { %>
-                            <div class="text-danger">
-                                <%= errors.imagenPerfil.msg %>
+                            <div class="col-md-4">
+                                <label for="imagenPerfil">Imagen de Perfil</label>
+                                <input type="file" class="form-control" name="imagenPerfil" id="image" />
+                                <% if (locals.errors && errors.imagenPerfil) { %>
+                                    <div class="text-danger">
+                                        <%= errors.imagenPerfil.msg %>
+                                    </div>
+                                    <% } %>
                             </div>
-                            <% } %>
-                    </div>
-                    <div class="col-md-4 mt-3">
-                        <div class="form-check col-md-6">
-                            <label class="form-check-label" for="terminos">
-                                Acepto los términos y condiciones
-                            </label>
-                            <input class="form-check-input" type="checkbox" value="" id="terminos" required />
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <button class="btn btn-primary" type="submit">Registrarse</button>
-                    </div>
+                            <div class="col-md-4 mt-3">
+                                <div class="form-check col-md-6">
+                                    <label class="form-check-label" for="terminos">
+                                        Acepto los términos y condiciones
+                                    </label>
+                                    <input class="form-check-input" type="checkbox" value="" id="terminos" required />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-primary" type="submit">Registrarse</button>
+                            </div>
 
             </div>
 
@@ -119,6 +129,7 @@
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
                 crossorigin="anonymous"></script>
+            <script src="/js/validations.js"></script>
 </body>
 
 </html>

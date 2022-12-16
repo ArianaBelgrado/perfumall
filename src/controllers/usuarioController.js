@@ -10,6 +10,7 @@ const provincias = require("../provincias");
 
 
 
+
 const controlador = {
 
     login: (req, res) => {
@@ -70,8 +71,6 @@ const controlador = {
         const resultValidation = validationResult(req);
         console.log(resultValidation);
         if (!resultValidation.isEmpty()) {
-            console.log(req.body);
-            console.log("holaaaa");
             return res.render("crear", {
                 errors: resultValidation.mapped(),
                 oldData: req.body,

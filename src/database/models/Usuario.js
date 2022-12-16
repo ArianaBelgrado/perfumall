@@ -38,7 +38,7 @@ module.exports = function (sequelize, DataTypes) {
     local_id: {
       type: DataTypes.INTEGER(10),
       allowNull: true,
-    },
+    }
   };
 
   let config = { camelCase: false, timestamps: false, tableName: "Usuario" };

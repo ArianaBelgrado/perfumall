@@ -3,15 +3,9 @@
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">PerfuMall</a>
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -19,80 +13,79 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
-                      
-                         
+
+
                         <% if (locals.isAdmin) { %>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/producto/crear-producto">Crear Producto</a>
-                        </li>  
-                        <% } %>
-                         
-                        <li class="nav-item dropdown">
-                            <a
-                                class="nav-link dropdown-toggle"
-                                href="#"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                            >
-                                Cuenta
-                            </a>
-                            <ul class="dropdown-menu">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/producto/crear-producto">Crear Producto</a>
+                            </li>
+                            <% } %>
 
-                                <% if (!locals.isLogged) { %>
-                                <li>
-                                    <a class="dropdown-item" href="/usuario/login">Ya tengo una cuenta</a>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Cuenta
+                                    </a>
+                                    <ul class="dropdown-menu">
+
+                                        <% if (!locals.isLogged) { %>
+                                            <li>
+                                                <a class="dropdown-item" href="/usuario/login">Ya tengo una cuenta</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="/usuario/create">Crear Cuenta</a>
+                                            </li>
+                                            <% } %>
+
+                                                <% if (locals.isLogged) { %>
+                                                    <li>
+                                                        <a class="dropdown-item" href="/usuario/change">Modificar
+                                                            perfil</a>
+                                                    </li>
+
+
+                                                    <% } %>
+
+
+
+
+
+                                    </ul>
                                 </li>
-                                <li>
-                                    <a class="dropdown-item" href="/usuario/create">Crear Cuenta</a>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Catálogo
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item" href="../producto/carrito">Carrito</a>
+                                        </li>
+                                    </ul>
+
+                                    <% if (locals.isLogged) { %>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="/usuario/profile">Perfil</a>
                                 </li>
                                 <% } %>
-
-                                <% if (locals.isLogged) { %>
-                                    <li>
-                                        <a class="dropdown-item" href="/usuario/change">Modificar perfil</a>
                                     </li>
-
-
-                                <% } %>
-                               
-                               
-                                
-
-                                
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a
-                                class="nav-link dropdown-toggle"
-                                href="#"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                            >
-                                Catálogo
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item" href="../producto/carrito">Carrito</a>
-                                </li>
-                            </ul>
-
-                            <% if (locals.isLogged) { %>
-                              <li class="nav-item">
-                                  <a class="nav-link active" aria-current="page" href="/usuario/profile">Perfil</a>
-                              </li>
-                              <% } %>
-                        </li>
                     </ul>
+                    <p style="height:0px; padding-right:7px;">
+                        0
+                    </p>
+                    <svg xmlns="http://www.w3.org/2000/svg" style="padding-right: 35px; height: 25px;"
+                        viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path
+                            d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+                    </svg>
                     <div class="search">
                         <input type="text" class="search__input" placeholder="Buscar" />
                         <button class="search__button">
                             <svg class="search__icon" aria-hidden="true" viewBox="0 0 24 24">
                                 <g>
                                     <path
-                                        d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"
-                                    ></path>
+                                        d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
+                                    </path>
                                 </g>
                             </svg>
                         </button>

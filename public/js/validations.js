@@ -1,5 +1,5 @@
 window.addEventListener("load", function () {
-  let formulario = document.querySelector("form.validations");
+  let formulario = document.querySelector("form.validations")
 
   formulario.addEventListener("submit", function (e) {
     let errores = [];

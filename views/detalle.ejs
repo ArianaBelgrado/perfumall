@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="icon" href="/img/perfume.png" />
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="/css/detalle.css" rel="stylesheet" />
-        <script src="https://kit.fontawesome.com/bda3cd9edc.js" crossorigin="anonymous"></script>
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-            crossorigin="anonymous"
-        />
-        <title>Detalle del producto</title>
-    </head>
 
-    <body>
-        <%- include('./partials/header') %>
+<head>
+    <link rel="icon" href="/img/perfume.png" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/detalle.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/bda3cd9edc.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+    <title>Detalle del producto</title>
+</head>
+
+<body>
+    <%- include('./partials/header') %>
         <main class="main ">
             <div class="carta container">
                 <div class="salome">
@@ -27,7 +24,9 @@
                                 <li class="breadcrumb-item">
                                     <a href="/" class="breadcrumb-item">Home</a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page"><%=producto.modelo %></li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    <%=producto.modelo %>
+                                </li>
                             </ol>
                         </nav>
                     </div>
@@ -35,19 +34,26 @@
                 </div>
                 <div class="descripciones-info">
                     <div>
-                        <h1 class="modelo"><%= producto.modelo %></h1>
-                        <h2><%= producto.marca.nombre %></h2>
-                        <h2>$<%= producto.precio %></h2>
+                        <h1 class="modelo">
+                            <%= producto.modelo %>
+                        </h1>
+                        <h2>
+                            <%= producto.marca.nombre %>
+                        </h2>
+                        <h2>$<%= producto.precio %>
+                        </h2>
                     </div>
                     <div class="cabeza">
                         <div class="container text-center">
                             <div class="row">
-                                <div class="linea my-5">  </div>
+                                <div class="linea my-5"> </div>
                             </div>
                         </div>
                         <div class="zobel">
-                            <p class="card-text my-5"><%= producto.descripcion %></p>
-                           
+                            <p class="card-text my-5">
+                                <%= producto.descripcion %>
+                            </p>
+
                         </div>
                     </div>
                     <div class="bobis">
@@ -58,24 +64,21 @@
                         </div>
 
                         <% if (locals.isAdmin) { %>
-                        <div class="contenedor-navs">
-                            <a
-                                href="/producto/editar/<%= producto.id %>"
-                                class="btn btn-secondary"
-                                role="button"
-                                aria-disabled="true"
-                                >Editar</a
-                            >
-                        </div>
-                        <% } %> <% if (locals.isAdmin) { %>
-                        <div>
-                            <form action="/producto/borrar/<%= producto.id %>?_method=DELETE" method="POST">
-                                <button type="submit" class="btn btn-secondary" role="button" aria-disabled="true">
-                                    ELIMINAR
-                                </button>
-                            </form>
-                        </div>
-                        <% } %>
+                            <div class="contenedor-navs">
+                                <a href="/producto/editar/<%= producto.id %>" class="btn btn-secondary" role="button"
+                                    aria-disabled="true">Editar</a>
+                            </div>
+                            <% } %>
+                                <% if (locals.isAdmin) { %>
+                                    <div>
+                                        <form action="/producto/borrar/<%= producto.id %>?_method=DELETE" method="POST">
+                                            <button type="submit" class="btn btn-secondary" role="button"
+                                                aria-disabled="true">
+                                                ELIMINAR
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <% } %>
                     </div>
                 </div>
             </div>
@@ -83,10 +86,9 @@
 
         <%- include('./partials/footer') %>
 
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-            crossorigin="anonymous"
-        ></script>
-    </body>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+                crossorigin="anonymous"></script>
+</body>
+
 </html>

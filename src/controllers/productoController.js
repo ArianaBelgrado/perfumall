@@ -1,7 +1,7 @@
 const db = require("../database/models");
 let controller = {
     carrito: (req, res) => {
-        res.render(path.resolve("views/carrito"));
+        res.render("carrito");
     },
 
     detalle: (req, res) => {

@@ -11,6 +11,7 @@ router.put("/editar/:id", uploadFile.single("imagen"), productoController.editar
 
 router.get("/crear-producto", userAdminMiddleware, productoController.nuevoProducto);
 router.post("/crear-producto", uploadFile.single("imagen"), productoController.store);
+router.get("/carrito", uploadFile.single("imagen"), productoController.carrito);
 
 router.delete("/borrar/:id", userAdminMiddleware, productoController.borrar);
 

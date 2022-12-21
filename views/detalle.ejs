@@ -30,17 +30,17 @@
                             </ol>
                         </nav>
                     </div>
-                    <img class="img-img" src="/img/NuevoProducto/<%= producto.imagen %>" alt="Trendy Pants and Shoes" />
+                    <img class="img-img img" src="/img/NuevoProducto/<%= producto.imagen %>" alt="Trendy Pants and Shoes" />
                 </div>
                 <div class="descripciones-info">
                     <div>
                         <h1 class="modelo">
                             <%= producto.modelo %>
                         </h1>
-                        <h2>
+                        <h2 class="marca">
                             <%= producto.marca.nombre %>
                         </h2>
-                        <h2>$<%= producto.precio %>
+                        <h2 class="precio">$<%= producto.precio %>
                         </h2>
                     </div>
                     <div class="cabeza">
@@ -50,7 +50,7 @@
                             </div>
                         </div>
                         <div class="zobel">
-                            <p class="card-text my-5">
+                            <p class="card-text my-5 descripcion">
                                 <%= producto.descripcion %>
                             </p>
 
@@ -58,7 +58,7 @@
                     </div>
                     <div class="bobis">
                         <div>
-                            <button class="btn btn-secondary">
+                            <button class="btn btn-secondary" id="addToCart">
                                 <i class="fa-solid fa-cart-shopping"></i> Añadir al carrito
                             </button>
                         </div>

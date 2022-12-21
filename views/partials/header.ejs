@@ -1,3 +1,6 @@
+<head>
+    <link href="/css/header.css" rel="stylesheet" type="text/css" />
+</head>
 <header class="Header">
     <div class="barra-nav">
         <nav class="navbar navbar-expand-lg bg-light">
@@ -70,14 +73,57 @@
                                 <% } %>
                                     </li>
                     </ul>
-                    <p style="height:0px; padding-right:7px;">
-                        0
-                    </p>
-                    <svg xmlns="http://www.w3.org/2000/svg" style="padding-right: 35px; height: 25px;"
-                        viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
-                        <path
-                            d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
-                    </svg>
+
+                    <div class="navbar-top">
+
+                        <button id="menuButton"><i class="fas fa-bars"></i></button>
+
+
+                        <div>
+
+                            <!--Shopping cart-->
+                            <div class="shopping-cart">
+                                <div class="sum-prices" id="sum-prices">
+                                    <!--Shopping cart logo-->
+                                    <i class="fas fa-shopping-cart shoppingCartButton"></i>
+                                    <!--The total prices of products in the shopping cart -->
+                                    <h6 id="sum-prices"></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Navbar bottom part -->
+                    <!-- Here I put the links to the other pages or nav links -->
+                    <div class="navbar" id="navbar">
+
+                        <!-- The searchbar which will be in the right side of the links -->
+
+                    </div>
+                    <div class="producstOnCart hide">
+                        <div class="overlay"></div>
+                        <div class="top">
+                            <button id="closeButton">
+                                <i class="fas fa-times-circle"></i>
+                            </button>
+                            <h3>Cart</h3>
+                        </div>
+                        <ul id="buyItems">
+                            <h4 class="empty">Your shopping cart is empty</h4>
+                            <!-- <li class="buyItem">
+                    						<img src="Images/producs-images/Mobiles/galaxynote10.png">
+                    						<div>
+                    							<h5>Products Name</h5>
+                    							<h6>$199</h6>
+                    							<div>
+                    								<button>-</button>
+                    								<span class="countOfProduct">1</span>
+                    								<button>+</button>
+                    							</div>
+                    						</div>
+                    					</li> -->
+                        </ul>
+                        <button class="btn checkout hidden">Check out</button>
+                    </div>
                     <div class="search">
                         <input type="text" class="search__input" placeholder="Buscar" />
                         <button class="search__button">

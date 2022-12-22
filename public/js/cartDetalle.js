@@ -10,14 +10,19 @@ let producto = {
     precio: precioProducto,
     descripcion: precioProducto,
     img: imgProducto,
+    count: 1,
 };
 let productsInCart = JSON.parse(localStorage.getItem("cart"));
+productsInCart ? productsInCart : productsInCart = [];
 addToCartBtn.addEventListener("click", () => {
     console.log(productsInCart);
     productsInCart.push(producto);
+
     localStorage.setItem("cart", JSON.stringify(productsInCart));
     console.log(productsInCart);
 });
+
+
 
 /*
 // Create an array to store the items in the cart

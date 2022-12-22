@@ -1,6 +1,5 @@
 const cardContainer = document.querySelector(".container-carrito");
 
-
 const drawCart = (product) => {
     cardContainer.innerHTML += `
     <div class="card mb-3 container-carrito" style="max-width: 540px">
@@ -34,12 +33,8 @@ const drawCart = (product) => {
                 </div>`;
 };
 
-const updateShoppingCartHTML = function () {
-    const productos = JSON.parse(localStorage.getItem("cart"));
-    productos.forEach((product) => {
-        console.log(product);
-    });
-
+const updateShoppingCartHTML = (productos) => {
+    console.log(productos);
     if (productos.length > 0) {
         productos.forEach((product) => {
             drawCart(product);
@@ -47,31 +42,35 @@ const updateShoppingCartHTML = function () {
     }
 };
 
+let productos = JSON.parse(localStorage.getItem("cart"));
+updateShoppingCartHTML(productos);
 
-
-
-updateShoppingCartHTML();
-
-const btnSuma = document.querySelector(".botonSuma")
-const btnResta = document.querySelector(".botonResta")
-
+const btnSuma = document.querySelector(".botonSuma");
+const btnResta = document.querySelector(".botonResta");
 
 btnSuma.addEventListener("click", (e) => {
-
-    console.log(e.target.id)
-    productos.forEach(product => {
-
-        if (product.modelo == e.target.id) {
-
-
-            product.count++;
-
-            updateShoppingCartHTML()
+    productos.forEach((product) => {
+        let id = e.target.id;
+        if (product.modelo == id) {
+            ++product.count;
+            localStorage.setItem("cart", JSON.stringify(productos));
+            let newProducts = JSON.parse(localStorage.getItem("cart"));
+            console.log(JSON.parse(localStorage.getItem("cart")));
+            updateShoppingCartHTML(newProducts);
+            location.reload();
         }
     });
-
-
-
-    productsInCart.push(product)
-    console.log(producto.count)
-})
+});
+btnResta.addEventListener("click", (e) => {
+    productos.forEach((product) => {
+        let id = e.target.id;
+        if (product.modelo == id) {
+            product.count--;
+            localStorage.setItem("cart", JSON.stringify(productos));
+            let newProducts = JSON.parse(localStorage.getItem("cart"));
+            console.log(JSON.parse(localStorage.getItem("cart")));
+            updateShoppingCartHTML(newProducts);
+            location.reload();
+        }
+    });
+});

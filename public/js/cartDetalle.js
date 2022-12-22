@@ -11,7 +11,11 @@ let producto = {
     descripcion: precioProducto,
     img: imgProducto,
 };
+
 let productsInCart = JSON.parse(localStorage.getItem("cart"));
+
+productsInCart ? productsInCart : productsInCart = [];
+
 addToCartBtn.addEventListener("click", () => {
     console.log(productsInCart);
     productsInCart.push(producto);

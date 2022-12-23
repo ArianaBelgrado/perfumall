@@ -30,7 +30,8 @@
                             </ol>
                         </nav>
                     </div>
-                    <img class="img-img img" src="/img/NuevoProducto/<%= producto.imagen %>" alt="Trendy Pants and Shoes" />
+                    <img class="img-img img" src="/img/NuevoProducto/<%= producto.imagen %>"
+                        alt="Trendy Pants and Shoes" />
                 </div>
                 <div class="descripciones-info">
                     <div>
@@ -58,7 +59,7 @@
                     </div>
                     <div class="bobis">
                         <div>
-                            <button class="btn btn-secondary" id="addToCart">
+                            <button class="btn btn-secondary <%= producto.modelo %> " id="addToCart">
                                 <i class="fa-solid fa-cart-shopping"></i> Añadir al carrito
                             </button>
                         </div>

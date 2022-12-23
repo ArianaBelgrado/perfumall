@@ -4,10 +4,12 @@ let marcaProducto = document.querySelector(".marca").innerText;
 let precioProducto = document.querySelector(".precio").innerText;
 let descripcionProducto = document.querySelector(".descripcion").innerText;
 let imgProducto = document.querySelector("img").src;
+let precioNuevo = precioProducto.split("$")[1]
+
 let producto = {
     modelo: modeloProducto,
     marca: marcaProducto,
-    precio: precioProducto,
+    precio: precioNuevo,
     descripcion: precioProducto,
     img: imgProducto,
     count: 1,
@@ -18,12 +20,22 @@ productsInCart ? productsInCart : productsInCart = [];
 
 
 
-addToCartBtn.addEventListener("click", () => {
+addToCartBtn.addEventListener("click", (e) => {
     console.log(productsInCart);
+    console.log(e.target.class)
+    productsInCart.forEach(producto => {
+
+        if (e.target.class == producto.modelo) {
+            producto.count++
+        }
+
+    });
     productsInCart.push(producto);
 
     localStorage.setItem("cart", JSON.stringify(productsInCart));
     console.log(productsInCart);
+
+    window.location.href = "/producto/carrito"
 });
 
 

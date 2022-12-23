@@ -20,8 +20,8 @@ const drawCart = (product) => {
                                 <p class="card-text">
                                 ${product.marca}
                                 </p>
-                                <p class="card-text">
-                                ${product.precio}
+                                <p class="card-text"> $
+                                ${product.precio * product.count}
                                 </p>
                                 <p> Cantidad: ${product.count} </p>
                             </div>
@@ -45,32 +45,48 @@ const updateShoppingCartHTML = (productos) => {
 let productos = JSON.parse(localStorage.getItem("cart"));
 updateShoppingCartHTML(productos);
 
-const btnSuma = document.querySelector(".botonSuma");
-const btnResta = document.querySelector(".botonResta");
+const btnSuma = document.querySelectorAll(".botonSuma");
+const btnResta = document.querySelectorAll(".botonResta");
 
-btnSuma.addEventListener("click", (e) => {
-    productos.forEach((product) => {
-        let id = e.target.id;
-        if (product.modelo == id) {
-            ++product.count;
-            localStorage.setItem("cart", JSON.stringify(productos));
-            let newProducts = JSON.parse(localStorage.getItem("cart"));
-            console.log(JSON.parse(localStorage.getItem("cart")));
-            updateShoppingCartHTML(newProducts);
-            location.reload();
-        }
+btnSuma.forEach(btnSuma => {
+    btnSuma.addEventListener("click", (e) => {
+        productos.forEach((product) => {
+            let id = e.target.id;
+            if (product.modelo == id) {
+                product.count++;
+                localStorage.setItem("cart", JSON.stringify(productos));
+                let newProducts = JSON.parse(localStorage.getItem("cart"));
+                console.log(JSON.parse(localStorage.getItem("cart")));
+                updateShoppingCartHTML(newProducts);
+                location.reload();
+            }
+        });
     });
 });
-btnResta.addEventListener("click", (e) => {
-    productos.forEach((product) => {
-        let id = e.target.id;
-        if (product.modelo == id) {
-            product.count--;
-            localStorage.setItem("cart", JSON.stringify(productos));
-            let newProducts = JSON.parse(localStorage.getItem("cart"));
-            console.log(JSON.parse(localStorage.getItem("cart")));
-            updateShoppingCartHTML(newProducts);
-            location.reload();
-        }
+btnResta.forEach(btnResta => {
+    btnResta.addEventListener("click", (e) => {
+        productos.forEach((product) => {
+            let id = e.target.id;
+            if (product.modelo == id) {
+                if (product.count <= 0) {
+                    return 0
+                }
+                product.count--;
+
+                let filtrado = productos.filter(producto =>
+                    producto.count !== 0
+                )
+
+                localStorage.setItem("cart", JSON.stringify(filtrado));
+                let newProducts = JSON.parse(localStorage.getItem("cart"));
+                console.log(JSON.parse(localStorage.getItem("cart")));
+                updateShoppingCartHTML(newProducts);
+                location.reload();
+            }
+        });
     });
 });
+
+
+
+

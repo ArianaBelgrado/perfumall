@@ -25,18 +25,20 @@ addToCartBtn.addEventListener("click", (e) => {
     console.log(e.target.class)
     productsInCart.forEach(producto => {
 
-        if (e.target.class == producto.modelo) {
+        if (producto.modelo == producto.modelo) {
             producto.count++
         }
 
-    });
+
+    })
     productsInCart.push(producto);
 
     localStorage.setItem("cart", JSON.stringify(productsInCart));
     console.log(productsInCart);
 
     window.location.href = "/producto/carrito"
-});
+})
+
 
 
 

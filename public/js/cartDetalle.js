@@ -1,4 +1,4 @@
-const addToCartBtn = document.getElementById("addToCart");
+const addToCartBtn = document.querySelector(".addToCart");
 let modeloProducto = document.querySelector(".modelo").innerText;
 let marcaProducto = document.querySelector(".marca").innerText;
 let precioProducto = document.querySelector(".precio").innerText;
@@ -22,21 +22,31 @@ productsInCart ? productsInCart : productsInCart = [];
 
 addToCartBtn.addEventListener("click", (e) => {
     console.log(productsInCart);
-    console.log(e.target.class)
-    productsInCart.forEach(producto => {
 
-        if (producto.modelo == producto.modelo) {
-            producto.count++
+    let id = e.target.id
+    productsInCart.forEach(asd => {
+        console.log(id)
+        if (id == asd.modelo) {
+            asd.count++
+            producto = null
+            //productsInCart.pop(asd.modelo)
+            console.log(asd)
+            console.log(producto)
+
+
+        } else {
+            producto = asd
         }
+
 
 
     })
     productsInCart.push(producto);
-
     localStorage.setItem("cart", JSON.stringify(productsInCart));
     console.log(productsInCart);
 
-    window.location.href = "/producto/carrito"
+
+    //window.location.href = "/producto/carrito"
 })
 
 

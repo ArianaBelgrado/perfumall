@@ -15,38 +15,48 @@ let producto = {
     descripcion: precioProducto,
     img: imgProducto,
 };
+let productsInCart = JSON.parse(localStorage.getItem("cart"));
+productsInCart ? productsInCart : (productsInCart = []);
+
 addToCartBtn.addEventListener("click", (e) => {
     let id = e.target.id;
+    let productCoincide = false;
+    let productoEncontrado;
 
-    let productsInCart = JSON.parse(localStorage.getItem("cart"));
-    productsInCart ? productsInCart : (productsInCart = []);
+    productsInCart.forEach((p) => {
+        if (p.modelo == id) {
+            productCoincide = true;
+            productoEncontrado = p;
+        }
+    });
+    console.log(productCoincide);
 
-    if (productsInCart.length == 0) {
+    if (productCoincide) {
+        productoEncontrado.count++;
+
+        let arrayNuevo = productsInCart.filter((p) => p != productoEncontrado);
+
+        arrayNuevo.push(productoEncontrado);
+        localStorage.setItem("cart", JSON.stringify(productsInCart));
+
+        console.log("count count");
+    } else {
         producto.count = 1;
         productsInCart.push(producto);
-
-        localStorage.setItem("cart", JSON.stringify(productsInCart));
-    } else {
-        for (let i = 0; i <= productsInCart.length; i++) {
-            if (id == productsInCart[i].modelo) {
-                productsInCart[i].count++;
-
-                break;
-            }
-            //  console.log(productsInCart);
-            productsInCart.push(productsInCart[i]);
-        }
         localStorage.setItem("cart", JSON.stringify(productsInCart));
     }
-    /*  const products = productsInCart.map((product) => {
-        if (id == product.modelo) {
-            product.count++;
 
+    /* else {
+        console.log(productsInCart.length);
+
+        for (let product of productsInCart) {
+            if (id == product.modelo) {
+                product.count++;
+            }
         }
-        
-
-    }); */
-
+        productsInCart.push(producto);
+        localStorage.setItem("cart", JSON.stringify(productsInCart));
+    } */
     console.log(JSON.parse(localStorage.getItem("cart")));
 });
 

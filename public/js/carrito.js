@@ -1,6 +1,10 @@
 const cardContainer = document.querySelector(".container-carrito");
 
 const drawCart = (product) => {
+
+
+
+
     cardContainer.innerHTML += `
     <div class="card mb-3 container-carrito" style="max-width: 540px">
                     <div class="row g-0">

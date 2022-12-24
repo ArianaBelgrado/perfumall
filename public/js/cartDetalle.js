@@ -4,53 +4,65 @@ let marcaProducto = document.querySelector(".marca").innerText;
 let precioProducto = document.querySelector(".precio").innerText;
 let descripcionProducto = document.querySelector(".descripcion").innerText;
 let imgProducto = document.querySelector("img").src;
-let precioNuevo = precioProducto.split("$")[1]
+let precioNuevo = precioProducto.split("$")[1];
 
+//let productsInCart = JSON.parse(localStorage.getItem("cart"));
+// productsInCart ? productsInCart : (productsInCart = []);
 let producto = {
     modelo: modeloProducto,
     marca: marcaProducto,
     precio: precioNuevo,
     descripcion: precioProducto,
     img: imgProducto,
-    count: 1,
 };
-
-let productsInCart = JSON.parse(localStorage.getItem("cart"));
-productsInCart ? productsInCart : productsInCart = [];
-
-
-
 addToCartBtn.addEventListener("click", (e) => {
-    console.log(productsInCart);
+    let id = e.target.id;
 
-    let id = e.target.id
-    productsInCart.forEach(asd => {
-        console.log(id)
-        if (id == asd.modelo) {
-            asd.count++
-            producto = null
-            //productsInCart.pop(asd.modelo)
-            console.log(asd)
-            console.log(producto)
+    let productsInCart = JSON.parse(localStorage.getItem("cart"));
+    productsInCart ? productsInCart : (productsInCart = []);
 
+    if (productsInCart.length == 0) {
+        producto.count = 1;
+        productsInCart.push(producto);
 
-        } else {
-            producto = asd
+        localStorage.setItem("cart", JSON.stringify(productsInCart));
+    } else {
+        for (let i = 0; i <= productsInCart.length; i++) {
+            if (id == productsInCart[i].modelo) {
+                productsInCart[i].count++;
+
+                break;
+            }
+            //  console.log(productsInCart);
+            productsInCart.push(productsInCart[i]);
         }
+        localStorage.setItem("cart", JSON.stringify(productsInCart));
+    }
+    /*  const products = productsInCart.map((product) => {
+        if (id == product.modelo) {
+            product.count++;
 
+        }
+        
 
+    }); */
 
-    })
-    productsInCart.push(producto);
-    localStorage.setItem("cart", JSON.stringify(productsInCart));
-    console.log(productsInCart);
+    console.log(JSON.parse(localStorage.getItem("cart")));
+});
 
-
-    //window.location.href = "/producto/carrito"
-})
-
-
-
+/*roductsInCart.forEach((asd) => {
+        console.log(id);
+        if (id == asd.modelo) {
+            asd.count++;
+            localStorage.setItem("cart", JSON.stringify(productsInCart));
+            return;
+            //productsInCart.pop(asd.modelo)
+            let newProducts = JSON.parse(localStorage.getItem("cart"));
+            console.log(JSON.parse(localStorage.getItem("cart")));
+        }
+    });
+    */
+//window.location.href = "/producto/carrito"
 
 /*
 // Create an array to store the items in the cart

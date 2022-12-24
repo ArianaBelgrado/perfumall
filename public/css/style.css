@@ -6,6 +6,9 @@
 }
 
 @media only screen and (max-width: 4000px) and (min-width: 360px) {
+    /* button.btn.btn-info.comrpame {
+        background-color: #9ccdfb ;
+    }*/
     .pepe {
         display: flex;
         justify-content: center;
@@ -40,6 +43,14 @@
         padding: 15px;
         height: 70vh;
     }
+    div.card.product-under {
+        background-image: linear-gradient(
+            rgb(255, 255, 255),
+            rgb(255, 255, 255),
+            rgb(186, 227, 255),
+            #a3c9fa
+        );
+    }
     .producto {
         padding: 15px;
         border: 1px solid rgb(52, 108, 134);
@@ -70,15 +81,22 @@
         font-size: 20px;
         text-transform: uppercase;
         border: none;
-      
-        
+
         border-radius: 10px;
         box-shadow: 0 5px 15px rgba(#fff);
     }
-    .comprame{
-    height: 6vh;
-    width: 15vh;
-  }
+    button.btn.btn-info.comprame {
+        font-size: 18px;
+        color: rgb(16, 53, 102);
+        background-color: #9ccdfb;
+        border: none;
+        height: 6vh;
+        width: 15vh;
+    }
+    button.btn.btn-info.comprame:hover {
+        border: 1px solid #005288;
+    }
+
     .img-11 {
         border-radius: 3%;
     }
@@ -158,8 +176,8 @@
         text-decoration: line-through !important;
     }
 
-    .discount{
-      color: #005288;
+    .discount {
+        color: #005288;
     }
     .description {
         color: #005288;

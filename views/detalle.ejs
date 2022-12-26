@@ -15,24 +15,21 @@
 
 <body>
     <%- include('./partials/header') %>
+
+
+
+
+
         <main class="main ">
             <div class="carta container">
                 <div class="salome">
                     <div class="breadcrumb">
-                        <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item">
-                                    <a href="/" class="breadcrumb-item">Home</a>
-                                </li>
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    <%=producto.modelo %>
-                                </li>
-                            </ol>
-                        </nav>
+
                     </div>
                     <img class="img-img img" src="/img/NuevoProducto/<%= producto.imagen %>"
                         alt="Trendy Pants and Shoes" />
                 </div>
+
                 <div class="descripciones-info">
                     <div>
                         <h1 class="modelo">
@@ -41,15 +38,16 @@
                         <h2 class="marca">
                             <%= producto.marca.nombre %>
                         </h2>
-                        <h2 class="precio">$<%= producto.precio %>
-                        </h2>
+                        <% if (producto.estado==1) { %>
+                            <h2 class="precio">$<%= producto.precio - (producto.precio * producto.descuento * 0.010) %>
+                            </h2>
+                            <% } else { %>
+                                <h2 class="precio">$ <%= producto.precio %>
+                                </h2>
+                                <% } %>
                     </div>
                     <div class="cabeza">
-                        <div class="container text-center">
-                            <div class="row">
-                                <div class="linea my-5"> </div>
-                            </div>
-                        </div>
+
                         <div class="zobel">
                             <p class="card-text my-5 descripcion">
                                 <%= producto.descripcion %>
@@ -63,6 +61,9 @@
                                 <i class="fa-solid fa-cart-shopping"></i> Añadir al carrito
                             </button>
                         </div>
+
+
+
 
                         <% if (locals.isAdmin) { %>
                             <div class="contenedor-navs">

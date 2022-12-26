@@ -1,96 +1,60 @@
 * {
-  box-sizing: border-box;
-  padding: 0px;
-  margin: 0px;
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
 }
-.main {
-  width: 100%;
-  height: auto;
-  background-color: lightsteelblue;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
+main {
+    display: flex;
+    justify-content: center;
+    height: 90vh;
+    align-items: center;
+    background-color: #add1ff;
 }
-.breadcrumb{
-  padding-left: 40px;
-  display: inline;
-
-} 
-
-
-.carta {
-  width: 90%;
-  height: auto;
-  display: flex;
-  flex-wrap: nowrap;
-  padding-bottom: 100px;
+#btn-cart {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 20px;
+    margin-top: 12%;
 }
-
-.img-img {
-  width: 90%;
-  height: 30em;
-  border-radius: 12px;
-  margin-left: 55px;
+p.card-text {
+    padding-top: 5%;
 }
-.breadcrumb {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-}
-.card {
-  width: 20%;
-  
-}
-.tarjetas-productos {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  padding-bottom: 70px;
-}
-.descripciones-info {
-  width: 40%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  padding-left: 35px;
-}
-.cuotas{
-  padding-top:40px;
-}
-.container-carrito{
-  height: 80%;
-}
-.breadcrumb-item{
-  text-decoration: none;
-}
-.salome{
-  height: 100%;
-}
-.colirio{
-  text-align: left;
+div.card.mb-3.cart-border {
+    display: flex;
+    width: 60%;
+    height: 80%;
+    border: 1px solid #a3c9fa;
 }
 
-.linea{
-  border: 0.5px solid #646464;
+div.row.no-grutter {
+    border: 1px solid
+        linear-gradient(
+            rgb(255, 255, 255),
+            rgb(255, 255, 255),
+            rgb(186, 227, 255),
+            #a3c9fa
+        );
 }
-.zobel{
-  margin-left: 13px;
+button.btn.btn-secondary.addToCart {
+    font-size: 18px;
+    color: rgb(16, 53, 102);
+    background-color: #9ccdfb;
+    border: none;
+    height: 6vh;
+    width: 30vh;
 }
-.modelo{
-  margin-top: 100px;
+button.btn.btn-secondary.addToCart:hover {
+    border: 1px solid #005288;
 }
-.bobis{
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  width: auto;
-  height: 7%;
+.card-title {
+    padding-top: 15px;
 }
-.cabeza{
-  width: auto;
-  height: 60%;
+.modelo {
+    padding-top: 1%;
+}
+.marca {
+    padding-top: 1%;
+}
+.precio {
+    padding-top: 1%;
 }

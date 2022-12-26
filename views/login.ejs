@@ -5,13 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../css/sign-in.css" rel="stylesheet">
+  <link href="/css/sign-in.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Roboto&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="icon" href="/img/perfume.png">
+  <link rel="icon" href="/img/perfume.png">
 
-<title>Loguearse</title>
+  <title>Loguearse</title>
 </head>
 
 <body>
@@ -19,40 +19,40 @@
   <%- include('./partials/header') %>
 
 
-  <main>
-    
+    <main>
+
       <div class="titulos">
         <h1 class="mt-5">Iniciar Sesión</h1><br>
         <h2>¡Bienvenido! ¡Completá los datos!</h2>
       </div>
       <div class="container">
-       <form action="/usuario/login" method="POST" class="col-6 mt-5">
-        <div class="mb-3 col-12">
-          <label for="email" class="form-label">Email address</label>
-          <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
-         
-          <% if (locals.errors && errors.email) { %>
-            <div class="text-danger">
-              <%= errors.email.msg %> 
-            </div>
-          <% } %>
-        </div>
+        <form action="/usuario/login" method="POST" class="col-6 mt-5">
+          <div class="mb-3 col-12">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
 
-        <div class="mb-3-password col-12">
-          <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password" name="password" >
-          <% if (locals.errors && errors.password) { %>
-            <div class="text-danger">
-              <%= errors.password.msg %> 
-            </div>
-            <% } %>
-        </div>
-        
-       
-      <button type="submit" class="btn btn-primary">Ingresar</button>
-    </form>
+            <% if (locals.errors && errors.email) { %>
+              <div class="text-danger">
+                <%= errors.email.msg %>
+              </div>
+              <% } %>
+          </div>
 
-  </main>
+          <div class="mb-3-password col-12">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password">
+            <% if (locals.errors && errors.password) { %>
+              <div class="text-danger">
+                <%= errors.password.msg %>
+              </div>
+              <% } %>
+          </div>
+
+
+          <button type="submit" class="btn btn-primary">Ingresar</button>
+        </form>
+
+    </main>
 
 
     <%- include('./partials/footer') %>

@@ -5,7 +5,7 @@ const productoController = require("./../controllers/productoController");
 const uploadFile = require("../middlewares/productMulter");
 
 router.get("/detalle/:id", productoController.detalle);
-router.post("/detalle/:id", productoController.comprar);
+router.post("/detalle/:id", productoController.detalle);
 
 router.get("/editar/:id", userAdminMiddleware, productoController.renderizarEditarProducto);
 router.put("/editar/:id", uploadFile.single("imagen"), productoController.editar);

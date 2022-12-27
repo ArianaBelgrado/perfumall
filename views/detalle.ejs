@@ -86,20 +86,22 @@
 
         <div class="cho-container"></div>
         <script>
-            const mp = new MercadoPago("TEST-f7e88993-f4c8-4d51-8a9b-3b2f75b1f788", {
-                locale: "es-AR",
-            });
+            
+                const mp = new MercadoPago("TEST-f7e88993-f4c8-4d51-8a9b-3b2f75b1f788", {
+                    locale: "es-AR",
+                });
 
-            mp.checkout({
-                preference: {
-                    id: '<%= preferenceId %>',
-                },
-                render: {
-                    container: ".cho-container",
-                    label: "Pagar",
-                },
-            });
-            console.log(preference.id);
+                mp.checkout({
+                    preference: {
+                        id: "<%= preferenceId %>",
+                    },
+                    render: {
+                        container: ".cho-container",
+                        label: "Pagar",
+                    },
+                });
+                console.log(preference.id);
+            
         </script>
 
         <script

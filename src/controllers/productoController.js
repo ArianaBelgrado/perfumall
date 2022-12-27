@@ -5,20 +5,7 @@ let controller = {
         res.render("carrito");
     },
 
-    detalle: (req, res) => {
-        let producto;
-
-        db.Producto.findByPk(req.params.id, { include: "marca" })
-            .then((result) => (producto = result))
-            .then((result) => res.render("detalle", { producto }))
-            .catch((e) => res.send(e));
-    },
-    nuevoProducto: async (req, res) => {
-        let marcas = await db.Marca.findAll();
-
-        res.render("crear-producto", { marcas: marcas });
-    },
-    comprar: async (req, res) => {
+    detalle: async (req, res) => {
         let preference = {
             items: [],
         };
@@ -36,11 +23,17 @@ let controller = {
 
             const response = await mercadopago.preferences.create(preference);
             const preferenceId = response.body.id;
+            console.log(preferenceId);
             return res.render("detalle", { preferenceId, producto });
         } catch (error) {
             res.send(error.message);
             console.log(error);
         }
+    },
+    nuevoProducto: async (req, res) => {
+        let marcas = await db.Marca.findAll();
+
+        res.render("crear-producto", { marcas: marcas });
     },
 
     store: (req, res) => {

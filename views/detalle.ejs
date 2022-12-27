@@ -1,48 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="icon" href="/img/perfume.png" />
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="/css/detalle.css" rel="stylesheet" />
-        <script src="https://kit.fontawesome.com/bda3cd9edc.js" crossorigin="anonymous"></script>
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-            crossorigin="anonymous"
-        />
-        <title>Detalle del producto</title>
-    </head>
 
-    <body>
-        <%- include('./partials/header') %>
+<head>
+    <link rel="icon" href="/img/perfume.png" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/detalle.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/bda3cd9edc.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+    <title>Detalle del producto</title>
+</head>
+
+<body>
+    <%- include('./partials/header') %>
 
         <main class="main">
             <div class="carta container">
                 <div class="salome">
                     <div class="breadcrumb"></div>
-                    <img
-                        class="img-img img"
-                        src="/img/NuevoProducto/<%= producto.imagen %>"
-                        alt="Trendy Pants and Shoes"
-                    />
+                    <img class="img-img img" src="/img/NuevoProducto/<%= producto.imagen %>"
+                        alt="Trendy Pants and Shoes" />
                 </div>
 
                 <div class="descripciones-info">
                     <div>
-                        <h1 class="modelo"><%= producto.modelo %></h1>
-                        <h2 class="marca"><%= producto.marca.nombre %></h2>
+                        <h1 class="modelo">
+                            <%= producto.modelo %>
+                        </h1>
+                        <h2 class="marca">
+                            <%= producto.marca.nombre %>
+                        </h2>
                         <% if (producto.estado==1) { %>
-                        <h2 class="precio">$<%= producto.precio - (producto.precio * producto.descuento * 0.010) %></h2>
-                        <% } else { %>
-                        <h2 class="precio">$ <%= producto.precio %></h2>
-                        <% } %>
+                            <h2 class="precio">$<%= producto.precio - (producto.precio * producto.descuento * 0.010) %>
+                            </h2>
+                            <% } else { %>
+                                <h2 class="precio">$ <%= producto.precio %>
+                                </h2>
+                                <% } %>
                     </div>
                     <div class="cabeza">
                         <div class="zobel">
-                            <p class="card-text my-5 descripcion"><%= producto.descripcion %></p>
+                            <p class="card-text my-5 descripcion">
+                                <%= producto.descripcion %>
+                            </p>
                         </div>
                     </div>
                     <div class="bobis d-flex justify-content-center">
@@ -51,42 +53,40 @@
                                 <i class="fa-solid fa-cart-shopping"></i> Añadir al carrito
                             </button>
                         </div>
-                        <div>
+
+                        <div class="asd">
                             <form action="/producto/detalle/<%= producto.id %>" method="POST">
-                                <button class="btn btn-secondary addToCart" id="<%= producto.modelo %>">Comprar</button>
+
                             </form>
                         </div>
 
                         <% if (locals.isAdmin) { %>
-                        <div class="contenedor-navs">
-                            <a
-                                href="/producto/editar/<%= producto.id %>"
-                                class="btn btn-secondary"
-                                role="button"
-                                aria-disabled="true"
-                                >Editar</a
-                            >
-                        </div>
-                        <% } %> <% if (locals.isAdmin) { %>
-                        <div>
-                            <form action="/producto/borrar/<%= producto.id %>?_method=DELETE" method="POST">
-                                <button type="submit" class="btn btn-secondary" role="button" aria-disabled="true">
-                                    ELIMINAR
-                                </button>
-                            </form>
-                        </div>
-                        <% } %>
+                            <div class="contenedor-navs">
+                                <a href="/producto/editar/<%= producto.id %>" class="btn btn-secondary" role="button"
+                                    aria-disabled="true">Editar</a>
+                            </div>
+                            <% } %>
+                                <% if (locals.isAdmin) { %>
+                                    <div>
+                                        <form action="/producto/borrar/<%= producto.id %>?_method=DELETE" method="POST">
+                                            <button type="submit" class="btn btn-secondary" role="button"
+                                                aria-disabled="true">
+                                                ELIMINAR
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <% } %>
                     </div>
                 </div>
             </div>
         </main>
 
         <%- include('./partials/footer') %>
-        <script src="https://sdk.mercadopago.com/js/v2"></script>
+            <script src="https://sdk.mercadopago.com/js/v2"></script>
 
-        <div class="cho-container"></div>
-        <script>
-            
+            <div class="cho-container"></div>
+            <script>
+
                 const mp = new MercadoPago("TEST-f7e88993-f4c8-4d51-8a9b-3b2f75b1f788", {
                     locale: "es-AR",
                 });
@@ -96,18 +96,18 @@
                         id: "<%= preferenceId %>",
                     },
                     render: {
-                        container: ".cho-container",
-                        label: "Pagar",
+                        container: ".asd",
+                        label: "Comprar",
                     },
                 });
                 console.log(preference.id);
-            
-        </script>
 
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-            crossorigin="anonymous"
-        ></script>
-    </body>
+            </script>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+                crossorigin="anonymous"></script>
+
+</body>
+
 </html>

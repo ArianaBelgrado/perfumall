@@ -58,3 +58,12 @@ button.btn.btn-secondary.addToCart:hover {
 .precio {
     padding-top: 1%;
 }
+
+button.mercadopago-button {
+    font-size: 18px;
+    color: rgb(16, 53, 102);
+    background-color: #9ccdfb;
+    border: none;
+    height: 6vh;
+    width: 30vh;
+}

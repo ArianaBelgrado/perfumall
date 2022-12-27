@@ -9,6 +9,26 @@
     /* button.btn.btn-info.comrpame {
         background-color: #9ccdfb ;
     }*/
+    div.input-group.rounded.searchBtn {
+        display: flex;
+        justify-content: flex-start;
+        padding: 15px;
+        width: 15%;
+    }
+    div.orderBtn {
+        display: flex;
+        justify-content: flex-start;
+        padding: 15px;
+        width: 15%;
+        flex-direction: column;
+    }
+    div.btn-group.asd {
+        width: 80%;
+    }
+    button.btn.btn-secondary.dropdown-toggle {
+        background-color: #7abfff;
+        color: #005288;
+    }
     .pepe {
         display: flex;
         justify-content: center;

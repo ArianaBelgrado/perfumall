@@ -59,6 +59,23 @@
         <h3 class="titulo-chanel">Nueva línea Chanel</h3>
 
       </div>
+
+
+      <p> Ordenar por </p>
+      <div class="btn-group">
+
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Marcas
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/">Todas</a></li>
+          <li><a class="dropdown-item" href="/avon">AVON</a></li>
+          <li><a class="dropdown-item" href="/natura">Natura </a></li>
+          <li><a class="dropdown-item" href="/ch">Carolina Herrera </a></li>
+          <li><a class="dropdown-item" href="/herencia">Herencia</a></li>
+        </ul>
+      </div>
+
       <div class="container mb-lg-5 mb-sm-4 mb-md-5 justify-content-center ">
 
         <% productos.forEach(prod=> { %>
@@ -75,6 +92,7 @@
                     <h3 class="name">
                       <%=prod.marca.nombre %>
                     </h3>
+
                     <% if (prod.estado==1) { %>
 
                       <span class="discountTachado">

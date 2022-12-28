@@ -58,13 +58,14 @@
 
         <h3 class="titulo-chanel">Nueva línea Chanel</h3>
       </div>
-
-      <div class="input-group rounded searchBtn">
-        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-          aria-describedby="search-addon" />
-        <span class="input-group-text border-0" id="search-addon">
-          <i class="fas fa-search"></i>
-        </span>
+      <form action="/:id" method="get">
+        <div class="input-group rounded searchBtn">
+          <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+            aria-describedby="search-addon" />
+          <span class="input-group-text border-0" id="search-addon">
+            <i class="fas fa-search"></i>
+          </span>
+      </form>
       </div>
       <div class="orderBtn">
         <p> Ordenar por </p>
@@ -85,6 +86,8 @@
 
 
       <div class="container mb-lg-5 mb-sm-4 mb-md-5 justify-content-center ">
+
+
 
         <% productos.forEach(prod=> { %>
           <article href="/producto/detalle/<%= prod.id %> ">

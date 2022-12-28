@@ -4,7 +4,6 @@ let controller = {
     carrito: (req, res) => {
         res.render("carrito");
     },
-
     detalle: async (req, res) => {
         let preference = {
             items: [],

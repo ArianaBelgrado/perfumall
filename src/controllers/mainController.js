@@ -9,6 +9,28 @@ let controller = {
             .catch((err) => console.log(err));
     },
 
+
+
+    search: async (req, res) => {
+        try {
+            const productos = await db.Producto.findAll({
+                include: "marca",
+                where:
+            })
+
+
+            return res.render("home", {
+                productos
+            })
+
+        } catch (error) {
+            console.log(error.message);
+        }
+
+    },
+
+
+
     filtradoAvon: async (req, res) => {
 
         try {

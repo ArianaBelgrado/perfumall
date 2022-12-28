@@ -9,6 +9,26 @@ let controller = {
             .catch((err) => console.log(err));
     },
 
+    search: async (req, res) => {
+        const { Op } = require("sequelize");
+        const q = req.query.q;
+
+        console.log(q);
+        try {
+            const productos = await db.Producto.findAll({
+                include: "marca",
+                where: {
+                    modelo: { [Op.like]: q },
+                },
+            });
+
+            return res.render("home", {
+                productos,
+            });
+        } catch (error) {
+            console.log(error.message);
+        }
+    },
     filtrado: async (req, res) => {
         const { marcaId } = req.params;
 
@@ -21,7 +41,7 @@ let controller = {
                 productos,
             });
         } catch (error) {
-            console.log(error.message);
+            console.log(error);
         }
     },
 };

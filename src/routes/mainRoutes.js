@@ -3,6 +3,7 @@ let express = require("express");
 let router = express.Router();
 
 router.get("/", mainController.home);
+router.get("/", mainController.search); 
 
 router.get("/:marcaId", mainController.filtrado);
 

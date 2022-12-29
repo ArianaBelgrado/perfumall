@@ -34,7 +34,6 @@ let controller = {
 
         res.render("crear-producto", { marcas: marcas });
     },
-
     store: (req, res) => {
         let estado;
         let descuento = 0;

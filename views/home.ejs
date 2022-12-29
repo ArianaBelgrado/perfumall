@@ -83,71 +83,90 @@
           </ul>
         </div>
       </div>
+      <div class="orderBtn">
+        <div class="btn-group asd">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Descuentos
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/descuento_15">Desde 10% OFF</a></li>
+            <li><a class="dropdown-item" href="/descuento_20">Desde 20% OFF</a></li>
+            <li><a class="dropdown-item" href="/descuento_30">Desde 30% OFF </a></li>
+            <li><a class="dropdown-item" href="/descuento_40">Desde 40% OFF </a></li>
+            <li><a class="dropdown-item" href="/descuento_50">Desde 50% OFF</a></li>
+          </ul>
+        </div>
+      </div>
 
 
-    
+
+
 
       <div class="container mb-lg-5 mb-sm-4 mb-md-5 justify-content-center ">
 
+        <% mensajes.forEach(m=> { %>
+
+          <%= m %>
+            </p>
+            <% }) %>
+              <% productos.forEach(prod=> { %>
+                <article href="/producto/detalle/<%= prod.id %> ">
+                  <div class="contenedor-producto">
+                    <div class="card product-under">
+                      <a href="/producto/detalle/<%= prod.id %> ">
+                        <img class="img-11 img" src="/img/NuevoProducto/<%= prod.imagen %>" />
+                        <div class="productoinfo">
+                          <h2 class="name productName">
+                            <%= prod.modelo %>
+
+                          </h2>
+                          <h3 class="name">
+                            <%=prod.marca.nombre %>
+                          </h3>
+
+                          <% if (prod.estado==1) { %>
+
+                            <span class="discountTachado">
+                              $<%= prod.precio %>
+                            </span>
+                            <h2 class="price">$
+
+                              <%=prod.precio - (prod.precio* prod.descuento * 0.010) %>
+                            </h2>
+
+                            <h3 class="discount">
+                              <%= prod.descuento %>% OFF
+                            </h3>
+                            <% } else { %>
+                              <h2 class="price priceValue">$ <%= prod.precio %>
+                              </h2>
+                              <% } %>
 
 
-        <% productos.forEach(prod=> { %>
-          <article href="/producto/detalle/<%= prod.id %> ">
-            <div class="contenedor-producto">
-              <div class="card product-under">
-                <a href="/producto/detalle/<%= prod.id %> ">
-                  <img class="img-11 img" src="/img/NuevoProducto/<%= prod.imagen %>" />
-                  <div class="productoinfo">
-                    <h2 class="name productName">
-                      <%= prod.modelo %>
-
-                    </h2>
-                    <h3 class="name">
-                      <%=prod.marca.nombre %>
-                    </h3>
-
-                    <% if (prod.estado==1) { %>
-
-                      <span class="discountTachado">
-                        $<%= prod.precio %>
-                      </span>
-                      <h2 class="price">$
-
-                        <%=prod.precio - (prod.precio* prod.descuento * 0.010) %>
-                      </h2>
-
-                      <h3 class="discount">
-                        <%= prod.descuento %>% OFF
-                      </h3>
-                      <% } else { %>
-                        <h2 class="price priceValue">$ <%= prod.precio %>
-                        </h2>
-                        <% } %>
 
 
 
+                        </div>
+
+                        <div class="colorete">
+                          <a href="/producto/detalle/<%= prod.id %> "> <button type="button"
+                              class="btn btn-info comprame ">Comprar</button></a>
 
 
+                          <% if (locals.isAdmin) { %>
+
+                            <div class="cakl">
+                              <button>
+                                <a href="/producto/editar/<%= prod.id %>">Editar</a>
+                              </button>
+                            </div>
+                            <% } %>
+                        </div>
+                    </div>
                   </div>
-
-                  <div class="colorete">
-                    <a href="/producto/detalle/<%= prod.id %> "> <button type="button"
-                        class="btn btn-info comprame ">Comprar</button></a>
-
-
-                    <% if (locals.isAdmin) { %>
-
-                      <div class="cakl">
-                        <button>
-                          <a href="/producto/editar/<%= prod.id %>">Editar</a>
-                        </button>
-                      </div>
-                      <% } %>
-                  </div>
-              </div>
-            </div>
-          </article>
-          <% }) %>
+                </article>
+                <% }) %>
       </div>
 
       <%- include('./partials/footer') %>

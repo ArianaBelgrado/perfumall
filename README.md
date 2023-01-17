@@ -1,1 +1,1 @@
-https://perfumall-production.up.railway.app/
+https://github.com/Juanzor/perfumall

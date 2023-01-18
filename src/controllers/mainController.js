@@ -15,16 +15,15 @@ let controller = {
                 });
 
                 if (productos.length == 0) {
-                    console.log("holis golis")
-                    return res.render("home", { productos: productos, mensajes: ["Tu producto no fue encontrado"] })
+                    return res.render("home", {
+                        productos: productos,
+                        mensajes: ["Tu producto no fue encontrado"],
+                    });
                 }
             }
             res.render("home", { productos: productos, mensajes: [] });
-
-
-        }
-        catch (error) {
-            console.log(error)
+        } catch (error) {
+            console.log(error);
         }
     },
     // search: async (req, res) => {
@@ -56,6 +55,7 @@ let controller = {
                 include: "marca",
                 where: { marca_id: marcaId },
             });
+
             return res.render("home", { productos: productos, mensajes: [] });
         } catch (error) {
             console.log(error);
@@ -64,17 +64,17 @@ let controller = {
     filtradoPorDescuento: async (req, res) => {
         const { descuento } = req.params;
         const { Op } = require("sequelize");
-        let descuentoSpliteado = descuento.split("_")[1]
+        let descuentoSpliteado = descuento.split("_")[1];
         try {
             const productos = await db.Producto.findAll({
                 include: "marca",
                 where: { descuento: { [Op.gte]: descuentoSpliteado } },
-            })
+            });
             return res.render("home", { productos: productos, mensajes: [] });
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
-    }
+    },
 };
 
 module.exports = controller;

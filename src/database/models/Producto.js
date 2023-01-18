@@ -57,10 +57,6 @@ module.exports = function (sequelize, DataTypes) {
 
     const Producto = sequelize.define(alias, cols, config);
 
-
-
-
-
     Producto.associate = (models) => {
         Producto.belongsTo(models.Marca,
         {

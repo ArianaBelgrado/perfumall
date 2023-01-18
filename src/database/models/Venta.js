@@ -3,7 +3,7 @@ function ventaData(sequelize, DataTypes) {
 
     let columns = {
         id: {
-            type: DataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
@@ -19,7 +19,7 @@ function ventaData(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        detalle_venta_id: {
+        detalle_venta_ID: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
@@ -46,7 +46,7 @@ function ventaData(sequelize, DataTypes) {
             Venta.associate = function (models) {
                 Venta.belongsTo(models.Detalle_venta, {
                     as: "detalle_venta",
-                    foreignKey: "detalle_venta_id",
+                    foreignKey: "detalle_venta_ID",
                 });
             };
         };

@@ -65,16 +65,16 @@ let total = [];
 const updateShoppingCartHTML = (productos) => {
     console.log(productos);
     if (productos.length > 0) {
+        let productsTotal = 0
         productos.forEach((product) => {
+
+
+            productsTotal += product.precio * product.count;
+
+
             drawCart(product);
 
-
-
-            productsTotal = product.precio * product.count;
-
-
             total.push(productsTotal)
-
         });
         // actualizarTotal(productos)
     }

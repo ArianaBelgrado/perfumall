@@ -67,3 +67,11 @@ button.mercadopago-button {
     height: 6vh;
     width: 30vh;
 }
+.mensaje {
+    text-align: center;
+    margin: auto;
+    font-size: 18px;
+    font-weight: 600;
+    width: 50%;
+    background-color: rgb(16, 53, 102);
+}

@@ -10,11 +10,24 @@ let router = express.Router();
 
 /*** CREATE PERFIL ***/
 router.get("/create", usuarioController.create);
-router.post("/create", uploadFile.single("imagenPerfil"), validations, usuarioController.store);
+router.post(
+    "/create",
+    uploadFile.single("imagenPerfil"),
+    validations,
+    usuarioController.store
+);
 
 // // /*** EDIT ONE USUARIO ***/
-router.get("/change", guestMiddleware, usuarioController.renderizarEditarPerfil);
-router.put("/change", uploadFile.single("imagenPerfil"), usuarioController.editUser);
+router.get(
+    "/change",
+    guestMiddleware,
+    usuarioController.renderizarEditarPerfil
+);
+router.put(
+    "/change",
+    uploadFile.single("imagenPerfil"),
+    usuarioController.editUser
+);
 
 // Perfil
 
@@ -31,6 +44,6 @@ router.post("/login", usuarioController.loginProcess);
 //BORRAR PERFIL
 router.delete("/borrar/:id", usuarioController.borrar);
 
-//TOKEN
+router.post("/comprar/:idProduct", guestMiddleware, usuarioController.comprar);
 
 module.exports = router;

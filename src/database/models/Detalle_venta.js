@@ -1,43 +1,44 @@
 module.exports = function (sequelize, DataTypes) {
-  const alias = "Detalle_venta";
-  const cols = {
-    id: {
-      type: DataTypes.INTEGER(10).UNSIGNED,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    fecha: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    direccion_destino: {
-      type: DataTypes.STRING(100),
-      allowNull: false,
-    },
-    ciudad_destino: {
-      type: DataTypes.STRING(100),
-      allowNull: false,
-    },
-    retiro: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-    },
-    monto_total: {
-      type: DataTypes.INTEGER,
-    },
-  };
-  const config = {
-    tableName: "Detalle_venta",
-    timestamps: true,
-  };
-  const Detalle_venta = sequelize.define(alias, cols, config);
+    let alias = "Detalle_venta";
+    let cols = {
+        id: {
+            type: DataTypes.INTEGER(),
+            primaryKey: true,
+            autoIncrement: true,
+        },
+        fecha: {
+            type: DataTypes.DATE,
+            defaultValue: DataTypes.NOW,
+        },
+        direccion_destino: {
+            type: DataTypes.STRING(255),
+            allowNull: true,
+        },
+        provincia_destino: {
+            type: DataTypes.STRING(255),
+            allowNull: true,
+        },
+        retiro: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true,
+        },
+        monto_total: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+    };
+    let config = {
+        tableName: "Detalle_venta",
+        timestamps: false,
+    };
+    let Detalle_venta = sequelize.define(alias, cols, config);
 
-  Detalle_venta.associate = (models) => {
-    Detalle_venta.hasMany(models.Venta, {
-      as: "venta",
-      foreignKey: "detalle_venta_id",
-    });
-  };
+    Detalle_venta.associate = (models) => {
+        Detalle_venta.hasMany(models.Venta, {
+            as: "venta",
+            foreignKey: "detalle_venta_ID",
+        });
+    };
 
-  return Detalle_venta;
+    return Detalle_venta;
 };

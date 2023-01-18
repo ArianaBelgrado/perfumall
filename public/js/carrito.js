@@ -41,7 +41,7 @@ const drawCart = (product) => {
                 `
         ;
     mainContainer.innerHTML = `
-         <h2>Total$: </h2>
+         <h2>Total$: ${total} </h2>
         `
 };
 
@@ -56,6 +56,12 @@ const drawCart = (product) => {
 
 // }
 
+
+let total = [];
+
+
+
+
 const updateShoppingCartHTML = (productos) => {
     console.log(productos);
     if (productos.length > 0) {
@@ -64,9 +70,12 @@ const updateShoppingCartHTML = (productos) => {
 
 
 
+            productsTotal = product.precio * product.count;
+
+
+            total.push(productsTotal)
 
         });
-
         // actualizarTotal(productos)
     }
 

@@ -1,4 +1,7 @@
+const mainContainer = document.querySelector(".total");
 const cardContainer = document.querySelector(".container-carrito");
+
+
 
 const drawCart = (product) => {
 
@@ -6,44 +9,67 @@ const drawCart = (product) => {
 
 
     cardContainer.innerHTML += `
-    <div class="card mb-3 container-carrito" style="max-width: 540px">
-                    <div class="row g-0">
+    <div class="card mb-3 container-carrito clase border-0 rounded" style="width: 620px">
+                    <div class="row g-0 juansito" id="d">
                         <div class="col-md-4">
                             <img 
                                 src="${product.img}"
                                 alt="Trendy Pants and Shoes"
                                 class="img-fluid rounded-start"
+                                style="height:250px"
                             />
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h5 class="card-title">${product.modelo}</h5>
-                                <p class="card-text">
+                                <h5 class="card-title m-1">${product.modelo}</h5>
+                                <p class="card-text m-1">
                                 ${product.descripcion}
                                 </p>
-                                <p class="card-text">
+                                <p class="card-text m-1">
                                 ${product.marca}
                                 </p>
                                 <p class="card-text"> $
                                 ${product.precio * product.count}
                                 </p>
-                                <p> Cantidad: ${product.count} </p>
+                                <p> Cantidad:  <button id="${product.modelo}" class="botonResta rounded m-3 p-2"> - </button> ${product.count} <button id="${product.modelo}" class="botonSuma rounded m-3 p-2"> + </button>  </p>
                             </div>
                         </div>
-                        <button id="${product.modelo}" class="botonSuma"> + </button>
-                        <button id="${product.modelo}" class="botonResta"> - </button>
+                      
                     
                     </div>
-                </div>`;
+                </div>
+                `
+        ;
+    mainContainer.innerHTML = `
+         <h2>Total$: </h2>
+        `
 };
+
+
+// let total = []
+// function actualizarTotal(productos) {
+//     productos.forEach((p) => {
+//         total.push(parseInt(p.precio))
+
+//     })
+//     total = total.reduce((a, b) => a + b)
+
+// }
 
 const updateShoppingCartHTML = (productos) => {
     console.log(productos);
     if (productos.length > 0) {
         productos.forEach((product) => {
             drawCart(product);
+
+
+
+
         });
+
+        // actualizarTotal(productos)
     }
+
 };
 
 let productos = JSON.parse(localStorage.getItem("cart"));

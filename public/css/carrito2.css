@@ -1,0 +1,32 @@
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+.asd{background-color: #add1ff }
+
+
+.container-carrito{
+  padding: 5px;
+  
+}
+.juansito { 
+  
+  background: linear-gradient(
+  
+   50deg, #bfdbff 30%, #add1ff 70%
+  ); 
+ }
+.clase{
+  background-color: #add1ff !important;
+
+}
+button{
+  border:1px solid #add1ff;
+ 
+ 
+ 
+}
+img{
+  width:100%
+}

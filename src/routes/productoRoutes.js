@@ -3,6 +3,7 @@ let router = express.Router();
 const userAdminMiddleware = require("../middlewares/userAdmin");
 const productoController = require("./../controllers/productoController");
 const uploadFile = require("../middlewares/productMulter");
+const isAdmin = require("../middlewares/isAdmin");
 
 router.get("/detalle/:id", productoController.detalle);
 router.post("/detalle/:id", productoController.detalle);
@@ -25,7 +26,7 @@ router.get(
 );
 router.post(
     "/crear-producto",
-    uploadFile.single("imagen"),
+    uploadFile.single("imagen"), isAdmin,
     productoController.store
 );
 router.get("/carrito", uploadFile.single("imagen"), productoController.carrito);

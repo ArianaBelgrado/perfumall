@@ -41,6 +41,8 @@ let controller = {
     },
     store: (req, res) => {
         let estado;
+        let adminId= req.session.userLogged.id;
+        console.log(adminId)
         let descuento = 0;
         if (req.body.descuento > 0) {
             estado = true;
@@ -59,6 +61,7 @@ let controller = {
             marca_id: req.body.marca,
             estado: estado,
             descripcion: req.body.descripcion,
+            admin_id: adminId
         })
 
             .then(function (result) {

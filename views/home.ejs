@@ -54,54 +54,53 @@
         </div>
       </div>
       <br />
-      <div class="fitre">
-        <div>
-          <form action="/?q=q" method="GET">
-            <div class="input-group rounded searchBtn">
-                  <input name="q" type="search" class="form-control rounded" placeholder="Buscar modelo" aria-label="Search"
-                  aria-describedby="search-addon" />
-                  <span class="input-group-text border-0" id="search-addon">
-                <button class="border-0 " type="submit">
-  
-                  <i class="fas fa-search"></i>
-                </button>
-            </span>
-          </div>
-        </form>
-        </div>
-        <div class="orderBtn">
-          <p> Ordenar por </p>
-          <div class="btn-group asd">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Marca
+      <div class="contain-tittle">
+
+
+      </div>
+      <form action="/?q=q" method="GET">
+        <div class="input-group rounded searchBtn">
+          <input name="q" type="search" class="form-control rounded" placeholder="Buscar modelo" aria-label="Search"
+            aria-describedby="search-addon" />
+          <span class="input-group-text border-0" id="search-addon">
+            <button class="border-0 " type="submit">
+
+              <i class="fas fa-search"></i>
             </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/">Todas</a></li>
-              <li><a class="dropdown-item" href="/marca/1">AVON</a></li>
-              <li><a class="dropdown-item" href="/marca/2">Natura </a></li>
-              <li><a class="dropdown-item" href="/marca/4">Carolina Herrera </a></li>
-              <li><a class="dropdown-item" href="/marca/3">Herencia</a></li>
-            </ul>
-          </div>
+          </span>
+      </form>
+      </div>
+      <div class="orderBtn">
+        <p> Ordenar por </p>
+        <div class="btn-group asd">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Marca
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/">Todas</a></li>
+            <li><a class="dropdown-item" href="/marca/1">AVON</a></li>
+            <li><a class="dropdown-item" href="/marca/2">Natura </a></li>
+            <li><a class="dropdown-item" href="/marca/4">Carolina Herrera </a></li>
+            <li><a class="dropdown-item" href="/marca/3">Herencia</a></li>
+          </ul>
         </div>
-        <div class="orderBtn">
-          <div class="btn-group asd">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Descuento
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/descuento/descuento_10">Desde 10% OFF</a></li>
-              <li><a class="dropdown-item" href="/descuento/descuento_15">Desde 15% OFF</a></li>
-              <li><a class="dropdown-item" href="/descuento/descuento_20">Desde 20% OFF</a></li>
-              <li><a class="dropdown-item" href="/descuento/descuento_30">Desde 30% OFF </a></li>
-              <li><a class="dropdown-item" href="/descuento/descuento_40">Desde 40% OFF </a></li>
-              <li><a class="dropdown-item" href="/descuento/descuento_50">Desde 50% OFF</a></li>
-            </ul>
-          </div>
+      </div>
+      <div class="orderBtn">
+        <div class="btn-group asd">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Descuento
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/descuento/descuento_10">Desde 10% OFF</a></li>
+            <li><a class="dropdown-item" href="/descuento/descuento_15">Desde 15% OFF</a></li>
+            <li><a class="dropdown-item" href="/descuento/descuento_20">Desde 20% OFF</a></li>
+            <li><a class="dropdown-item" href="/descuento/descuento_30">Desde 30% OFF </a></li>
+            <li><a class="dropdown-item" href="/descuento/descuento_40">Desde 40% OFF </a></li>
+            <li><a class="dropdown-item" href="/descuento/descuento_50">Desde 50% OFF</a></li>
+          </ul>
         </div>
-  
       </div>
      
 
@@ -117,28 +116,28 @@
             <% }) %>
               <% productos.forEach(prod=> { %>
                 <article href="/producto/detalle/<%= prod.id %> ">
-                  <div class="contenedor-producto">
+                  <div class="contenedor-producto d-flex justify-content-center" style="height: 700px;">
                     <div class="card product-under">
                       <a href="/producto/detalle/<%= prod.id %> ">
                         <img class="img-11 img" src="/img/NuevoProducto/<%= prod.imagen %>" />
                         <div class="productoinfo">
-                          <h2 class="name productName">
+                          <h3 class="name productName">
                             <%= prod.modelo %>
 
-                          </h2>
-                          <h3 class="name">
-                            <%=prod.marca.nombre %>
                           </h3>
+                          <h4 class="name">
+                            <%=prod.marca.nombre %>
+                          </h4>
 
                           <% if (prod.estado==1) { %>
 
                             <span class="discountTachado">
                               $<%= prod.precio %>
                             </span>
-                            <h2 class="price">$
+                            <h3 class="price">$
 
                               <%=prod.precio - (prod.precio* prod.descuento * 0.010) %>
-                            </h2>
+                            </h3>
 
                             <h3 class="discount">
                               <%= prod.descuento %>% OFF

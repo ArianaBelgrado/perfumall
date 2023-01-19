@@ -9,6 +9,7 @@
     /* button.btn.btn-info.comrpame {
         background-color: #9ccdfb ;
     }*/
+
     div.input-group.rounded.searchBtn {
         display: flex;
         justify-content: flex-start;
@@ -89,9 +90,10 @@
         display: flex;
         flex-direction: column;
         text-align: center;
-        justify-content: center;
+        justify-content: space-evenly;
         align-items: center;
-        height: 20vh;
+        height: 33vh;
+        
     }
     main {
         background-color: #add1ff;
@@ -186,20 +188,20 @@
         fill: #4e4e4e;
     }
     .name {
-        color: #005288;
+        color: #184d8a;
     }
     .price {
-        color: #005288;
+        color: #184d8a;
     }
     .discountTachado {
-        color: #005288;
+        color: #ac7500;
         text-decoration: line-through !important;
     }
 
     .discount {
-        color: #005288;
+        color: #ac7500;
     }
     .description {
-        color: #005288;
+        color: #184d8a;
     }
 }

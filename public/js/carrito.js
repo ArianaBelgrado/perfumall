@@ -14,12 +14,10 @@ const drawCart = (product) => {
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
-                                <h4 class="card-title m-2"> Modelo: ${
-                                    product.modelo
-                                }</h4>
-                                <h5 class="card-title m-2"> Precio: $ ${
-                                    product.precio
-                                }</h5>
+                                <h4 class="card-title m-2"> Modelo: ${product.modelo
+        }</h4>
+                                <h5 class="card-title m-2"> Precio: $ ${product.precio
+        }</h5>
                                 <h6 class="card-text m-2">
                                 ${product.descripcion}
                                 </h6>
@@ -29,13 +27,10 @@ const drawCart = (product) => {
                                 <h6 class="card-text mx-2"> Precio total por cantidad:  $
                                 ${product.precio * product.count}
                                 </h6>
-                                <h6 class="card-text mx-2"> Cantidad:  <button id="${
-                                    product.modelo
-                                }" class="botonResta rounded m-3 p-2"> - </button> ${
-        product.count
-    } <button id="${
-        product.modelo
-    }" class="botonSuma rounded m-3 p-2"> + </button>  </h6>
+                                <h6 class="card-text mx-2"> Cantidad:  <button id="${product.modelo
+        }" class="botonResta rounded m-3 p-2"> - </button> ${product.count
+        } <button id="${product.modelo
+        }" class="botonSuma rounded m-3 p-2"> + </button>  </h6>
                             </div>
                         </div>
                       
@@ -57,6 +52,7 @@ const updateShoppingCartHTML = (productos) => {
 
             drawCart(product);
         });
+        // actualizarTotal(productos)
     }
 };
 

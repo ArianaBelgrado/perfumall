@@ -8,8 +8,8 @@ window.addEventListener("load", function () {
     if (campoNombre.value == "") {
       errores.push("Tenes que compeltar el nombre")
     }
-    else if (campoNombre.value.length <= 5) {
-      errores.push("El nombre debe contener mas de 5 letras")
+    else if (campoNombre.value.length <= 3) {
+      errores.push("El nombre debe contener 3 o mas letras")
     }
 
 
@@ -17,8 +17,8 @@ window.addEventListener("load", function () {
     if (apellido.value == "") {
       errores.push("Debes poner tu apellido")
     }
-    else if (apellido.value.length <= 4) {
-      errores.push("Tu apellido debe tener 4 carácteres")
+    else if (apellido.value.length <= 3) {
+      errores.push("Tu apellido debe tener al menos 3 carácteres")
 
     }
 

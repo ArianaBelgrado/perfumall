@@ -28,7 +28,7 @@
 
           <div class="col-md-12 my-3">
             <label for="marca" class="form-label">Marca</label>
-            <input type="text" class="form-control" name="marca_id" value="<%= producto.marca %> p" id="marca" />
+            <input type="text" class="form-control" name="marca_id" value="<%= producto.marca.nombre %>" id="marca" />
           </div>
           
           </div>
@@ -52,7 +52,7 @@
             </div>
             <div class="col-12 my-3">
            
-              <input type="file" name="imagen" value="<%=producto.imagen%>" class="form-control" id="imagen" />
+              <input type="file" name="imagen" class="form-control" id="imagen" />
             </div>
 
             <div class="d-flex justify-content-sm-around my-5">

@@ -1,5 +1,7 @@
 body {
     font-family: "Montserrat", sans-serif;
+    background-color: #add1ff;
+  
 }
 
 /* h1 {
@@ -95,8 +97,7 @@ header {
     margin-right: 15%;
 }
 
-.form-control {
-}
+
 
 .form-check {
     margin-left: 22.5%;
@@ -119,12 +120,68 @@ header {
     width: 400px;
 }
 
-.btn-modificar {
-    width: 500px;
-    margin: 0px;
+.cancelar{
+    margin: 150px;
 }
-.btn-cancelar {
-    width: 500px;
 
-    margin: 0px;
+.modificar{
+    padding: 150px;
 }
+.asdasd{
+    display: flex;
+    
+    justify-content: center;
+    list-style: none;
+    text-decoration: none;
+    border:none;
+    background-color:  #add1ff;
+    padding:5px;
+     padding:50px;
+   
+}
+.separador{
+    margin:15px;
+    border:none;
+    background-color: ghostwhite;
+    border-radius: 5px;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:50px
+   
+}
+.clasese{
+    list-style: none;
+    text-decoration: none;
+   
+   
+   
+    padding-right: 30px;
+        padding-left: 30px;
+
+        border-radius: 3px;
+        font-size: 18px;
+        color: rgb(16, 53, 102);
+        background-color: #9ccdfb;
+        border: none;
+        height: 6vh;
+        width: 25vh;
+         
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+}   
+ 
+    .clasese:hover {
+        border: 1px solid #005288;
+    }
+    .asd{
+        
+         
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }

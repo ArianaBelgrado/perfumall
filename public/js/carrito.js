@@ -74,8 +74,8 @@ const updateShoppingCartHTML = (productos) => {
 
             drawCart(product);
 
-            total.push(productsTotal)
         });
+        total.push(productsTotal)
         // actualizarTotal(productos)
     }
 

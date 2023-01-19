@@ -1,107 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="/css/style.css" rel="stylesheet " type="text/css" />
 
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-            crossorigin="anonymous"
-        />
-        <link rel="stylesheet" href="/css/editarperfil.css" />
-        <link rel="icon" href="/img/perfume.png" />
-        <title>Editar Perfil</title>
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <body>
-        <%- include('./partials/header') %>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/editarperfil.css" />
+    <link rel="icon" href="/img/perfume.png" />
+    <title>Editar Perfil</title>
+</head>
+
+<body>
+    <%- include('./partials/header') %>
         <main>
             <div class="container-editar">
-                <form
-                    action="/usuario/change/?_method=PUT"
-                    method="POST"
-                    class="row g-3"
-                    enctype="multipart/form-data"
-                >
+                <form action="/usuario/change/?_method=PUT" method="POST" class="row g-3" enctype="multipart/form-data">
                     <div class="img-container">
                         <img src="/img/<%= user.imagenPerfil %>" alt="" />
                     </div>
 
                     <div class="col-md-5">
                         <br />
-                        <label for="imagenPerfil" class="form-label"
-                            >Cambiar imagen de perfil</label
-                        >
-                        <input
-                            type="file"
-                            class="form-control"
-                            name="imagenPerfil"
-                            id="imagenPerfil"
-                            value="<%= user.imagenPerfil %> "
-                            required
-                        />
+                        <label for="imagenPerfil" class="form-label">Cambiar imagen de perfil</label>
+                        <input type="file" class="form-control" name="imagenPerfil" id="imagenPerfil"
+                            value="<%= user.imagenPerfil %> " required />
                     </div>
                     <div class="col-md-5">
                         <br />
-                        <label for="nombre" class="form-label"
-                            >Cambiar Nombre</label
-                        >
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="nombre"
-                            id="nombre"
-                            value="<%= user.nombre %> "
-                            placeholder="Ingrese nombre"
-                            required
-                        />
+                        <label for="nombre" class="form-label">Cambiar Nombre</label>
+                        <input type="text" class="form-control" name="nombre" id="nombre" value="<%= user.nombre %> "
+                            placeholder="Ingrese nombre" required />
                     </div>
                     <div class="col-md-5">
-                        <label for="apellido" class="form-label"
-                            >Cambiar Apellido</label
-                        >
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="apellido"
-                            id="apellido"
-                            value="<%= user.apellido %> "
-                            placeholder="Ingrese Apellido"
-                            required
-                        />
+                        <label for="apellido" class="form-label">Cambiar Apellido</label>
+                        <input type="text" class="form-control" name="apellido" id="apellido"
+                            value="<%= user.apellido %> " placeholder="Ingrese Apellido" required />
                     </div>
                     <div class="col-md-5">
-                        <label for="email" class="form-label"
-                            >Cambiar Mail</label
-                        >
-                        <input
-                            type="email"
-                            class="form-control"
-                            name="email"
-                            id="email"
-                            value="<%= user.email %> "
-                            placeholder="Ingrese Mail"
-                            required
-                        />
+                        <label for="email" class="form-label">Cambiar Mail</label>
+                        <input type="email" class="form-control" name="email" id="email" value="<%= user.email %> "
+                            placeholder="Ingrese Mail" required />
                     </div>
 
                     <div class="col-md-5">
-                        <label for="provincia" class="form-label"
-                            >Provincia</label
-                        >
-                        <select
-                            class="form-select"
-                            name="provincia"
-                            id="provincia"
-                        >
+                        <label for="provincia" class="form-label">Provincia</label>
+                        <select class="form-select" name="provincia" id="provincia">
                             <% provincias.forEach(p=> { %>
 
-                            <option><%= p %></option>
-                            <% }) %>
+                                <option>
+                                    <%= p %>
+                                </option>
+                                <% }) %>
                         </select>
                     </div>
                     <!--    <div class="col-md-3">
@@ -110,15 +63,15 @@
             value=" " required>
           </div> -->
 
-                    <div class="d-flex gap-1 justify-content-center">
-                        <div class="mb-3 btn-modificar">
-                            <button class="btn btn-primary col-5" type="submit">
+                    <div class="asdasd">
+                        <div class="separador">
+                            <button class="clasese d-flex justify-content-center align-items-center" type="submit">
                                 Modificar Usuario
                             </button>
                         </div>
-                        <div class="mb-5 btn-cancelar">
-                            <a href="/usuario/profile">
-                                <smal class="btn btn-danger col-5">
+                        <div class="separador">
+                            <a href="/usuario/profile" class="clasese">
+                                <smal class="asd">
                                     Cancelar
                                 </smal>
                             </a>
@@ -129,14 +82,10 @@
         </main>
         <%- include('./partials/footer') %>
 
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://kit.fontawesome.com/258b4efd0d.js"
-            crossorigin="anonymous"
-        ></script>
-    </body>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+                crossorigin="anonymous"></script>
+            <script src="https://kit.fontawesome.com/258b4efd0d.js" crossorigin="anonymous"></script>
+</body>
+
 </html>

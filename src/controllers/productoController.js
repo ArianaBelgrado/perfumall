@@ -75,16 +75,18 @@ let controller = {
     renderizarEditarProducto: (req, res) => {
         let idProduct = req.params.id;
 
-        db.Producto.findByPk(idProduct)
-            .then((result) =>
-                res.render("editar-producto", { producto: result })
-            )
+        db.Producto.findByPk(idProduct, { include: "marca" })
+            .then((result) => {
+                res.render("editar-producto", { producto: result });
+                console.log(result);
+            })
             .catch((e) => res.send(e));
     },
 
-    editar: (req, res) => {
-        let idProduct = req.params.id;
+    editar: async (req, res) => {
+        let { idProduct } = req.params;
         let estado;
+        let file = req.file.filename;
         let descuento = 0;
         if (req.body.descuento > 0) {
             estado = true;
@@ -93,24 +95,30 @@ let controller = {
             estado = false;
         }
 
-        db.Producto.update(
-            {
-                precio: req.body.precio,
-                modelo: req.body.modelo,
-                descuento: descuento,
-                imagen: req.file.filename,
-                marca: req.body.marca_id,
-                estado: estado,
-                descripcion: req.body.descripcion,
-            },
-            {
-                where: {
-                    id: idProduct,
+        try {
+            const producto = await db.Producto.findByPk(idProduct);
+            if (!file) file = producto.imagen;
+
+            await db.Producto.update(
+                {
+                    precio: req.body.precio,
+                    modelo: req.body.modelo,
+                    descuento: descuento,
+                    imagen: file,
+                    marca: req.body.marca_id,
+                    estado,
+                    descripcion: req.body.descripcion,
                 },
-            }
-        )
-            .then((result) => res.redirect("/"))
-            .catch((e) => console.log(e));
+                {
+                    where: {
+                        id: idProduct,
+                    },
+                }
+            );
+            res.redirect("/");
+        } catch (error) {
+            console.log(error);
+        }
     },
 
     borrar: (req, res) => {

@@ -58,7 +58,7 @@ const controlador = {
     },
 
     create: (req, res) => {
-        res.render("crear", { provincias: provincias });
+        return res.render("crear", { provincias: provincias });
     },
 
     store: (req, res) => {
@@ -145,19 +145,24 @@ const controlador = {
         });
     },
 
-    borrar: (req, res) => {
-        let id = req.params.id;
-        db.User.destroy({
-            where: {
-                id: id,
-            },
-        }).then(function (result) {
-            if (result) {
-                res.redirect("/usuario/logout");
+    borrar: async (req, res) => {
+        let { id } = req.params;
+
+        try {
+            await db.User.destroy({
+                where: {
+                    id: id,
+                },
+            });
+
+            if (!req.session.userLogged || !req.session.userLogged.admin) {
+                return res.redirect("/");
             } else {
-                res.redirect("/");
+                return res.redirect("/usuario/admin");
             }
-        });
+        } catch (error) {
+            console.log(error);
+        }
     },
     comprar: async (req, res) => {
         const { idProduct } = req.params;
@@ -188,6 +193,17 @@ const controlador = {
             req.flash("mensajes", [{ msg: error.message }]);
 
             res.redirect(`/producto/detalle/${idProduct}`);
+        }
+    },
+    renderizarAdministrar: async (req, res) => {
+        console.log(req.route.path);
+
+        try {
+            const users = await db.User.findAll();
+            const products = await db.Producto.findAll({ include: "marca" });
+            return res.render("administrador", { users, products });
+        } catch (error) {
+            console.log(error);
         }
     },
 };

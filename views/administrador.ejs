@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="/css/sign-in.css" rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Roboto&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+            crossorigin="anonymous"
+        />
+        <link rel="icon" href="/img/perfume.png" />
+        <title>Adminstrar</title>
+    </head>
+    <body>
+        <%- include('./partials/header') %>
+        <h1 class="container">Usuarios</h1>
+
+        <div class="container">
+            <table class="table table-hover table-bordered caption-top">
+                <caption>
+                    Lista de usuarios
+                </caption>
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">nombre</th>
+                        <th scope="col">apellido</th>
+                        <th scope="col">email</th>
+                        <th scope="col">direccion</th>
+                        <th scope="col">provincia</th>
+                        <th scope="col">admin</th>
+                        <th scope="col">acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(e => { %>
+                    <tr>
+                        <th scope="row"><%= e.id %></th>
+                        <td><%= e.nombre %></td>
+                        <td><%= e.apellido %></td>
+                        <td><%= e.email %></td>
+                        <td><%= e.direccion %></td>
+                        <td><%= e.provincia %></td>
+                        <td><%= e.admin %></td>
+                        <td>
+                            <form action="/usuario/borrar/<%=e.id %>?_method=DELETE" method="POST">
+                            <button type="submit">❌</button>
+                            </form>
+                            </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+        <div class="container">
+            <table class="table table-hover table-bordered caption-top">
+                <caption>
+                    Lista de productos
+                </caption>
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">modelo</th>
+                        <th scope="col">marca</th>
+                        <th scope="col">precio</th>
+                        <th scope="col">fecha_creacion</th>
+                        <th scope="col">stock</th>
+                        <th scope="col">admin_id</th>
+                        <th scope="col">descuento</th>
+                        <th scope="col">acciones</th>
+                       
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% products.forEach(e => { %>
+                    <tr>
+                        <th scope="row"><%= e.id %></th>
+                        <td><%= e.modelo %></td>
+                        <td><%= e.marca.nombre %></td>
+                        <td><%= e.precio %></td>
+                        <td><%= e.fecha_creacion %></td>
+                        <td><%= e.stock %></td>
+                        <td><%= e.admin_id %></td>
+                        <td><%= e.descuento %>%</td>
+                         <td class="d-flex gap-4">
+                            <form action="/producto/borrar/<%=e.id %>?_method=DELETE" method="POST">
+                            <button type="submit">❌</button>
+                            </form>
+                           
+                        
+                            <form action="/producto/editar/<%=e.id %>">
+                            <button type="submit">✏️</button>
+                            </form>
+                            </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+
+        </div>
+    </body>
+</html>

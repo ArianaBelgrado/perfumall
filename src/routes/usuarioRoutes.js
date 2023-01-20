@@ -38,6 +38,7 @@ router.get("/logout", usuarioController.logout);
 
 router.get("/login", usuarioController.login);
 
+
 // PROCESAR EL LOGIN
 router.post("/login", usuarioController.loginProcess);
 
@@ -45,5 +46,11 @@ router.post("/login", usuarioController.loginProcess);
 router.delete("/borrar/:id", usuarioController.borrar);
 
 router.post("/comprar/:idProduct", guestMiddleware, usuarioController.comprar);
+
+
+//ADMIN
+
+
+router.get("/admin", usuarioController.renderizarAdministrar);
 
 module.exports = router;

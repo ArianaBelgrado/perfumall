@@ -41,8 +41,7 @@ let controller = {
     },
     store: (req, res) => {
         let estado;
-        let adminId= req.session.userLogged.id;
-        console.log(adminId)
+        let adminId = req.session.userLogged.id;
         let descuento = 0;
         if (req.body.descuento > 0) {
             estado = true;
@@ -61,7 +60,7 @@ let controller = {
             marca_id: req.body.marca,
             estado: estado,
             descripcion: req.body.descripcion,
-            admin_id: adminId
+            admin_id: adminId,
         })
 
             .then(function (result) {
@@ -72,17 +71,6 @@ let controller = {
                 }
             })
 
-            .catch((e) => res.send(e));
-    },
-
-    renderizarEditarProducto: (req, res) => {
-        let idProduct = req.params.id;
-
-        db.Producto.findByPk(idProduct, { include: "marca" })
-            .then((result) => {
-                res.render("editar-producto", { producto: result });
-                console.log(result);
-            })
             .catch((e) => res.send(e));
     },
 
@@ -123,18 +111,31 @@ let controller = {
             console.log(error);
         }
     },
+    renderizarEditarProducto: (req, res) => {
+        console.log(req.route.path);
+        let idProduct = req.params.id;
 
-    borrar: (req, res) => {
-        const { id } = req.params;
-        db.Producto.destroy({
-            where: {
-                id: id,
-            },
-        })
-            .then(function (result) {
-                if (result) res.redirect("/");
+        db.Producto.findByPk(idProduct, { include: "marca" })
+            .then((result) => {
+                res.render("editar-producto", { producto: result });
             })
-            .catch((err) => console.log(err));
+            .catch((e) => res.send(e));
+    },
+
+    borrar: async (req, res) => {
+        const { id } = req.params;
+        console.log(req.route.path);
+
+        try {
+            await db.Producto.destroy({
+                where: {
+                    id: id,
+                },
+            });
+            return res.redirect("/usuario/admin");
+        } catch (error) {
+            console.log(error);
+        }
     },
 };
 

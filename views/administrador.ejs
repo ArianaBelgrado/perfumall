@@ -48,7 +48,13 @@
                         <td><%= e.email %></td>
                         <td><%= e.direccion %></td>
                         <td><%= e.provincia %></td>
-                        <td><%= e.admin %></td>
+                        <td><% if (e.admin) { %>
+                            si
+                            <%} else { %>
+                                no
+                            <% } %>
+                         
+                         </td>
                         <td>
                             <form action="/usuario/borrar/<%=e.id %>?_method=DELETE" method="POST">
                             <button type="submit">❌</button>
@@ -88,7 +94,8 @@
                         <td><%= e.precio %></td>
                         <td><%= e.fecha_creacion %></td>
                         <td><%= e.stock %></td>
-                        <td><%= e.admin_id %></td>
+                        <td><%= e.admin_id%></td>
+                       
                         <td><%= e.descuento %>%</td>
                          <td class="d-flex gap-4">
                             <form action="/producto/borrar/<%=e.id %>?_method=DELETE" method="POST">

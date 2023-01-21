@@ -52,5 +52,6 @@ router.post("/comprar/:idProduct", guestMiddleware, usuarioController.comprar);
 
 
 router.get("/admin", usuarioController.renderizarAdministrar);
+router.get("/admin/ventas", usuarioController.renderizarVentas);
 
 module.exports = router;

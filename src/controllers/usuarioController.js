@@ -178,14 +178,18 @@ const controlador = {
                 retiro: 1,
                 monto_total: producto.precio,
             });
-            console.log(detalle_venta);
             const venta = await db.Venta.create({
                 monto_unitario: producto.precio,
                 cantidad: 1,
-                producto_id: producto.id,
+                producto_id: idProduct,
                 detalle_venta_ID: detalle_venta.id,
                 usuario_id: id,
             });
+
+            await producto.increment(
+                { stock: -1 },
+                { where: { id: idProduct } }
+            );
             req.flash("mensajes", [{ msg: "Producto comprado" }]);
 
             res.redirect(`/producto/detalle/${producto.id}`);
@@ -196,12 +200,21 @@ const controlador = {
         }
     },
     renderizarAdministrar: async (req, res) => {
-        console.log(req.route.path);
-
         try {
             const users = await db.User.findAll();
             const products = await db.Producto.findAll({ include: "marca" });
             return res.render("administrador", { users, products });
+        } catch (error) {
+            console.log(error);
+        }
+    },
+    renderizarVentas: async (req, res) => {
+        try {
+            const ventas = await db.Venta.findAll({
+                include: ["detalle_venta", "productos", "usuarios"],
+            });
+
+            return res.render("ventas", { ventas });
         } catch (error) {
             console.log(error);
         }

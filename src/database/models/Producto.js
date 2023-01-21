@@ -1,6 +1,6 @@
-module.exports = function (sequelize, DataTypes) {
-    const alias = "Producto";
-    const cols = {
+function Producto(sequelize, DataTypes) {
+    let alias = "Producto";
+    let cols = {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -49,35 +49,29 @@ module.exports = function (sequelize, DataTypes) {
         },
     };
 
-    const config = {
+    let config = {
         tableName: "Producto",
         timestamps: false,
         camel_case: false,
     };
 
-    const Producto = sequelize.define(alias, cols, config);
+    let Producto = sequelize.define(alias, cols, config);
 
-    Producto.associate = (models) => {
-        Producto.belongsTo(models.Marca,
-        {
+    Producto.associate = function (models) {
+        Producto.belongsTo(models.Marca, {
             as: "marca",
             foreignKey: "marca_id",
-        });
+        }),
+            Producto.belongsTo(models.User, {
+                as: "usuario",
+                foreignKey: "admin_id",
+            }),
+            Producto.hasMany(models.Venta, {
+                as: "venta",
+                foreignKey: "producto_id",
+            });
     };
-    // Producto.associate = (models) => {
-    //     Producto.belongsTo(models.Usuario),
-    //     {
-    //         as: "usuario",
-    //         foreignKey: "admin_id",
-    //     };
-    // };
-    // Producto.associate = (models) => {
-    //     Producto.hasMany(models.Venta),
-    //     {
-    //         as: "venta",
-    //         foreignKey: "producto_id",
-    //     };
-    // };
-
     return Producto;
-};
+}
+
+module.exports = Producto;

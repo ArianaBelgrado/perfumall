@@ -102,7 +102,7 @@ let controller = {
                 },
                 {
                     where: {
-                        id: idProduct,
+                        id: req.params.id,
                     },
                 }
             );

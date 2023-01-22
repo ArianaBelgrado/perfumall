@@ -40,6 +40,6 @@ app.use("/producto", productoRoutes);
 
 app.use("/usuario", usuarioRoutes);
 
-app.listen(process.env.PORT || 3000, function () {
+app.listen(process.env.PORT || 3002, function () {
     console.log("Servidor corriendo");
 });

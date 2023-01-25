@@ -17,9 +17,9 @@
         width: 15%;
     }
     div.orderBtn {
-        display: flex;
-        justify-content: flex-start;
+        display: inline-flex;
         padding: 15px;
+        gap: 20px;
         width: 15%;
         flex-direction: column;
     }

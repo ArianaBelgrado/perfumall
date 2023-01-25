@@ -32,7 +32,7 @@ window.addEventListener("load", function () {
     if (password.value == "") {
       errores.push("Debes aclarar una contraseña")
     }
-    else if (password.value.length <= 6) {
+    else if (password.value.length <= 5) {
       errores.push("Tu contraseña debe tener al menos 6 carácteres")
     }
 
@@ -69,6 +69,8 @@ window.addEventListener("load", function () {
       });
     }
 
+
+    errores = []
   })
 })
 

@@ -169,8 +169,10 @@ const controlador = {
         const { id } = req.session.userLogged;
 
         try {
-            let user = await db.User.findByPk(id);
             let producto = await db.Producto.findByPk(idProduct);
+            if (producto.stock <= 0) throw new Error("No hay stock");
+
+            let user = await db.User.findByPk(id);
 
             const detalle_venta = await db.Detalle_venta.create({
                 direccion_destino: user.direccion,
@@ -195,7 +197,7 @@ const controlador = {
             res.redirect(`/producto/detalle/${producto.id}`);
         } catch (error) {
             req.flash("mensajes", [{ msg: error.message }]);
-
+            console.log(error.message);
             res.redirect(`/producto/detalle/${idProduct}`);
         }
     },

@@ -21,7 +21,10 @@ let controller = {
                     });
                 }
             }
-            res.render("home", { productos: productos, mensajes: [] });
+            res.render("home", {
+                productos: productos,
+                mensajes: req.flash("mensajes"),
+            });
         } catch (error) {
             console.log(error);
         }

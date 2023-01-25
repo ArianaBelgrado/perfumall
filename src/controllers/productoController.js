@@ -14,14 +14,12 @@ let controller = {
             const producto = await db.Producto.findByPk(id, {
                 include: "marca",
             });
-            if (producto.stock > 0) {
-                preference.items.push({
-                    title: producto.modelo,
-                    unit_price: producto.precio,
-                    quantity: 1,
-                });
-            } else throw new Error("No hay stock");
 
+            preference.items.push({
+                title: producto.modelo,
+                unit_price: producto.precio,
+                quantity: 1,
+            });
             const response = await mercadopago.preferences.create(preference);
             const preferenceId = response.body.id;
             return res.render("detalle", {

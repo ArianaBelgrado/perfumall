@@ -1,20 +1,23 @@
 let formulario = document.querySelector("form.validations");
 
-let errores = [];
-let arraySinRepetidos;
+let errores;
+let ulErrores = document.querySelector("div.ulErrores ul");
 const validar = (campo) => {
-    errores.push(campo);
-    console.log(campo);
+    if (!errores.includes(campo)) {
+        errores.push(campo);
+    }
 };
 
 formulario.addEventListener("submit", function (e) {
+    errores = [];
+    ulErrores.innerHTML = "";
     let campoNombre = document.querySelector("input#nombre").value;
 
-    if (campoNombre == "" || campoNombre.length <= 3)
+    if (campoNombre == "" || campoNombre.length <= 2)
         validar("El nombre debe contener 3 o mas letras");
 
     let apellido = document.querySelector("input#apellido").value;
-    if (apellido == "" || apellido.length <= 3)
+    if (apellido == "" || apellido.length <= 2)
         validar("El apellido debe contener 3 o mas letras");
 
     let email = document.querySelector("input#email").value;
@@ -52,16 +55,9 @@ formulario.addEventListener("submit", function (e) {
         let erroresA = [...erroresToSet];
         console.log(errores);
         e.preventDefault();
-        let ulErrores = document.querySelector("div.ulErrores ul");
-        let arrayLi = [];
-        let error;
+
         erroresA.forEach((e) => {
-            arrayLi.push(
-                `<li class= "alert alert-danger mb-2 lix">' +${e}+ "</li>`
-            );
-        });
-        arrayLi.forEach((e) => {
-            ulErrores.append(e);
+            ulErrores.innerHTML += `<li class= "alert alert-danger mb-2 lix"> ${e}</li>`;
         });
     }
 });

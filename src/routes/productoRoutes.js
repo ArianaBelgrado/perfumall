@@ -13,10 +13,11 @@ router.get(
     userAdminMiddleware,
     productoController.renderizarEditarProducto
 );
+router.put("/editar/:id", productoController.editar);
 router.put(
-    "/editar/:id",
+    "/editar/imagen/:id",
     uploadFile.single("imagen"),
-    productoController.editar
+    productoController.editarImagen
 );
 
 router.get(
@@ -26,12 +27,12 @@ router.get(
 );
 router.post(
     "/crear-producto",
-    uploadFile.single("imagen"), isAdmin,
+    uploadFile.single("imagen"),
+    isAdmin,
     productoController.store
 );
 router.get("/carrito", uploadFile.single("imagen"), productoController.carrito);
 
 router.delete("/borrar/:id", userAdminMiddleware, productoController.borrar);
-
 
 module.exports = router;

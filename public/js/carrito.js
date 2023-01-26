@@ -39,7 +39,7 @@ const drawCart = (product) => {
                 </div>
                 `;
     mainContainer.innerHTML = `
-         <h2>Total$: ${productsTotal} </h2>
+         <h2>Total$: ${productsTotal} </h2>  <button class="btn btn-primary mx-3">Comprar</button>
         `;
 };
 

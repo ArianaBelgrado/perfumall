@@ -18,7 +18,7 @@
   <%- include('./partials/header') %>
     <main class="pepe">
       <form class="row g-12" action="/producto/editar/<%=producto.id %>?_method=PUT" method="POST"
-        enctype="multipart/form-data">
+        >
         <div class="col-12">
          
           <div class="col-12 my-3">
@@ -50,10 +50,7 @@
               <h3>Imagen</h3>
               <img src="/img/NuevoProducto/<%= producto.imagen %> " alt="">
             </div>
-            <div class="col-12 my-3">
-           
-              <input type="file" name="imagen" class="form-control" id="imagen" />
-            </div>
+          
 
             <div class="d-flex justify-content-sm-around my-5">
             <div class=" pepe ">
@@ -62,9 +59,19 @@
            
             
       </form>
+
+      <form class="container " action="/producto/editar/imagen/<%=producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <div class="d-flex my-3">
+           
+          <button type="submit" class="btn btn-secondary">Cambiar imagen</button>
+          <input type="file" class="cambiar-imagen" name="imagen" class="form-control" id="imagen" />
+
+        </div>
+      </form>
+
       <form action="/producto/borrar/ <%=producto.id %>?_method=DELETE" method="POST"> 
         <div class=" pepe ">
-          <button type="submit" value="delete" class="btn btn-primary">Eliminar</button>
+          <button type="submit" value="delete" class="btn btn-danger">Eliminar</button>
         </div>
       </form>
       

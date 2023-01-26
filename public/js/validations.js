@@ -59,5 +59,6 @@ formulario.addEventListener("submit", function (e) {
         erroresA.forEach((e) => {
             ulErrores.innerHTML += `<li class= "alert alert-danger mb-2 lix"> ${e}</li>`;
         });
+        window.scroll(0, 100);
     }
 });
